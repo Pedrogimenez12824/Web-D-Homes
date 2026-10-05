@@ -438,6 +438,16 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .q-arrow.prev svg{transform:rotate(180deg)}
 @media(max-width:640px){.q-dots{display:none}.q-nav{justify-content:center;gap:1rem}}
 
+/* Fondos decorativos casi transparentes */
+.deco{position:relative;isolation:isolate;overflow:hidden}
+.deco::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none}
+.deco-paper::before{background:url(media/papel.webp) 0 0/280px auto repeat;opacity:.09;mix-blend-mode:screen;-webkit-mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent);mask-image:linear-gradient(90deg,transparent,#000 30%,#000 70%,transparent)}
+.deco-team::before{background:url(media/fondo-equipo.webp) center 30%/cover no-repeat;opacity:.16;filter:grayscale(.4)}
+.deco-team::after{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 90% at 50% 50%,transparent,var(--bg-2) 85%);pointer-events:none}
+.deco-scissors::before{inset:auto -6% -12% auto;width:min(46vw,560px);aspect-ratio:1;background:no-repeat center/contain url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cg fill='none' stroke='%23d8bd86' stroke-width='.35' stroke-linecap='round'%3E%3Ccircle cx='6' cy='6' r='3'/%3E%3Ccircle cx='6' cy='18' r='3'/%3E%3Cpath d='M8.5 7.5 20 18M8.5 16.5 20 6'/%3E%3C/g%3E%3C/svg%3E");opacity:.07;transform:rotate(-18deg)}
+.deco-glow::before{background:radial-gradient(40% 60% at 85% 50%,rgba(216,189,134,.07),transparent 70%),radial-gradient(30% 50% at 5% 10%,rgba(122,46,38,.35),transparent 70%)}
+@media(max-width:700px){.deco-scissors::before{width:80vw;inset:auto -25% -8% auto}}
+
 /* Llamada final */
 .close{position:relative;text-align:center;padding:clamp(4.5rem,9vw,6.5rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(122,46,38,.45),transparent 70%),var(--bg-2);border-top:1px solid var(--line)}
 .close h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
@@ -718,7 +728,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   </div>
   <div class="pole" aria-hidden="true"></div>
 
-  <section>
+  <section class="deco deco-scissors">
     <div class="wrap">
       <div class="svc-top">
         <div><h2>Nuestros servicios</h2><p>Todo lo que necesitas, en D'Homes.</p></div>
@@ -790,7 +800,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
   </section>
 
-  <section>
+  <section class="deco deco-glow">
     <div class="wrap about about-txtfirst">
       <div class="about-txt">
         <h2 class="h2">Conócenos</h2>
@@ -805,7 +815,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
   </section>
 
-  <section class="tint">
+  <section class="tint deco deco-paper">
     <div class="wrap">
       <div class="hours-sec">
         <div data-reveal>
@@ -1034,7 +1044,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 <div class="page" data-page="ubicacion" data-title="Ubicación y horario">
   <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Ubicación y horario</div><h1>Ubicación y horario</h1><p>Arzobispo Gelmírez, 7 Bajo, 36600 Vilagarcía de Arousa (Pontevedra)</p><span class="st" data-open="">Consultando…</span></div></div>
   <div class="pole" aria-hidden="true"></div>
-  <section>
+  <section class="deco deco-paper">
     <div class="wrap">
       <div class="hours-sec">
         <div data-reveal>
@@ -1194,7 +1204,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 </main>
 
 <div class="pole" aria-hidden="true"></div>
-<div class="close">
+<div class="close deco deco-team">
   <div class="wrap">
     <h2>¿Te buscamos hueco?</h2>
     <p>Llámanos y te damos cita en el horario que mejor te venga.</p>
