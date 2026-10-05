@@ -337,6 +337,17 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .q-slide.on>*{animation:qin .7s var(--ease-out) both}
 .q-slide.on blockquote{animation-delay:.06s}.q-slide.on figcaption{animation-delay:.14s}
 @keyframes qin{from{opacity:0;transform:translateY(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
+.q-rail{display:none}
+@media(max-width:899px){
+  .q-grid{display:none}
+  .q-rail{display:grid;grid-auto-flow:column;grid-auto-columns:80%;gap:.8rem;overflow-x:auto;scroll-snap-type:x mandatory;scrollbar-width:none;overscroll-behavior-x:contain;margin:0 calc(clamp(1.1rem,4vw,2.5rem) * -1);padding:0 clamp(1.1rem,4vw,2.5rem);scroll-padding:0 clamp(1.1rem,4vw,2.5rem)}
+  .q-rail::-webkit-scrollbar{display:none}
+  .q-rail .q-stage{display:grid!important;scroll-snap-align:start;min-height:0;padding:1.6rem 1.3rem 1.7rem}
+  .q-rail .q-stage::before{font-size:7rem;right:1rem;top:1rem}
+  .q-rail .q-slide{justify-content:flex-start;gap:1rem}
+  .q-rail .q-slide blockquote{font-size:1.3rem;max-width:none}
+  .q-rail .q-slide>*{animation:none}
+}
 .q-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(216,189,134,.12)}
 .q-bar i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
 .q-stage .q-bar{opacity:0;transition:opacity .3s ease}
@@ -824,6 +835,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
             <figcaption><span class="q-av" aria-hidden="true">MB</span><span><b>Maribel Castellano Bouzon</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
         </div>
+        <div class="q-rail" tabindex="0" aria-label="Opiniones de clientes, desliza para ver más"></div>
         <div class="q-grid" aria-live="polite">
           <div class="q-stage" data-slot="0"></div>
           <div class="q-stage" data-slot="1"></div>
@@ -1258,13 +1270,25 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     q.querySelector('.next').addEventListener('click',function(){step(1)});
     dots.forEach(function(d,k){d.addEventListener('click',function(){var c=count();if(shown.slice(0,c).indexOf(k)>-1)return;var slot=turn%c;put(slot,k);turn=(slot+1)%c;marks();restart()})});
     function pause(on){hold=on;q.classList.toggle('paused',on);if(on)clearTimeout(timer);else restart()}
-    q.addEventListener('mouseenter',function(){pause(true)});q.addEventListener('mouseleave',function(){pause(false)});
-    q.addEventListener('focusin',function(){pause(true)});q.addEventListener('focusout',function(){pause(false)});
-    var sx=0,grid=q.querySelector('.q-grid');
-    grid.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-    grid.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1)});
+    q.addEventListener('mouseenter',function(){if(mq.matches)pause(true)});q.addEventListener('mouseleave',function(){if(mq.matches)pause(false)});
+    q.addEventListener('focusin',function(){if(mq.matches)pause(true)});q.addEventListener('focusout',function(){if(mq.matches)pause(false)});
     if(mq.addEventListener)mq.addEventListener('change',function(){turn=0;marks();restart()});
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){inView=es[0].isIntersecting;restart()},{threshold:.3}).observe(q);
+    // Móvil: tarjetas deslizables que avanzan solas
+    var rail=q.querySelector('.q-rail');
+    pool.forEach(function(f){var c=document.createElement('div');c.className='q-stage';var k=f.cloneNode(true);k.classList.add('on');c.appendChild(k);rail.appendChild(c)});
+    function railStep(dir){
+      var card=rail.firstElementChild,w=card?card.getBoundingClientRect().width+12:300,max=rail.scrollWidth-rail.clientWidth-4;
+      if(dir>0&&rail.scrollLeft>=max)rail.scrollTo({left:0,behavior:'smooth'});
+      else if(dir<0&&rail.scrollLeft<=4)rail.scrollTo({left:rail.scrollWidth,behavior:'smooth'});
+      else rail.scrollBy({left:dir*w,behavior:'smooth'});
+    }
+    var railHold=0;
+    rail.addEventListener('touchstart',function(){railHold=Date.now()},{passive:true});
+    rail.addEventListener('scroll',function(){railHold=Math.max(railHold,Date.now()-4000)},{passive:true});
+    var baseTick=tick,baseStep=step;
+    tick=function(){if(mq.matches)return baseTick();if(Date.now()-railHold>6000)railStep(1);restart()};
+    step=function(d){if(mq.matches)return baseStep(d);railHold=Date.now();railStep(d)};
     put(0,0);put(1,1);marks();restart();
   });
 
