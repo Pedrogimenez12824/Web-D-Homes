@@ -377,8 +377,14 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .lines a:hover strong{color:var(--gold)}
 .lines a:hover svg{transform:translateX(4px);color:var(--gold)}
 .addr-block{margin-top:2rem;color:var(--ink-2)}
-.faq h2{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:1.5rem}
-.faq dl{margin:0;display:grid;gap:1.6rem}
+.contact-intro h2{font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:1rem}
+.contact-intro p{color:var(--ink-2);font-size:1.1rem}
+.faq{margin-top:clamp(4rem,8vw,6rem)}
+.faq h2{font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:2rem}
+.faq dl{margin:0;display:grid;gap:0 4rem}
+@media(min-width:860px){.faq dl{grid-template-columns:1fr 1fr}}
+.faq dl>div{padding:1.4rem 0;border-top:1px solid var(--line)}
+.faq dd a{color:var(--gold)}
 .faq dt{font-family:var(--display);font-size:1.35rem;color:var(--ink);margin-bottom:.35rem}
 .faq dd{margin:0;color:var(--muted)}
 
@@ -472,7 +478,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <div class="wrap hero-grid">
       <div>
         <h1 class="rise">Corte y barba con oficio, <em>desde&nbsp;1994.</em></h1>
-        <p class="lead rise d1">Peluquería de caballeros en el centro de Vilagarcía de Arousa. Con cita previa y sin prisas.</p>
+        <p class="lead rise d1">Peluquería de caballeros en el centro de Vilagarcía de Arousa. Llámanos para pedir cita o para cualquier consulta.</p>
         <div class="cta-row rise d2">
           <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
           <a class="link" href="#/servicios">Ver servicios<svg class="i"><use href="#i-arrow"/></svg></a>
@@ -752,6 +758,10 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <div class="pole" aria-hidden="true"></div>
   <section>
     <div class="wrap contact">
+      <div class="contact-intro">
+        <h2>Habla con nosotros</h2>
+        <p>Para pedir cita o para cualquier consulta, llámanos o escríbenos. Te atendemos encantados.</p>
+      </div>
       <div>
         <ul class="lines">
           <li><a href="tel:633247464"><span><small>Teléfono</small><strong>633 247 464</strong></span><svg class="i"><use href="#i-arrow"/></svg></a></li>
@@ -759,15 +769,19 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         </ul>
         <p class="addr-block">Arzobispo Gelmírez, 7 Bajo<br>36600 Vilagarcía de Arousa (Pontevedra)</p>
       </div>
-      <div class="faq">
-        <h2>Preguntas frecuentes</h2>
-        <dl>
-          <div><dt>¿Hace falta pedir cita?</dt><dd>Sí, trabajamos con cita previa para no hacerte esperar. Llama al 633 247 464 y te buscamos hueco.</dd></div>
-          <div><dt>¿Hay aparcamiento cerca?</dt><dd>Sí, hay aparcamiento en la calle, junto al local y en los alrededores.</dd></div>
-          <div><dt>¿Se puede pagar con tarjeta?</dt><dd>Sí, aceptamos pago con tarjeta además de en efectivo.</dd></div>
-          <div><dt>¿Atendéis a domicilio?</dt><dd>Sí. Si no puedes venir al local, llámanos y te confirmamos disponibilidad y zona.</dd></div>
-        </dl>
-      </div>
+    </div>
+    <div class="wrap faq">
+      <h2>Preguntas frecuentes</h2>
+      <dl>
+        <div data-reveal><dt>¿Hace falta pedir cita?</dt><dd>Sí, trabajamos con cita previa para no hacerte esperar. Llama al 633 247 464 y te buscamos hueco.</dd></div>
+        <div data-reveal style="--i:1"><dt>¿Cuánto cuesta un corte?</dt><dd>Los precios te los damos por teléfono al pedir cita, según el servicio que necesites.</dd></div>
+        <div data-reveal><dt>¿Puedo cambiar o anular mi cita?</dt><dd>Claro. Avísanos por teléfono cuanto antes y te buscamos otro hueco.</dd></div>
+        <div data-reveal style="--i:1"><dt>¿Cortáis a chavales y jóvenes?</dt><dd>Sí. En el equipo hay un peluquero especializado en cortes actuales y degradados para los más jóvenes.</dd></div>
+        <div data-reveal><dt>¿El horario cambia en verano?</dt><dd>Sí. De junio a agosto abrimos de lunes a jueves de 10:00 a 18:00 sin cerrar a mediodía. Tienes todo el horario en <a href="#/ubicacion">Ubicación y horario</a>.</dd></div>
+        <div data-reveal style="--i:1"><dt>¿Atendéis a domicilio?</dt><dd>Sí. Si no puedes venir al local, llámanos y te confirmamos disponibilidad y zona.</dd></div>
+        <div data-reveal><dt>¿Es fácil llegar y aparcar?</dt><dd>Sí. El local tiene acceso para personas con movilidad reducida y hay aparcamiento en la calle, junto al local y en los alrededores.</dd></div>
+        <div data-reveal style="--i:1"><dt>¿Se puede pagar con tarjeta?</dt><dd>Sí, aceptamos pago con tarjeta además de en efectivo.</dd></div>
+      </dl>
     </div>
   </section>
 </div>
