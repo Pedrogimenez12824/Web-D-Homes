@@ -167,6 +167,8 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .crew li{display:grid;gap:.15rem;padding-left:1rem;border-left:1px solid var(--gold-lo)}
 .crew b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--ink)}
 .crew li{color:var(--muted);font-size:.92rem}
+.who{font-family:var(--logo);font-weight:700;font-size:clamp(1.9rem,3.6vw,2.6rem);letter-spacing:.04em;line-height:1.1;color:var(--gold);margin:0 0 1.4rem;display:flex;align-items:center;gap:1rem}
+.who::after{content:"";flex:1;max-width:120px;height:1px;background:linear-gradient(90deg,var(--gold-lo),transparent)}
 .duo-ph{aspect-ratio:4/5}
 @media(min-width:900px){.about.about-page{grid-template-columns:minmax(0,420px) 1fr;gap:3rem;align-items:center;justify-content:start}}
 .about-page .about-txt p{max-width:58ch}
@@ -987,6 +989,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
           <div class="seal"><small>Desde</small><b>1994</b></div>
         </div>
         <div class="about-txt">
+          <h2 class="who">Quiénes somos</h2>
           <p>D'Homes abrió en 1994 en Vilagarcía de Arousa con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre.</p>
           <p>Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de la barbería de siempre con las técnicas y tendencias de ahora. Más de treinta años nos han enseñado que cada cabeza es distinta, y que un buen corte empieza por escuchar.</p>
           <p>Aquí no hay prisas. Te preguntamos qué buscas, te aconsejamos y te vas con un corte fácil de mantener.</p>
