@@ -336,11 +336,8 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .loc-list svg{color:var(--gold);width:19px;height:19px;margin-top:.2rem}
 .map{position:relative;height:clamp(230px,30vw,320px);border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow);background:var(--surface)}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.8) contrast(1.02)}
-.map-consent{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.9rem;text-align:center;padding:1.5rem 1.5rem 4.5rem;background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(216,189,134,.06) 46px 47px),repeating-linear-gradient(90deg,transparent 0 46px,rgba(216,189,134,.06) 46px 47px),radial-gradient(60% 60% at 50% 45%,#3a1b18,var(--surface))}
-.map-consent svg{width:34px;height:34px;color:var(--gold)}
-.map-consent p{margin:0;max-width:34ch;font-size:.9rem;color:var(--ink-2)}
-.map-consent a{color:var(--gold)}
-.map-consent .btn{min-height:44px;padding:.55rem 1.2rem}
+.map-consent{position:absolute;inset:0;background:var(--surface)}
+.map-consent img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
 .map-go{position:absolute;right:.8rem;bottom:.8rem;z-index:1;box-shadow:0 8px 18px -6px rgba(8,2,2,.75)}
 
 /* Aparición al bajar */
@@ -807,11 +804,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section>
     <div class="wrap loc">
       <div class="map" data-reveal>
-        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed">
-          <svg class="i" aria-hidden="true"><use href="#i-pn"/></svg>
-          <p>El mapa lo ofrece Google Maps. Al cargarlo, Google puede usar cookies. <a href="#/cookies">Más información</a></p>
-          <button class="btn btn-line" type="button" data-load-map>Ver mapa</button>
-        </div>
+        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed"><img src="media/fachada-lateral.webp" alt="Fachada de D'Homes Peluquería" width="1400" height="788" loading="lazy" decoding="async"></div>
         <a class="btn btn-gold map-go" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
       </div>
       <div class="loc-info" data-reveal style="--i:1">
@@ -1038,11 +1031,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section class="tint">
     <div class="wrap loc">
       <div class="map" data-reveal>
-        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed">
-          <svg class="i" aria-hidden="true"><use href="#i-pn"/></svg>
-          <p>El mapa lo ofrece Google Maps. Al cargarlo, Google puede usar cookies. <a href="#/cookies">Más información</a></p>
-          <button class="btn btn-line" type="button" data-load-map>Ver mapa</button>
-        </div>
+        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed"><img src="media/fachada-lateral.webp" alt="Fachada de D'Homes Peluquería" width="1400" height="788" loading="lazy" decoding="async"></div>
         <a class="btn btn-gold map-go" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
       </div>
       <div class="loc-info" data-reveal style="--i:1">
@@ -1166,11 +1155,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <thead><tr><th>Nombre</th><th>Tipo</th><th>Para qué sirve</th><th>Duración</th></tr></thead>
         <tbody>
           <tr><td>dhomes-mapas</td><td>Técnica (almacenamiento local)</td><td>Recordar si has aceptado o rechazado las cookies de Google Maps. No se envía a nadie.</td><td>Hasta que la borres o pulses «Configurar cookies»</td></tr>
-          <tr><td>Cookies de Google Maps</td><td>De terceros</td><td>Solo se instalan si aceptas en el aviso de cookies o pulsas «Ver mapa». Google las usa para mostrar el mapa, recordar preferencias y con otros fines descritos en su política.</td><td>Según Google</td></tr>
+          <tr><td>Cookies de Google Maps</td><td>De terceros</td><td>Solo se instalan si aceptas en el aviso de cookies. Google las usa para mostrar el mapa, recordar preferencias y con otros fines descritos en su política.</td><td>Según Google</td></tr>
         </tbody>
       </table></div>
       <h2>Mapas de Google</h2>
-      <p>Al entrar en la web te mostramos un aviso para que aceptes o rechaces las cookies de Google Maps. Si las rechazas, los mapas no se cargan; puedes verlos más tarde pulsando «Ver mapa». Al aceptarlas, Google Maps se carga y puede usar sus cookies. Puedes consultar cómo las usa en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
+      <p>Al entrar en la web te mostramos un aviso para que aceptes o rechaces las cookies de Google Maps. Si las rechazas, los mapas no se cargan y en su lugar verás una foto del local; puedes cambiar tu elección cuando quieras. Al aceptarlas, Google Maps se carga y puede usar sus cookies. Puedes consultar cómo las usa en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
       <p>Las opiniones de clientes y los botones «Cómo llegar» y «Más opiniones en Google» son enlaces a Google: no instalan cookies mientras no los abres.</p>
       <h2>Cómo cambiar tu elección</h2>
       <p>Puedes cambiar tu elección cuando quieras con este botón o con el enlace «Configurar cookies» del pie de página: los mapas volverán a quedar bloqueados y verás de nuevo el aviso.</p>
@@ -1443,7 +1432,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   function choice(){try{return localStorage.getItem(KEY)}catch(_){return null}}
   function decide(v){try{localStorage.setItem(KEY,v)}catch(_){}bn.hidden=true;if(v==='si')loadMaps()}
   bn.querySelectorAll('[data-ck]').forEach(function(b){b.addEventListener('click',function(){decide(b.dataset.ck)})});
-  document.querySelectorAll('[data-load-map]').forEach(function(b){b.addEventListener('click',function(){decide('si')})});
   document.querySelectorAll('#cookie-reset,[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(){
     resetMaps();bn.hidden=false;b.blur();
     if(b.hasAttribute('data-cookie-reset')){var t=b.textContent;b.textContent='Elige de nuevo en el aviso';setTimeout(function(){b.textContent=t},2500)}
