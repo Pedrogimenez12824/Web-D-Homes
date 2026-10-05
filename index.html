@@ -169,30 +169,30 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
   .svc-list a:hover .arr{transform:translateX(4px);color:var(--gold)}
 }
 
-/* Trabajos (portada) */
-.works-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+/* Galería de trabajos (portada) */
+.works-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.2rem 2rem;margin-bottom:clamp(2rem,4vw,3rem)}
 .works-head h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
 .works-head p{color:var(--muted);margin:.8rem 0 0}
-.works{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.7rem,1.6vw,1.1rem)}
-.work{margin:0;min-width:0}
-.work .ph{aspect-ratio:4/5;max-width:100%}
-.work.w-big{grid-column:1/-1}
-.work.w-big .ph{aspect-ratio:4/3}
-@media(min-width:860px){
-  .works{grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto}
-  .work.w-big{grid-column:1;grid-row:1/3;display:flex;flex-direction:column}
-  .work.w-big .ph{aspect-ratio:auto;flex:1;min-height:420px}
+.works-ctl{display:flex;align-items:center;gap:1.2rem}
+.reel-btn{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:none;color:var(--gold);cursor:pointer;display:grid;place-content:center;transition:border-color .2s ease,background-color .2s ease,transform .16s var(--ease-out)}
+.reel-btn:hover{border-color:var(--gold);background:rgba(216,189,134,.08)}
+.reel-btn:active{transform:scale(.94)}
+.reel-btn svg{width:18px;height:18px}
+.reel-btn .i-play,.reel-btn[aria-pressed="true"] .i-pause{display:none}
+.reel-btn[aria-pressed="true"] .i-play{display:block}
+.reel{overflow:hidden;padding-bottom:2.5rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.reel-track{display:flex;align-items:flex-start;gap:clamp(.8rem,1.5vw,1.2rem);padding-right:clamp(.8rem,1.5vw,1.2rem);width:max-content;animation:reel 60s linear infinite}
+.reel:hover .reel-track,.reel.paused .reel-track{animation-play-state:paused}
+@keyframes reel{to{transform:translateX(-50%)}}
+.shot{flex:none;margin:0;width:clamp(210px,21vw,300px)}
+.shot:nth-child(even){margin-top:2.5rem}
+.shot .ph{aspect-ratio:4/5;box-shadow:var(--shadow);transition:transform .5s var(--ease-out)}
+.shot .ph img{transition:transform .9s var(--ease-out)}
+@media(hover:hover){.shot:hover .ph{transform:translateY(-6px)}.shot:hover .ph img{transform:scale(1.05)}}
+@media(prefers-reduced-motion:reduce){
+  .reel{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-mask-image:none;mask-image:none;padding-inline:clamp(1.1rem,4vw,2.5rem)}
+  .reel-track{animation:none}.reel-track [aria-hidden="true"]{display:none}.shot{scroll-snap-align:start}.reel-btn{display:none}
 }
-.work figcaption{display:flex;align-items:center;gap:.6rem;padding:.7rem .1rem 0;font-family:var(--display);font-size:1.15rem;color:var(--ink-2)}
-.work figcaption::before{content:"";width:18px;height:1px;background:var(--gold-lo);transition:width .4s var(--ease-out),background-color .3s ease}
-.work .ph img{transition:transform .9s var(--ease-out)}
-@media(hover:hover){
-  .work:hover .ph img{transform:scale(1.045)}
-  .work:hover figcaption{color:var(--gold)}
-  .work:hover figcaption::before{width:30px;background:var(--gold)}
-}
-.motion .work[data-reveal]{transform:none;clip-path:inset(10% 6% 10% 6% round var(--r));transition:opacity .7s var(--ease-out),clip-path 1.1s var(--ease-out);transition-delay:calc(var(--i,0) * 110ms)}
-.motion .work[data-reveal].in{clip-path:inset(0 0 0 0 round 0)}
 
 /* Horario */
 .hours-sec{display:grid;gap:2rem}
@@ -521,18 +521,26 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
   </section>
 
-  <section class="tint">
+  <section class="tint works-sec">
     <div class="wrap">
       <div class="works-head">
-        <div><h2>Nuestros trabajos</h2><p>Degradados, cortes clásicos y barbas hechos en D'Homes.</p></div>
-        <a class="link" href="#/galeria">Ver la galería<svg class="i"><use href="#i-arrow"/></svg></a>
+        <div><h2>Galería de trabajos</h2><p>Algunos de los cortes y barbas que hacemos cada día en D'Homes.</p></div>
+        <div class="works-ctl">
+          <button class="reel-btn" type="button" aria-pressed="false" aria-label="Pausar la galería"><svg class="i-pause" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 6v12M15 6v12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"/></svg><svg class="i-play" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13l10.5-6.5L8 5.5Z" fill="currentColor"/></svg></button>
+          <a class="link" href="#/galeria">Ver galería completa<svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
       </div>
-      <div class="works" data-stagger>
-        <figure class="work w-big"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Degradado</span><small>Foto pendiente</small></div></div><figcaption>Degradado</figcaption></figure>
-        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Corte clásico</span><small>Foto pendiente</small></div></div><figcaption>Corte clásico</figcaption></figure>
-        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Barba perfilada</span><small>Foto pendiente</small></div></div><figcaption>Barba perfilada</figcaption></figure>
-        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Afeitado a navaja</span><small>Foto pendiente</small></div></div><figcaption>Afeitado a navaja</figcaption></figure>
-        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Color</span><small>Foto pendiente</small></div></div><figcaption>Color</figcaption></figure>
+    </div>
+    <div class="reel" data-reveal aria-label="Fotos de cortes realizados en D'Homes">
+      <div class="reel-track">
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
       </div>
     </div>
   </section>
@@ -698,17 +706,17 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 
 <!-- GALERÍA -->
 <div class="page" data-page="galeria" data-title="Galería">
-  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Galería</div><h1>Galería</h1><p>Algunos de nuestros trabajos.</p></div></div>
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Galería</div><h1>Galería de trabajos</h1><p>Algunos de los cortes y barbas que hacemos cada día.</p></div></div>
   <div class="pole" aria-hidden="true"></div>
   <section>
     <div class="wrap">
       <div class="gal">
-        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Corte clásico</span><small>Foto pendiente</small></div></div><figcaption>Corte clásico</figcaption></figure>
-        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Degradado</span><small>Foto pendiente</small></div></div><figcaption>Degradado</figcaption></figure>
-        <figure><div class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Barba perfilada</span><small>Foto pendiente</small></div></div><figcaption>Barba perfilada</figcaption></figure>
-        <figure><div class="ph r43"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Color</span><small>Foto pendiente</small></div></div><figcaption>Color</figcaption></figure>
-        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Mechas</span><small>Foto pendiente</small></div></div><figcaption>Mechas</figcaption></figure>
-        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Afeitado</span><small>Foto pendiente</small></div></div><figcaption>Afeitado</figcaption></figure>
+        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r43"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
       </div>
     </div>
   </section>
@@ -915,6 +923,15 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     nx.addEventListener('click',function(){tr.scrollBy({left:stepW(),behavior:'smooth'})});
     tr.addEventListener('scroll',sync,{passive:true});window.addEventListener('resize',sync);sync();
   }
+
+  // Galería de trabajos: cinta continua (se duplica para que no tenga fin)
+  document.querySelectorAll('.reel').forEach(function(r){
+    var t=r.querySelector('.reel-track'),btn=r.parentNode.querySelector('.reel-btn');
+    Array.prototype.slice.call(t.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)});
+    if(btn)btn.addEventListener('click',function(){var on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',on?'Reanudar la galería':'Pausar la galería');r.classList.toggle('paused',on)});
+    r.addEventListener('touchstart',function(){r.classList.add('paused')},{passive:true});
+    r.addEventListener('touchend',function(){if(!btn||btn.getAttribute('aria-pressed')!=='true')r.classList.remove('paused')});
+  });
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 
