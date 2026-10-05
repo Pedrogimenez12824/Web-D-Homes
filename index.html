@@ -123,8 +123,8 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .ph:has(img,video){background:#140808}
 .ph:has(img,video)::before{display:none}
 .ph video{display:block;width:100%;height:100%;object-fit:cover}
-.hero-ph{aspect-ratio:1100/952}
-.hero-ph img{object-position:50% 40%}
+.hero-ph{aspect-ratio:16/9}
+.hero-ph img{object-position:50% 50%}
 .nelly-ph img{object-position:50% 35%}
 .team-band{margin:clamp(3rem,6vw,4.5rem) 0 0;display:grid;gap:1.2rem;align-items:center}
 @media(min-width:860px){.team-band{grid-template-columns:1.3fr .7fr;gap:3rem}}
@@ -146,10 +146,6 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .member figcaption{padding-top:1rem;display:grid;gap:.2rem}
 .member b{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--ink)}
 .member span{color:var(--gold);font-size:.92rem}
-/* Fondo de la portada: la fachada, casi transparente */
-.hero-bg{position:absolute;inset:0;background:url(media/fachada.webp) center 35%/cover no-repeat;opacity:.13;filter:saturate(.6) blur(1.5px);transform:scale(1.03);pointer-events:none}
-.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,12,11,.35),var(--bg) 96%);pointer-events:none}
-.hero .wrap{z-index:1}
 .r916{aspect-ratio:9/16}
 .shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
 .shot .ph:has(video){aspect-ratio:9/16}
@@ -330,7 +326,7 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 
 /* Conócenos */
 .about{display:grid;gap:3rem;align-items:center}
-@media(min-width:900px){.about{grid-template-columns:.85fr 1.15fr;gap:5.5rem}}
+@media(min-width:900px){.about{grid-template-columns:.85fr 1.15fr;gap:5.5rem}.about.about-txtfirst{grid-template-columns:1.15fr .85fr}}
 .about-media{position:relative;max-width:460px}
 .seal{position:absolute;right:1.5rem;bottom:-46px;width:92px;height:92px;border-radius:var(--r);background:var(--gold);color:#241010;display:grid;place-content:center;text-align:center;box-shadow:0 10px 22px -8px rgba(8,2,2,.8);line-height:1;z-index:1}
 .seal::before{content:"";position:absolute;inset:5px;border:1px solid rgba(36,16,16,.3);border-radius:3px}
@@ -645,7 +641,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 <!-- INICIO -->
 <div class="page" data-page="" data-title="Inicio">
   <div class="hero">
-    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <h1 class="rise">Corte y barba con oficio, <em>desde&nbsp;1994.</em></h1>
@@ -656,7 +651,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         </div>
       </div>
       <div class="hero-media rise d3">
-        <figure class="ph hero-ph"><img src="media/equipo-barbero.webp" alt="Marcos Paz, peluquero de D'Homes, con un cliente recién cortado" width="1100" height="952" fetchpriority="high" decoding="async"></figure>
+        <figure class="ph hero-ph"><img src="media/fachada.webp" alt="Fachada de D'Homes Peluquería en la calle Arzobispo Gelmírez, Vilagarcía de Arousa" width="1600" height="900" fetchpriority="high" decoding="async"></figure>
         <aside class="today" aria-label="Horario de hoy">
           <div class="today-h"><span>Hoy</span><span class="st" data-open="">Consultando…</span></div>
           <div class="hrs" id="todayhrs"></div>
@@ -749,16 +744,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   </section>
 
   <section>
-    <div class="wrap about">
-      <div class="about-media" data-reveal>
-        <figure class="ph r11 nelly-ph"><img src="media/equipo-nelly.webp" alt="Nelly Mosteiro cortando a tijera en D'Homes Peluquería" width="1100" height="1111" loading="lazy" decoding="async"></figure>
-        <div class="seal"><small>Desde</small><b>1994</b></div>
-      </div>
+    <div class="wrap about about-txtfirst">
       <div class="about-txt">
         <h2 class="h2">Conócenos</h2>
         <p>D'Homes abrió en 1994 con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre. Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de siempre con lo que se lleva hoy.</p>
         <p class="sign">Nelly Mosteiro</p>
         <a class="link" href="#/conocenos">Nuestra historia<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="about-media" data-reveal>
+        <figure class="ph r11 nelly-ph"><img src="media/equipo-nelly.webp" alt="Nelly Mosteiro cortando a tijera en D'Homes Peluquería" width="1100" height="1111" loading="lazy" decoding="async"></figure>
+        <div class="seal"><small>Desde</small><b>1994</b></div>
       </div>
     </div>
   </section>
