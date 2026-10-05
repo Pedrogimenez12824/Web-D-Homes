@@ -408,7 +408,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .vals p{margin:0;color:var(--muted)}
 
 /* Galería */
-.gal{columns:2 220px;column-gap:1rem}
+.gal{columns:2;column-gap:.6rem}
+.gal figure{margin-bottom:.6rem!important}
+@media(min-width:600px){.gal{column-gap:1rem}.gal figure{margin-bottom:1rem!important}}
+.gal .ph::before{inset:6px}
+.gal .ph-in svg{width:26px;height:26px}
+.gal .ph-in small{font-size:.72rem}
 @media(min-width:900px){.gal{columns:3}}
 .gal figure{break-inside:avoid;margin:0 0 1rem}
 .gal figcaption{font-size:.9rem;color:var(--muted);padding:.55rem .15rem 0}
@@ -901,7 +906,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <p>Llámanos y te damos cita en el horario que mejor te venga.</p>
     <div class="cta-row">
       <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
-      <span class="tel-txt">Teléfono <a href="tel:633247464">633 247 464</a></span>
     </div>
   </div>
 </div>
