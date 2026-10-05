@@ -154,6 +154,8 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .crew b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--ink)}
 .crew li{color:var(--muted);font-size:.92rem}
 .duo-ph{aspect-ratio:4/5}
+@media(min-width:900px){.about.about-page{grid-template-columns:minmax(0,420px) 1fr;gap:3rem;align-items:center;justify-content:start}}
+.about-page .about-txt p{max-width:58ch}
 .team{margin-top:clamp(4.5rem,9vw,6.5rem)}
 .team h2{font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:clamp(1.5rem,3vw,2.2rem)}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.8rem,2.5vw,2rem);max-width:820px}
@@ -965,7 +967,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <div class="pole" aria-hidden="true"></div>
   <section>
     <div class="wrap">
-      <div class="about">
+      <div class="about about-page">
         <div class="about-media">
           <figure class="ph duo-ph"><img src="media/equipo-dos.webp" alt="Marcos Paz y Nelly Mosteiro con sus tijeras en D'Homes Peluquería" width="1000" height="1250" loading="lazy" decoding="async"></figure>
           <div class="seal"><small>Desde</small><b>1994</b></div>
@@ -974,7 +976,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
           <p>D'Homes abrió en 1994 en Vilagarcía de Arousa con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre.</p>
           <p>Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de la barbería de siempre con las técnicas y tendencias de ahora. Más de treinta años nos han enseñado que cada cabeza es distinta, y que un buen corte empieza por escuchar.</p>
           <p>Aquí no hay prisas. Te preguntamos qué buscas, te aconsejamos y te vas con un corte fácil de mantener.</p>
-          <p class="sign">Nelly Mosteiro</p>
         </div>
       </div>
       <div class="team">
