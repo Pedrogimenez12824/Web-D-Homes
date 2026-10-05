@@ -179,6 +179,11 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
   .svc-tabs button[aria-selected="true"] .t-name{transform:translateX(.4rem)}
   .svc-tabs button[aria-selected="true"] .t-arr{opacity:1;transform:none}
 }
+@media(max-width:959px){
+  .svc-tabs{display:grid;grid-template-columns:repeat(2,1fr);gap:.5rem;overflow:visible;margin:0;padding:0}
+  .svc-tabs button{justify-content:center;padding:.7rem .5rem}
+}
+@media(min-width:560px) and (max-width:959px){.svc-tabs{grid-template-columns:repeat(4,1fr)}}
 .svc-stage{position:relative;display:grid}
 .svc-pane{grid-area:1/1;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
 @media(min-width:640px){.svc-pane{grid-template-columns:1fr 1fr}}
@@ -398,6 +403,10 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .note{margin-top:clamp(1rem,2vw,1.5rem);padding:1.6rem 1.8rem;border:1px solid var(--line-2);border-radius:var(--r);background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
 .note p{margin:0;color:var(--ink-2)}
 .note strong{font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--ink);display:block;margin-bottom:.2rem}
+
+.svc-jump{display:grid;grid-template-columns:repeat(2,1fr);overflow:visible}
+.svc-jump button{justify-content:center}
+@media(min-width:560px){.svc-jump{display:flex;flex-wrap:wrap}}
 
 /* Página Conócenos */
 .vals{list-style:none;margin:clamp(3rem,6vw,4.5rem) 0 0;padding:0;display:grid;gap:2rem}
@@ -1077,7 +1086,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     function pick(t,focus){
       tabs.forEach(function(x){var on=x===t,pane=document.getElementById(x.getAttribute('aria-controls'));x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;pane.hidden=!on;pane.classList.toggle('on',on)});
       if(focus)t.focus();
-      if(window.innerWidth<960)t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
     }
     tabs.forEach(function(t,i){
       t.addEventListener('click',function(){pick(t)});
