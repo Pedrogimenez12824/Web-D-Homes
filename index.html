@@ -306,7 +306,7 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 /* Aparición al bajar */
 .motion [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease-out),transform .9s var(--ease-out);transition-delay:calc(var(--i,0) * 90ms)}
 .motion [data-reveal].in{opacity:1;transform:none}
-.motion .about-media .seal{transform:rotate(-28deg) scale(.8);opacity:0;transition:transform 1s var(--ease-out) .35s,opacity .6s ease .35s}
+.motion .about-media .seal{transform:translateY(12px) scale(.9);opacity:0;transition:transform 1s var(--ease-out) .35s,opacity .6s ease .35s}
 .motion .about-media.in .seal{transform:none;opacity:1}
 .motion .way{position:relative}
 .motion .way[data-reveal]{transform:none}
@@ -317,11 +317,11 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .about{display:grid;gap:3rem;align-items:center}
 @media(min-width:900px){.about{grid-template-columns:.85fr 1.15fr;gap:5.5rem}}
 .about-media{position:relative;max-width:460px}
-.seal{position:absolute;right:.75rem;bottom:2rem;width:118px;height:118px;border-radius:50%;background:var(--gold);color:#241010;display:grid;place-content:center;text-align:center;box-shadow:var(--shadow);line-height:1}
-.seal::before{content:"";position:absolute;inset:6px;border:1px solid rgba(36,16,16,.35);border-radius:50%}
-.seal small{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
-.seal b{font-family:var(--display);font-weight:500;font-size:2.2rem;margin-top:.2rem}
-@media(min-width:900px){.seal{right:-1.5rem}}
+.seal{position:absolute;right:1.5rem;bottom:-46px;width:92px;height:92px;border-radius:var(--r);background:var(--gold);color:#241010;display:grid;place-content:center;text-align:center;box-shadow:0 10px 22px -8px rgba(8,2,2,.8);line-height:1;z-index:1}
+.seal::before{content:"";position:absolute;inset:5px;border:1px solid rgba(36,16,16,.3);border-radius:3px}
+.seal small{font-size:.66rem;font-weight:600;letter-spacing:.16em;text-indent:.16em;text-transform:uppercase}
+.seal b{font-family:var(--display);font-weight:500;font-size:1.8rem;margin-top:.25rem}
+.about-media{margin-bottom:46px}
 .about-txt h2{margin-bottom:1.5rem}
 .about-txt p{color:var(--ink-2);font-size:1.1rem}
 .sign{font-family:var(--display);font-style:italic;font-size:1.9rem;color:var(--gold);margin:1.4rem 0 1.8rem}
