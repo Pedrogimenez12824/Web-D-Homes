@@ -373,6 +373,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 /* Aviso de cookies */
 .ck-banner{position:fixed;z-index:45;left:.75rem;right:.75rem;bottom:calc(76px + env(safe-area-inset-bottom,0px));background:rgba(38,16,14,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:var(--r);box-shadow:var(--shadow);padding:1rem 1.1rem;display:grid;gap:.85rem;animation:ckin .45s var(--ease-out)}
 .ck-banner[hidden]{display:none}
+.ck-banner strong{font-family:var(--display);font-weight:400;font-size:1.25rem;color:var(--ink);margin-bottom:-.4rem}
 .ck-banner p{margin:0;font-size:.9rem;color:var(--ink-2);max-width:none}
 .ck-banner a{color:var(--gold)}
 .ck-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
@@ -1077,7 +1078,8 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 </footer>
 
 <div class="ck-banner" id="ckbanner" role="region" aria-label="Aviso de cookies" hidden>
-  <p>Usamos cookies de Google Maps solo para mostrarte el mapa. Puedes aceptarlas o rechazarlas. <a href="#/cookies">Más información</a></p>
+  <strong>Cookies</strong>
+  <p>Utilizamos cookies de terceros (Google Maps) para mostrarte el mapa de nuestra ubicación. Puedes aceptarlas o rechazarlas. Más información en nuestra <a href="#/cookies">Política de cookies</a>.</p>
   <div class="ck-btns"><button class="btn btn-line" type="button" data-ck="no">Rechazar</button><button class="btn btn-gold" type="button" data-ck="si">Aceptar</button></div>
 </div>
 
