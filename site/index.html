@@ -389,10 +389,10 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .rv-head h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
 .rv-head .btn svg{width:18px;height:18px}
 .rv-cta{display:flex;justify-content:center;margin-top:2rem}
-.btn-review{display:inline-flex;align-items:center;gap:.75rem;padding:.75rem 1.4rem;border-radius:14px;border:1px solid var(--line-2);background:rgba(216,189,134,.06);color:var(--ink);font-weight:500;text-decoration:none;transition:border-color .25s ease,background-color .25s ease,transform .16s var(--ease-out)}
-.rv-stars{display:inline-flex;gap:2px;color:var(--gold)}
-.rv-stars svg{width:14px;height:14px;transition:transform .35s var(--ease-out)}
-@media(hover:hover){.btn-review:hover{border-color:var(--gold);background:rgba(216,189,134,.12)}.btn-review:hover .rv-stars svg{transform:translateY(-2px)}.btn-review:hover .rv-stars svg:nth-child(2){transition-delay:.04s}.btn-review:hover .rv-stars svg:nth-child(3){transition-delay:.08s}.btn-review:hover .rv-stars svg:nth-child(4){transition-delay:.12s}.btn-review:hover .rv-stars svg:nth-child(5){transition-delay:.16s}}
+.btn-review{position:relative;display:inline-flex;align-items:center;gap:.6rem;padding:.55rem .2rem;color:var(--gold);font-weight:500;font-size:1.02rem;text-decoration:none}
+.btn-review::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);transform:scaleX(.6);transition:transform .45s var(--ease-out)}
+.btn-review svg{width:17px;height:17px;transition:transform .35s var(--ease-out)}
+@media(hover:hover){.btn-review:hover::after{transform:scaleX(1)}.btn-review:hover svg{transform:translateX(4px)}}
 .btn-review:active{transform:scale(.97)}
 .gr-stars{display:inline-flex;gap:3px;color:var(--gold)}
 .gr-stars svg{width:18px;height:18px}
@@ -432,7 +432,7 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .quotes.paused .q-bar i{animation-play-state:paused}
 @keyframes qbar{to{transform:scaleX(1)}}
 .q-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.4rem}
-.q-dots{display:flex;flex-wrap:wrap;justify-content:center;gap:.45rem}
+.q-dots{display:none!important;flex-wrap:wrap;justify-content:center;gap:.45rem}
 .q-dot{width:40px;height:40px;border-radius:50%;border:1px solid var(--line-2);background:var(--bg);color:var(--muted);font:600 .74rem/1 var(--sans);cursor:pointer;transition:background-color .25s ease,color .25s ease,border-color .25s ease,transform .2s var(--ease-out)}
 .q-dot:hover{border-color:var(--gold);color:var(--ink)}
 .q-dot.on{background:var(--gold);border-color:var(--gold);color:#241010;transform:scale(1.08)}
@@ -441,7 +441,7 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .q-arrow:active{transform:scale(.94)}
 .q-arrow svg{width:18px;height:18px}
 .q-arrow.prev svg{transform:rotate(180deg)}
-@media(max-width:640px){.q-dots{display:none}.q-nav{justify-content:center;gap:1rem}}
+.q-nav{justify-content:center;gap:1rem}
 
 /* Fondos decorativos casi transparentes */
 .deco{position:relative;isolation:isolate;overflow:hidden}
@@ -933,7 +933,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
           <div class="q-dots"><button type="button" class="q-dot on" aria-label="Opinión de Fernando Pérez Díaz" aria-pressed="true">FD</button><button type="button" class="q-dot" aria-label="Opinión de Javier Dafonte Fresco" aria-pressed="false">JF</button><button type="button" class="q-dot" aria-label="Opinión de Victor Colomino" aria-pressed="false">VC</button><button type="button" class="q-dot" aria-label="Opinión de Manuel Recouso" aria-pressed="false">MR</button><button type="button" class="q-dot" aria-label="Opinión de Ignacio Abalo" aria-pressed="false">IA</button><button type="button" class="q-dot" aria-label="Opinión de Jose Sotoabal" aria-pressed="false">JS</button><button type="button" class="q-dot" aria-label="Opinión de César Córdoba Ferreira" aria-pressed="false">CF</button><button type="button" class="q-dot" aria-label="Opinión de Manuel De Maila" aria-pressed="false">MM</button><button type="button" class="q-dot" aria-label="Opinión de Julián Iglesias Mouta" aria-pressed="false">JM</button><button type="button" class="q-dot" aria-label="Opinión de Maribel Castellano Bouzon" aria-pressed="false">MB</button></div>
           <button class="q-arrow next" type="button" aria-label="Opinión siguiente"><svg><use href="#i-arrow"/></svg></button>
         </div>
-        <div class="rv-cta"><a class="btn-review" href="https://g.page/r/CTKGDCTnu0CtEBM/review" target="_blank" rel="noopener"><span class="rv-stars" aria-hidden="true"><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg></span>Déjanos tu opinión</a></div>
+        <div class="rv-cta"><a class="btn-review" href="https://g.page/r/CTKGDCTnu0CtEBM/review" target="_blank" rel="noopener">Déjanos tu opinión<svg class="i" aria-hidden="true"><use href="#i-arrow"/></svg></a></div>
       </div>
     </div>
   </section>
