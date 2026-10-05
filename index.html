@@ -1,0 +1,802 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>D'Homes Peluquería · Corte y barba en Vilagarcía de Arousa</title>
+<meta name="description" content="Peluquería de caballeros en Vilagarcía de Arousa desde 1994. Corte, barba, afeitado a navaja y color, con cita previa. Arzobispo Gelmírez, 7. Tel. 633 247 464.">
+<meta name="theme-color" content="#1e0c0b">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_ES">
+<meta property="og:title" content="D'Homes Peluquería · Vilagarcía de Arousa">
+<meta property="og:description" content="Peluquería de caballeros desde 1994. Corte, barba y color con cita previa. Tel. 633 247 464.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232a1210'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23d8bd86'%3ED%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Cinzel+Decorative:wght@700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  color-scheme:dark;
+  /* Granate */
+  --bg:#1e0c0b;--bg-2:#26100e;--surface:#2e1513;--surface-2:#3a1b18;--wine:#4a201c;
+  /* Dorado y crema */
+  --gold:#d8bd86;--gold-hi:#ead39f;--gold-lo:#a88a52;
+  --ink:#f3e9d6;--ink-2:#d9c8a8;--muted:#b9a585;
+  --line:rgba(216,189,134,.2);--line-2:rgba(216,189,134,.38);
+  /* Poste de barbero */
+  --pole-r:#b3322c;--pole-w:#f3ead9;--pole-b:#2d5fa8;
+  --display:'Bodoni Moda',Georgia,serif;
+  --logo:'Cinzel Decorative',Georgia,serif;
+  --sans:'Jost',system-ui,-apple-system,'Segoe UI',sans-serif;
+  --ease-out:cubic-bezier(.23,1,.32,1);
+  --ease-in-out:cubic-bezier(.77,0,.175,1);
+  --shadow:0 14px 24px -10px rgba(8,2,2,.7),0 3px 8px -2px rgba(8,2,2,.45);
+  --r:6px;
+  --wrap:1180px;
+  --head:72px;
+}
+*,*::before,*::after{box-sizing:border-box}
+html{scroll-padding-top:calc(var(--head) + 12px);-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:1.0625rem;line-height:1.65;-webkit-font-smoothing:antialiased;padding-bottom:calc(64px + env(safe-area-inset-bottom,0px))}
+@media(min-width:900px){body{padding-bottom:0}}
+::selection{background:var(--gold);color:var(--bg)}
+html{scrollbar-color:var(--wine) var(--bg)}
+a{color:inherit;text-underline-offset:.22em;text-decoration-thickness:1px}
+img{max-width:100%;display:block}
+:focus-visible{outline:2px solid var(--gold);outline-offset:3px;border-radius:2px}
+h1,h2,h3,h4{font-family:var(--display);font-weight:400;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+p{margin:0 0 1rem;max-width:62ch;text-wrap:pretty}
+.wrap{max-width:var(--wrap);margin:0 auto;padding:0 clamp(1.1rem,4vw,2.5rem)}
+.skip{position:absolute;left:1rem;top:-100px;z-index:100;background:var(--gold);color:var(--bg);padding:.7rem 1rem;border-radius:var(--r);font-weight:600;text-decoration:none}
+.skip:focus{top:1rem}
+svg.i{width:22px;height:22px;flex:none}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Botones */
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:.6rem;min-height:52px;padding:.8rem 1.5rem;border-radius:var(--r);font:600 1rem/1 var(--sans);letter-spacing:.01em;text-decoration:none;border:1px solid transparent;cursor:pointer;white-space:nowrap;transition:transform .16s var(--ease-out),background-color .2s ease,border-color .2s ease,color .2s ease,box-shadow .2s ease}
+.btn:active{transform:scale(.97)}
+.btn svg{width:19px;height:19px}
+.btn-gold{background:var(--gold);color:#241010;box-shadow:0 6px 14px -6px rgba(8,2,2,.8)}
+.btn-gold:hover{background:var(--gold-hi)}
+.btn-line{border-color:var(--line-2);color:var(--ink)}
+.btn-line:hover{border-color:var(--gold);color:var(--gold)}
+.link{display:inline-flex;align-items:center;gap:.45rem;color:var(--gold);font-weight:500;text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--line-2);transition:border-color .2s ease,gap .25s var(--ease-out)}
+.link:hover{border-color:var(--gold);gap:.7rem}
+.link svg{width:17px;height:17px}
+
+/* Cabecera */
+header{position:sticky;top:0;z-index:40;background:rgba(30,12,11,.88);backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
+.bar{height:var(--head);display:flex;align-items:center;gap:1.5rem}
+.brand{display:flex;flex-direction:column;align-items:center;text-decoration:none;color:var(--gold);margin-right:auto;line-height:1}
+.brand b{font-family:var(--logo);font-weight:700;font-size:1.55rem;letter-spacing:.05em}
+.brand small{font-family:var(--sans);font-size:.7rem;font-weight:500;letter-spacing:.42em;text-indent:.42em;text-transform:uppercase;color:var(--ink-2);margin-top:.35rem}
+.nav{display:none;gap:1.9rem;align-items:center}
+.nav a{position:relative;text-decoration:none;font-size:.95rem;color:var(--ink-2);padding:.4rem 0;transition:color .2s ease}
+.nav a::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--gold);transform:scaleX(0);transform-origin:left;transition:transform .3s var(--ease-out)}
+.nav a:hover{color:var(--ink)}
+.nav a:hover::after,.nav a[aria-current="page"]::after{transform:scaleX(1)}
+.nav a[aria-current="page"]{color:var(--gold)}
+.bar .btn{display:none;min-height:44px;padding:.6rem 1.15rem;font-size:.95rem}
+@media(min-width:960px){.nav{display:flex}.bar .btn{display:inline-flex}.burger{display:none!important}}
+.burger{width:48px;height:48px;margin-right:-10px;border:0;background:none;cursor:pointer;display:grid;place-content:center;gap:7px;padding:0;color:var(--gold)}
+.burger span{display:block;width:24px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease-out),opacity .2s ease}
+.burger[aria-expanded="true"] span:nth-child(1){transform:translateY(4.25px) rotate(45deg)}
+.burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-4.25px) rotate(-45deg)}
+#menu{position:fixed;inset:calc(var(--head) + env(safe-area-inset-top,0px)) 0 0 0;z-index:39;background:var(--bg);padding:1rem clamp(1.1rem,4vw,2.5rem) 2rem;overflow-y:auto;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .22s var(--ease-out),transform .3s var(--ease-out),visibility 0s linear .3s}
+#menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .22s var(--ease-out),transform .3s var(--ease-out)}
+#menu ul{list-style:none;margin:0;padding:0}
+#menu li a{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 0;font-family:var(--display);font-size:1.85rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
+#menu li a svg{width:20px;height:20px;color:var(--gold-lo)}
+#menu li a[aria-current="page"]{color:var(--gold)}
+.menu-foot{margin-top:2rem;display:grid;gap:.4rem;color:var(--muted);font-size:.95rem}
+.menu-foot a{color:var(--gold);font-size:1.3rem;font-weight:500;text-decoration:none}
+
+/* Páginas */
+.page{display:none}
+.page.on{display:block;animation:pagein .45s var(--ease-out)}
+@keyframes pagein{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+section{padding:clamp(4.5rem,9vw,7.5rem) 0}
+.sec-head{margin-bottom:clamp(2rem,4vw,3rem)}
+.sec-head h2,.h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
+.sec-head p{color:var(--muted);margin-top:1rem}
+.tint{background:var(--bg-2);border-block:1px solid var(--line)}
+
+/* Poste de barbero */
+.pole{height:8px;background:repeating-linear-gradient(-45deg,var(--pole-r) 0 12px,var(--pole-w) 12px 24px,var(--pole-b) 24px 36px,var(--pole-w) 36px 48px);background-size:67.88px 67.88px;animation:pole 3.2s linear infinite}
+@keyframes pole{to{background-position:67.88px 0}}
+
+/* Foto (pendiente de fotos reales) */
+.ph{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:radial-gradient(120% 90% at 30% 10%,#4a221d 0%,#2e1513 55%,#241010 100%);border:1px solid var(--line)}
+.ph::before{content:"";position:absolute;inset:10px;border:1px solid rgba(216,189,134,.16);border-radius:3px;pointer-events:none}
+.ph-in{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.55rem;text-align:center;color:var(--gold-lo);padding:1rem}
+.ph-in svg{width:34px;height:34px;opacity:.8}
+.ph-in span{font-family:var(--display);font-size:1.15rem;color:var(--ink-2)}
+.ph-in small{font-size:.8rem;letter-spacing:.02em;color:var(--muted)}
+.hero-media .ph-in{place-content:start center;padding-top:28%}
+.ph img{width:100%;height:100%;object-fit:cover}
+.r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}.r34{aspect-ratio:3/4}.r43{aspect-ratio:4/3}
+
+/* Portada */
+.hero{position:relative;overflow:hidden;padding:clamp(2.5rem,6vw,5rem) 0 clamp(3rem,6vw,4.5rem)}
+.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(70% 80% at 85% 10%,rgba(122,46,38,.55),transparent 70%),radial-gradient(50% 60% at 0% 100%,rgba(74,32,28,.5),transparent 70%);pointer-events:none}
+.hero .wrap{position:relative}
+.hero-grid{display:grid;gap:clamp(2.5rem,5vw,4.5rem);align-items:center}
+@media(min-width:900px){.hero-grid{grid-template-columns:1.1fr .9fr}}
+.hero h1{font-size:clamp(2.75rem,6.6vw,5.2rem);line-height:1.02;letter-spacing:-.02em}
+.hero h1 em{font-style:italic;color:var(--gold)}
+.hero .lead{font-size:clamp(1.08rem,1.6vw,1.22rem);color:var(--ink-2);margin:1.5rem 0 2.1rem;max-width:44ch}
+.cta-row{display:flex;flex-wrap:wrap;align-items:center;gap:1rem 1.6rem}
+.cta-row .tel-txt{color:var(--muted);font-size:.95rem}
+.cta-row .tel-txt a{color:var(--ink);text-decoration:none;font-weight:500}
+.hero-media{position:relative;max-width:480px;width:100%;justify-self:center}
+@media(min-width:900px){.hero-media{justify-self:end}}
+.hero-media .ph{box-shadow:var(--shadow)}
+.today{position:relative;margin:-5.5rem 0 0 -0;background:rgba(38,16,14,.94);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid var(--line-2);border-radius:var(--r);padding:1.35rem 1.4rem 1.2rem;box-shadow:var(--shadow);width:min(100% - 1.5rem,330px);margin-left:.75rem}
+@media(min-width:900px){.today{position:absolute;left:-3.5rem;bottom:2rem;margin:0;width:310px}}
+.today-h{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.3rem 1rem;margin-bottom:.55rem}
+.today .st{white-space:normal}
+.today-h>span:first-child{font-family:var(--display);font-size:1.3rem;color:var(--gold)}
+.today .hrs{font-size:1.15rem;font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.45;margin-bottom:.9rem}
+.today .addr{font-size:.9rem;color:var(--muted);line-height:1.5;padding-top:.85rem;border-top:1px solid var(--line);margin-bottom:.7rem}
+.today .link{font-size:.92rem}
+.st{display:inline-flex;align-items:center;gap:.45rem;font-size:.82rem;font-weight:500;color:var(--ink-2);white-space:nowrap}
+.st::before{content:"";width:8px;height:8px;border-radius:50%;background:#7d6f5e}
+.st[data-open="1"]::before{background:#5fbf7a}
+.st[data-open="0"]::before{background:#d0635b}
+.facts{position:relative;list-style:none;margin:clamp(3rem,6vw,4.5rem) 0 0;padding:1.4rem 0 0;border-top:1px solid var(--line);display:grid;grid-template-columns:1fr 1fr;gap:1rem 1.5rem}
+@media(min-width:760px){.facts{grid-template-columns:repeat(4,auto);justify-content:space-between}}
+.facts li{display:flex;align-items:center;gap:.65rem;font-size:.95rem;color:var(--ink-2)}
+.facts svg{color:var(--gold);width:20px;height:20px}
+
+/* Entrada de la portada */
+.rise{animation:rise .8s var(--ease-out) both}
+.rise.d1{animation-delay:.08s}.rise.d2{animation-delay:.16s}.rise.d3{animation-delay:.26s}.rise.d4{animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* Servicios en portada */
+.svc-split{display:grid;gap:2.5rem}
+@media(min-width:900px){.svc-split{grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}.svc-split .sec-head{position:sticky;top:calc(var(--head) + 2.5rem)}}
+.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.svc-list a{display:grid;grid-template-columns:auto 1fr auto;gap:1.1rem 1.4rem;align-items:center;padding:1.6rem .25rem;border-bottom:1px solid var(--line);text-decoration:none;transition:background-color .25s ease,padding .35s var(--ease-out)}
+.svc-list .ico{width:52px;height:52px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold);transition:background-color .25s ease,border-color .25s ease}
+.svc-list .ico svg{width:22px;height:22px}
+.svc-list h3{font-size:clamp(1.6rem,3vw,2.1rem)}
+.svc-list p{margin:.35rem 0 0;color:var(--muted);font-size:.98rem;max-width:46ch}
+.svc-list .arr{width:22px;height:22px;color:var(--gold-lo);transition:transform .3s var(--ease-out),color .2s ease}
+@media(hover:hover){
+  .svc-list a:hover{background:linear-gradient(90deg,rgba(216,189,134,.06),transparent);padding-left:.9rem}
+  .svc-list a:hover .ico{background:rgba(216,189,134,.1);border-color:var(--gold)}
+  .svc-list a:hover .arr{transform:translateX(4px);color:var(--gold)}
+}
+
+/* Horario */
+.visit{display:grid;gap:2.5rem}
+@media(min-width:900px){.visit{grid-template-columns:1fr 1.1fr;gap:4rem;align-items:stretch}}
+.hours-wrap h2{margin-bottom:.6rem}
+.hours-wrap .st{margin-bottom:2rem}
+.season{margin-top:1.8rem}
+.season h3{display:flex;align-items:baseline;gap:.75rem;font-size:1.45rem;margin-bottom:.8rem;color:var(--ink)}
+.season h3 small{font-family:var(--sans);font-size:.85rem;color:var(--muted)}
+.season h3 .now{display:none;font-family:var(--sans);font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--bg);background:var(--gold);padding:.2rem .5rem;border-radius:3px}
+.season.current h3 .now{display:inline-block}
+.season:not(.current){opacity:.62}
+.hours{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.hours th,.hours td{text-align:left;padding:.7rem 0;border-bottom:1px solid var(--line);vertical-align:top;font-weight:400}
+.hours th{color:var(--ink-2);padding-right:1.5rem;white-space:nowrap}
+.hours td{color:var(--ink)}
+.hours tr.is-today th,.hours tr.is-today td{color:var(--gold)}
+.hours tr.is-today th::after{content:" (hoy)";font-size:.85rem;color:var(--gold-lo)}
+.map{position:relative;min-height:380px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow);background:var(--surface)}
+.map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.8) contrast(1.02)}
+.map-tag{position:absolute;left:.85rem;right:.85rem;bottom:.85rem;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:.6rem 1rem;background:rgba(30,12,11,.94);border:1px solid var(--line-2);border-radius:var(--r);padding:.9rem 1.1rem;box-shadow:var(--shadow)}
+.map-tag b{display:block;font-family:var(--display);font-weight:400;font-size:1.15rem;color:var(--gold)}
+.map-tag span{font-size:.88rem;color:var(--ink-2)}
+.map-tag .btn{min-height:44px;padding:.55rem 1rem;font-size:.9rem}
+
+/* Conócenos */
+.about{display:grid;gap:3rem;align-items:center}
+@media(min-width:900px){.about{grid-template-columns:.85fr 1.15fr;gap:5.5rem}}
+.about-media{position:relative;max-width:460px}
+.seal{position:absolute;right:.75rem;bottom:2rem;width:118px;height:118px;border-radius:50%;background:var(--gold);color:#241010;display:grid;place-content:center;text-align:center;box-shadow:var(--shadow);line-height:1}
+.seal::before{content:"";position:absolute;inset:6px;border:1px solid rgba(36,16,16,.35);border-radius:50%}
+.seal small{font-size:.72rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase}
+.seal b{font-family:var(--display);font-weight:500;font-size:2.2rem;margin-top:.2rem}
+@media(min-width:900px){.seal{right:-1.5rem}}
+.about-txt h2{margin-bottom:1.5rem}
+.about-txt p{color:var(--ink-2);font-size:1.1rem}
+.sign{font-family:var(--display);font-style:italic;font-size:1.9rem;color:var(--gold);margin:1.4rem 0 1.8rem}
+
+/* Cómo trabajamos */
+.ways{display:grid;gap:2.5rem;margin-top:1rem}
+@media(min-width:860px){.ways{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.way{border-top:1px solid var(--line-2);padding-top:1.6rem}
+.way h3{font-style:italic;font-size:clamp(1.9rem,3.4vw,2.5rem);color:var(--gold);margin-bottom:.8rem}
+.way p{color:var(--ink-2);margin:0}
+
+/* Opiniones */
+.reviews{display:grid;gap:3rem}
+@media(min-width:960px){.reviews{grid-template-columns:.95fr 1.05fr;gap:4.5rem;align-items:center}}
+.featured{margin:0}
+.featured blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.75rem,3.4vw,2.55rem);line-height:1.22;color:var(--ink);text-wrap:balance}
+.featured blockquote::before{content:"“";display:block;font-size:4.5rem;line-height:.6;color:var(--gold);margin-bottom:.9rem;font-style:normal}
+.featured figcaption{margin-top:1.5rem;display:flex;align-items:center;gap:.9rem;color:var(--ink-2)}
+.stars{display:flex;gap:3px;color:var(--gold)}
+.stars svg{width:15px;height:15px}
+.stars svg.off{color:rgba(216,189,134,.28)}
+.src{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--muted)}
+.src svg{width:14px;height:14px}
+.rv-area{min-width:0}
+.rv-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(82%,320px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.25rem .25rem 1.25rem;margin:0 -.25rem;scrollbar-width:thin;overscroll-behavior-x:contain}
+.rv{scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.35rem;display:flex;flex-direction:column;gap:.75rem}
+.rv p{margin:0;color:var(--ink);font-size:1rem;line-height:1.55;flex:1}
+.rv-who{display:flex;align-items:center;gap:.75rem;padding-top:.85rem;border-top:1px solid var(--line)}
+.av{width:36px;height:36px;flex:none;border-radius:8px;background:var(--wine);border:1px solid var(--line-2);color:var(--gold);display:grid;place-content:center;font-size:.8rem;font-weight:600;letter-spacing:.04em}
+.rv-who b{display:block;font-weight:500;font-size:.92rem;line-height:1.3}
+.rv-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.4rem}
+.rv-btns{display:flex;gap:.5rem}
+.rv-btns button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:none;color:var(--gold);cursor:pointer;display:grid;place-content:center;transition:border-color .2s ease,background-color .2s ease,transform .16s var(--ease-out)}
+.rv-btns button:hover{border-color:var(--gold);background:rgba(216,189,134,.08)}
+.rv-btns button:active{transform:scale(.94)}
+.rv-btns button:disabled{opacity:.35;cursor:default}
+.rv-btns svg{width:18px;height:18px}
+.rv-btns .prev svg{transform:rotate(180deg)}
+
+/* Llamada final */
+.close{position:relative;text-align:center;padding:clamp(4.5rem,9vw,6.5rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(122,46,38,.45),transparent 70%),var(--bg-2);border-top:1px solid var(--line)}
+.close h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
+.close p{margin:1rem auto 2rem;color:var(--ink-2)}
+.close .cta-row{justify-content:center}
+
+/* Pie */
+footer{background:var(--bg);padding:3.5rem 0 2.5rem;border-top:1px solid var(--line);color:var(--muted);font-size:.95rem}
+.foot{display:grid;gap:2.2rem}
+@media(min-width:800px){.foot{grid-template-columns:1.4fr 1fr 1fr}}
+.foot .brand{align-items:flex-start;margin-bottom:1rem}
+.foot h3{font-family:var(--sans);font-size:.8rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--ink-2);margin-bottom:.9rem}
+.foot ul{list-style:none;margin:0;padding:0;display:grid;gap:.45rem}
+.foot a{text-decoration:none;transition:color .2s ease}
+.foot a:hover{color:var(--gold)}
+.foot p{margin:0 0 .3rem}
+.legal{margin-top:2.5rem;padding-top:1.5rem;border-top:1px solid var(--line);font-size:.85rem}
+
+/* Barra de llamada (móvil) */
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:grid;grid-template-columns:1.25fr 1fr;gap:.6rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(30,12,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.callbar .btn{min-height:48px;width:100%;padding:.6rem .8rem}
+@media(min-width:900px){.callbar{display:none}}
+
+/* Interiores */
+.ptitle{position:relative;padding:clamp(3rem,7vw,5rem) 0 clamp(2.5rem,5vw,3.5rem);background:radial-gradient(60% 120% at 90% 0%,rgba(122,46,38,.45),transparent 70%)}
+.crumb{font-size:.9rem;color:var(--muted);margin-bottom:1rem}
+.crumb a{color:var(--gold);text-decoration:none}
+.crumb a:hover{text-decoration:underline}
+.ptitle h1{font-size:clamp(2.8rem,8vw,5rem);letter-spacing:-.02em}
+.ptitle p{color:var(--ink-2);font-size:1.12rem;margin:1rem 0 0}
+.ptitle .st{margin-top:1.2rem}
+
+/* Página de servicios */
+.cat{display:grid;gap:1.4rem;padding:clamp(2.2rem,4vw,3rem) 0;border-top:1px solid var(--line)}
+.cat:first-child{border-top:0;padding-top:0}
+@media(min-width:860px){.cat{grid-template-columns:.75fr 1.25fr;gap:4rem;align-items:start}}
+.cat-h{display:flex;align-items:center;gap:1rem}
+.cat-h .ico{width:56px;height:56px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold);flex:none}
+.cat-h h2{font-size:clamp(2rem,4vw,2.7rem)}
+.items{display:grid;gap:0}
+.item{padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.item:first-child{padding-top:0}
+.item:last-child{border-bottom:0}
+.item h3{font-size:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;margin-bottom:.3rem}
+.item p{margin:0;color:var(--muted)}
+.tag{font-family:var(--sans);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-2);padding:.22rem .5rem;border-radius:3px}
+.note{margin-top:3rem;padding:1.6rem 1.8rem;border:1px solid var(--line-2);border-radius:var(--r);background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
+.note p{margin:0;color:var(--ink-2)}
+.note strong{font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--ink);display:block;margin-bottom:.2rem}
+
+/* Página Conócenos */
+.vals{list-style:none;margin:clamp(3rem,6vw,4.5rem) 0 0;padding:0;display:grid;gap:2rem}
+@media(min-width:860px){.vals{grid-template-columns:repeat(3,1fr);gap:3rem}}
+.vals li{display:flex;gap:1rem;align-items:flex-start;border-top:1px solid var(--line-2);padding-top:1.4rem}
+.vals svg{color:var(--gold);width:26px;height:26px;margin-top:.2rem}
+.vals h2{font-size:1.5rem;line-height:1.3;margin-bottom:.25rem}
+.vals p{margin:0;color:var(--muted)}
+
+/* Galería */
+.gal{columns:2 220px;column-gap:1rem}
+@media(min-width:900px){.gal{columns:3}}
+.gal figure{break-inside:avoid;margin:0 0 1rem}
+.gal figcaption{font-size:.9rem;color:var(--muted);padding:.55rem .15rem 0}
+.gal-note{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
+
+/* Contacto */
+.contact{display:grid;gap:3rem}
+@media(min-width:900px){.contact{grid-template-columns:1fr 1fr;gap:5rem}}
+.lines{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.lines li{border-bottom:1px solid var(--line)}
+.lines a{display:flex;align-items:center;justify-content:space-between;gap:1rem;padding:1.35rem 0;text-decoration:none}
+.lines small{display:block;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-bottom:.15rem}
+.lines strong{font-family:var(--display);font-weight:400;font-size:clamp(1.6rem,4vw,2.2rem);color:var(--ink);overflow-wrap:anywhere;transition:color .2s ease}
+.lines .mail strong{font-size:clamp(1.15rem,3vw,1.5rem)}
+.lines svg{width:22px;height:22px;color:var(--gold-lo);transition:transform .3s var(--ease-out),color .2s ease}
+.lines a:hover strong{color:var(--gold)}
+.lines a:hover svg{transform:translateX(4px);color:var(--gold)}
+.addr-block{margin-top:2rem;color:var(--ink-2)}
+.faq h2{font-size:clamp(2rem,4vw,2.6rem);margin-bottom:1.5rem}
+.faq dl{margin:0;display:grid;gap:1.6rem}
+.faq dt{font-family:var(--display);font-size:1.35rem;color:var(--ink);margin-bottom:.35rem}
+.faq dd{margin:0;color:var(--muted)}
+
+@media(prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
+}
+</style>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HairSalon",
+  "name": "D'Homes Peluquería",
+  "description": "Peluquería y barbería de caballeros en Vilagarcía de Arousa. Corte, barba, afeitado y color, con cita previa.",
+  "telephone": ["+34633247464", "+34986500766"],
+  "email": "nellymosteiro69@gmail.com",
+  "priceRange": "€€",
+  "foundingDate": "1994",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Arzobispo Gelmírez, 7 Bajo",
+    "addressLocality": "Vilagarcía de Arousa",
+    "addressRegion": "Pontevedra",
+    "postalCode": "36600",
+    "addressCountry": "ES"
+  },
+  "openingHoursSpecification": [
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "10:00", "closes": "13:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "16:30", "closes": "20:30" },
+    { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Saturday"], "opens": "10:00", "closes": "14:00" }
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Saltar al contenido</a>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="i-sc" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><path d="M8.5 7.5 20 18M8.5 16.5 20 6"/></g></symbol>
+    <symbol id="i-rz" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 15 15 5l3 3L6 18H3v-3Z"/><path d="M14 9l3 3"/></g></symbol>
+    <symbol id="i-dr" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 5 6 8 6 11a6 6 0 0 1-12 0c0-3 2-6 6-11Z"/></g></symbol>
+    <symbol id="i-hm" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11 12 4l9 7v9H3v-9Z"/><path d="M9 20v-6h6v6"/></g></symbol>
+    <symbol id="i-pn" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s7-6.5 7-12a7 7 0 0 0-14 0c0 5.5 7 12 7 12Z"/><circle cx="12" cy="9" r="2.5"/></g></symbol>
+    <symbol id="i-ph" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2Z"/></g></symbol>
+    <symbol id="i-ck" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></g></symbol>
+    <symbol id="i-ca" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h3l2-3h6l2 3h3v11H4V8Z"/><circle cx="12" cy="13" r="3.5"/></g></symbol>
+    <symbol id="i-ml" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
+    <symbol id="i-cl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></g></symbol>
+    <symbol id="i-ok" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></g></symbol>
+    <symbol id="i-st" viewBox="0 0 24 24"><g fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5Z"/></g></symbol>
+    <symbol id="i-g4" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.8c-.5 2.7-2.1 5-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.5z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.700 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 16.9 2 20.3 2 24s1 7.1 2.5 10l7.3-5.700z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 6.9 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g></symbol>
+  </defs>
+</svg>
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#/" aria-label="D'Homes Peluquería, inicio"><b>D'HOMES</b><small>Peluquería</small></a>
+    <nav class="nav" aria-label="Menú principal">
+      <a href="#/servicios">Servicios</a>
+      <a href="#/conocenos">Conócenos</a>
+      <a href="#/galeria">Galería</a>
+      <a href="#/ubicacion">Ubicación y horario</a>
+      <a href="#/contacto">Contacto</a>
+    </nav>
+    <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
+  </div>
+</header>
+
+<nav id="menu" aria-label="Menú">
+  <ul>
+    <li><a href="#/">Inicio<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#/servicios">Servicios<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#/conocenos">Conócenos<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#/galeria">Galería<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#/ubicacion">Ubicación y horario<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li><a href="#/contacto">Contacto<svg class="i"><use href="#i-arrow"/></svg></a></li>
+  </ul>
+  <div class="menu-foot">
+    <span>Cita previa por teléfono</span>
+    <a href="tel:633247464">633 247 464</a>
+    <a href="tel:986500766">986 500 766</a>
+  </div>
+</nav>
+
+<main id="main">
+
+<!-- INICIO -->
+<div class="page" data-page="" data-title="Inicio">
+  <div class="hero">
+    <div class="wrap hero-grid">
+      <div>
+        <h1 class="rise">Corte y barba con oficio, <em>desde&nbsp;1994.</em></h1>
+        <p class="lead rise d1">Peluquería de caballeros en el centro de Vilagarcía de Arousa. Con cita previa y sin prisas.</p>
+        <div class="cta-row rise d2">
+          <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+          <a class="link" href="#/servicios">Ver servicios<svg class="i"><use href="#i-arrow"/></svg></a>
+        </div>
+      </div>
+      <div class="hero-media rise d3">
+        <figure class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Foto del local</span><small>Pendiente de foto real</small></div></figure>
+        <aside class="today" aria-label="Horario de hoy">
+          <div class="today-h"><span>Hoy</span><span class="st" data-open="">Consultando…</span></div>
+          <div class="hrs" id="todayhrs"></div>
+          <div class="addr">Arzobispo Gelmírez, 7 Bajo<br>36600 Vilagarcía de Arousa</div>
+          <a class="link" href="#/ubicacion">Horario y cómo llegar<svg class="i"><use href="#i-arrow"/></svg></a>
+        </aside>
+      </div>
+    </div>
+    <div class="wrap">
+      <ul class="facts rise d4">
+        <li><svg class="i"><use href="#i-cl"/></svg>Cita previa</li>
+        <li><svg class="i"><use href="#i-hm"/></svg>Servicio a domicilio</li>
+        <li><svg class="i"><use href="#i-ok"/></svg>Acceso para movilidad reducida</li>
+        <li><svg class="i"><use href="#i-ck"/></svg>Más de 32 años de oficio</li>
+      </ul>
+    </div>
+  </div>
+  <div class="pole" aria-hidden="true"></div>
+
+  <section>
+    <div class="wrap svc-split">
+      <div class="sec-head">
+        <h2>Nuestros servicios</h2>
+        <p>Lo esencial de una buena barbería, hecho con calma y con oficio.</p>
+        <a class="link" href="#/servicios">Ver todos los servicios<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <ul class="svc-list">
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><div><h3>Cabello</h3><p>Corte, marcado y contornos, adaptados a tu cara y a tu día a día.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><div><h3>Barba</h3><p>Arreglo de barba y afeitado tradicional con toalla caliente.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><div><h3>Color</h3><p>Tintes y mechas con acabado natural, para cubrir canas o cambiar de look.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-hm"/></svg></span><div><h3>A domicilio</h3><p>Si no puedes venir a la peluquería, vamos nosotros.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap visit">
+      <div class="hours-wrap">
+        <h2 class="h2">Horario</h2>
+        <span class="st" data-open="">Consultando…</span>
+        <div class="season" data-season="w">
+          <h3>Invierno <small>septiembre a mayo</small><span class="now">Ahora</span></h3>
+          <table class="hours"><tbody>
+            <tr data-days="0,1,2,3,4"><th scope="row">Lunes a viernes</th><td>10:00 a 13:30<br>16:30 a 20:30</td></tr>
+            <tr data-days="5"><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr>
+            <tr data-days="6"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody></table>
+        </div>
+        <div class="season" data-season="s">
+          <h3>Verano <small>junio a agosto</small><span class="now">Ahora</span></h3>
+          <table class="hours"><tbody>
+            <tr data-days="0,1,2,3"><th scope="row">Lunes a jueves</th><td>10:00 a 18:00</td></tr>
+            <tr data-days="4"><th scope="row">Viernes</th><td>10:00 a 13:30<br>16:30 a 20:00</td></tr>
+            <tr data-days="5"><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr>
+            <tr data-days="6"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed" title="Mapa de D'Homes Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-tag"><div><b>D'Homes Peluquería</b><span>Arzobispo Gelmírez, 7 Bajo</span></div><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap about">
+      <div class="about-media">
+        <figure class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Foto del equipo</span><small>Pendiente de foto real</small></div></figure>
+        <div class="seal"><small>Desde</small><b>1994</b></div>
+      </div>
+      <div class="about-txt">
+        <h2 class="h2">Conócenos</h2>
+        <p>D'Homes abrió en 1994 con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre. Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de siempre con lo que se lleva hoy.</p>
+        <p class="sign">Nelly Mosteiro</p>
+        <a class="link" href="#/conocenos">Nuestra historia<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
+      <div class="sec-head"><h2>Cómo trabajamos</h2></div>
+      <div class="ways">
+        <div class="way"><h3>Pides tu cita.</h3><p>Llámanos y te buscamos el hueco que mejor te venga.</p></div>
+        <div class="way"><h3>Te escuchamos.</h3><p>Nos cuentas qué quieres y te aconsejamos con sinceridad.</p></div>
+        <div class="way"><h3>Sales como querías.</h3><p>Un corte bien hecho, fácil de mantener en casa.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap reviews">
+      <div>
+        <h2 class="h2 sr">Opiniones de clientes</h2>
+        <figure class="featured">
+          <blockquote>Mi peluquería favorita, llevo yendo 20 años desde que era un niño y siempre salgo contento.</blockquote>
+          <figcaption><span class="av" aria-hidden="true">FP</span><span><b style="font-weight:500;color:var(--ink)">Fernando Pérez Díaz</b><br><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></span></figcaption>
+        </figure>
+      </div>
+      <div class="rv-area">
+        <div class="rv-track" id="rvtrack" tabindex="0" aria-label="Opiniones de clientes en Google">
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La primera vez y genial. Atención estupenda, mucha profesionalidad y saber hacer.”</p><div class="rv-who"><span class="av" aria-hidden="true">JD</span><div><b>Javier Dafonte Fresco</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Es la peluquería a la que voy habitualmente desde hace años, trato muy cordial y siempre quedo satisfecho.”</p><div class="rv-who"><span class="av" aria-hidden="true">VC</span><div><b>Victor Colomino</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La mejor peluquería de caballeros de Villagarcía, trato genial y super profesional!”</p><div class="rv-who"><span class="av" aria-hidden="true">MR</span><div><b>Manuel Recouso</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Un servicio excelente, ambiente relajado y unos profesionales.”</p><div class="rv-who"><span class="av" aria-hidden="true">IA</span><div><b>Ignacio Abalo</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="4" role="img" aria-label="4 de 5 estrellas"></div><p>“Trato excelente y precio más que razonable.”</p><div class="rv-who"><span class="av" aria-hidden="true">JS</span><div><b>Jose Sotoabal</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Experiencia 100 x 100 y trato de excelencia.”</p><div class="rv-who"><span class="av" aria-hidden="true">CC</span><div><b>César Córdoba Ferreira</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La mejor peluquería de caballeros de Vilagarcía.”</p><div class="rv-who"><span class="av" aria-hidden="true">MM</span><div><b>Manuel De Maila</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Atención excelente.”</p><div class="rv-who"><span class="av" aria-hidden="true">JI</span><div><b>Julián Iglesias Mouta</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Buena profesional.”</p><div class="rv-who"><span class="av" aria-hidden="true">MC</span><div><b>Maribel Castellano Bouzon</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+        </div>
+        <div class="rv-nav">
+          <a class="link" href="https://www.google.com/search?q=D+Homes+peluqueria+Vilagarcia+de+Arousa#lrd=0xd2f6d274534f31d:0x0,1" target="_blank" rel="noopener">Más opiniones en Google<svg class="i"><use href="#i-arrow"/></svg></a>
+          <div class="rv-btns"><button class="prev" type="button" aria-label="Opiniones anteriores"><svg><use href="#i-arrow"/></svg></button><button class="next" type="button" aria-label="Más opiniones"><svg><use href="#i-arrow"/></svg></button></div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- SERVICIOS -->
+<div class="page" data-page="servicios" data-title="Servicios">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Servicios</div><h1>Servicios</h1><p>Todo lo que necesitas para salir de la peluquería como quieres.</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap">
+      <div class="cat">
+        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><h2>Cabello</h2></div>
+        <div class="items">
+          <div class="item"><h3>Corte de pelo<span class="tag">Más pedido</span></h3><p>Clásico, degradado, a tijera o a máquina. Lo adaptamos a tu cara y a tu día a día.</p></div>
+          <div class="item"><h3>Marcado</h3><p>Peinado y acabado con producto para que te dure todo el día.</p></div>
+          <div class="item"><h3>Arreglo de contornos</h3><p>Líneas limpias en patillas, nuca y cuello entre corte y corte.</p></div>
+        </div>
+      </div>
+      <div class="cat">
+        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><h2>Barba</h2></div>
+        <div class="items">
+          <div class="item"><h3>Arreglo de barba</h3><p>Perfilado y recorte con la forma que mejor te queda.</p></div>
+          <div class="item"><h3>Afeitado a navaja<span class="tag">Tradicional</span></h3><p>Afeitado con toalla caliente, para una piel suave y sin irritación.</p></div>
+        </div>
+      </div>
+      <div class="cat">
+        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><h2>Color</h2></div>
+        <div class="items">
+          <div class="item"><h3>Tintes</h3><p>Cubrimos canas con un acabado natural o cambiamos de look.</p></div>
+          <div class="item"><h3>Mechas</h3><p>Reflejos suaves o marcados para dar luz y textura.</p></div>
+        </div>
+      </div>
+      <div class="cat">
+        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-hm"/></svg></span><h2>A domicilio</h2></div>
+        <div class="items">
+          <div class="item"><h3>Servicio a domicilio</h3><p>Si no puedes venir, vamos nosotros. Consulta disponibilidad y zona.</p></div>
+        </div>
+      </div>
+      <div class="note">
+        <div><strong>Precios por teléfono</strong><p>Te los confirmamos al pedir tu cita.</p></div>
+        <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONÓCENOS -->
+<div class="page" data-page="conocenos" data-title="Conócenos">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Conócenos</div><h1>Conócenos</h1></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap">
+      <div class="about">
+        <div class="about-media">
+          <figure class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Foto del equipo</span><small>Pendiente de foto real</small></div></figure>
+          <div class="seal"><small>Desde</small><b>1994</b></div>
+        </div>
+        <div class="about-txt">
+          <p>D'Homes abrió en 1994 en Vilagarcía de Arousa con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre.</p>
+          <p>Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de la barbería de siempre con las técnicas y tendencias de ahora. Más de treinta años nos han enseñado que cada cabeza es distinta, y que un buen corte empieza por escuchar.</p>
+          <p>Aquí no hay prisas. Te preguntamos qué quieres, te aconsejamos con sinceridad y te vas con un corte que sabrás mantener en casa.</p>
+          <p class="sign">Nelly Mosteiro</p>
+        </div>
+      </div>
+      <ul class="vals">
+        <li><svg class="i"><use href="#i-sc"/></svg><div><h2>Oficio</h2><p>Barbería clásica con técnicas actuales.</p></div></li>
+        <li><svg class="i"><use href="#i-cl"/></svg><div><h2>Sin esperas</h2><p>Trabajamos con cita previa.</p></div></li>
+        <li><svg class="i"><use href="#i-hm"/></svg><div><h2>A tu puerta</h2><p>También atendemos a domicilio.</p></div></li>
+      </ul>
+    </div>
+  </section>
+</div>
+
+<!-- GALERÍA -->
+<div class="page" data-page="galeria" data-title="Galería">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Galería</div><h1>Galería</h1><p>Algunos de nuestros trabajos.</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap">
+      <div class="gal">
+        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Corte clásico</span><small>Foto pendiente</small></div></div><figcaption>Corte clásico</figcaption></figure>
+        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Degradado</span><small>Foto pendiente</small></div></div><figcaption>Degradado</figcaption></figure>
+        <figure><div class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Barba perfilada</span><small>Foto pendiente</small></div></div><figcaption>Barba perfilada</figcaption></figure>
+        <figure><div class="ph r43"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Color</span><small>Foto pendiente</small></div></div><figcaption>Color</figcaption></figure>
+        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Mechas</span><small>Foto pendiente</small></div></div><figcaption>Mechas</figcaption></figure>
+        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Afeitado</span><small>Foto pendiente</small></div></div><figcaption>Afeitado</figcaption></figure>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- UBICACIÓN -->
+<div class="page" data-page="ubicacion" data-title="Ubicación y horario">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Ubicación y horario</div><h1>Ubicación y horario</h1><p>Arzobispo Gelmírez, 7 Bajo, 36600 Vilagarcía de Arousa (Pontevedra)</p><span class="st" data-open="">Consultando…</span></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap visit">
+      <div class="map">
+        <iframe src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed" title="Mapa de D'Homes Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-tag"><div><b>D'Homes Peluquería</b><span>Arzobispo Gelmírez, 7 Bajo</span></div><a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a></div>
+      </div>
+      <div class="hours-wrap">
+        <h2 class="h2">Horario</h2>
+        <div class="season" data-season="w">
+          <h3>Invierno <small>septiembre a mayo</small><span class="now">Ahora</span></h3>
+          <table class="hours"><tbody>
+            <tr data-days="0,1,2,3,4"><th scope="row">Lunes a viernes</th><td>10:00 a 13:30<br>16:30 a 20:30</td></tr>
+            <tr data-days="5"><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr>
+            <tr data-days="6"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody></table>
+        </div>
+        <div class="season" data-season="s">
+          <h3>Verano <small>junio a agosto</small><span class="now">Ahora</span></h3>
+          <table class="hours"><tbody>
+            <tr data-days="0,1,2,3"><th scope="row">Lunes a jueves</th><td>10:00 a 18:00</td></tr>
+            <tr data-days="4"><th scope="row">Viernes</th><td>10:00 a 13:30<br>16:30 a 20:00</td></tr>
+            <tr data-days="5"><th scope="row">Sábado</th><td>10:00 a 14:00</td></tr>
+            <tr data-days="6"><th scope="row">Domingo</th><td>Cerrado</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- CONTACTO -->
+<div class="page" data-page="contacto" data-title="Contacto">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Contacto</div><h1>Contacto</h1><p>Llámanos o escríbenos para pedir cita.</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap contact">
+      <div>
+        <ul class="lines">
+          <li><a href="tel:633247464"><span><small>Móvil</small><strong>633 247 464</strong></span><svg class="i"><use href="#i-arrow"/></svg></a></li>
+          <li><a href="tel:986500766"><span><small>Fijo</small><strong>986 500 766</strong></span><svg class="i"><use href="#i-arrow"/></svg></a></li>
+          <li class="mail"><a href="mailto:nellymosteiro69@gmail.com"><span><small>Correo</small><strong>nellymosteiro69@gmail.com</strong></span><svg class="i"><use href="#i-arrow"/></svg></a></li>
+        </ul>
+        <p class="addr-block">Arzobispo Gelmírez, 7 Bajo<br>36600 Vilagarcía de Arousa (Pontevedra)</p>
+      </div>
+      <div class="faq">
+        <h2>Preguntas frecuentes</h2>
+        <dl>
+          <div><dt>¿Hace falta pedir cita?</dt><dd>Sí, trabajamos con cita previa para no hacerte esperar. Llama al 633 247 464 y te buscamos hueco.</dd></div>
+          <div><dt>¿Hay aparcamiento cerca?</dt><dd>Sí, hay aparcamiento en la calle junto al local y alrededores en el centro de Vilagarcía.</dd></div>
+          <div><dt>¿Se puede pagar con tarjeta?</dt><dd>Sí, aceptamos pago con tarjeta además de en efectivo.</dd></div>
+          <div><dt>¿Atendéis a domicilio?</dt><dd>Sí, si no puedes venir al local, consúltanos disponibilidad y zona.</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+</div>
+
+</main>
+
+<div class="pole" aria-hidden="true"></div>
+<div class="close">
+  <div class="wrap">
+    <h2>¿Te buscamos hueco?</h2>
+    <p>Llámanos y te damos cita.</p>
+    <div class="cta-row">
+      <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+      <span class="tel-txt">o al fijo <a href="tel:986500766">986 500 766</a></span>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="wrap">
+    <div class="foot">
+      <div>
+        <a class="brand" href="#/" aria-label="D'Homes Peluquería, inicio"><b>D'HOMES</b><small>Peluquería</small></a>
+        <p>Arzobispo Gelmírez, 7 Bajo</p>
+        <p>36600 Vilagarcía de Arousa (Pontevedra)</p>
+      </div>
+      <div><h3>Páginas</h3><ul><li><a href="#/servicios">Servicios</a></li><li><a href="#/conocenos">Conócenos</a></li><li><a href="#/galeria">Galería</a></li><li><a href="#/ubicacion">Ubicación y horario</a></li><li><a href="#/contacto">Contacto</a></li></ul></div>
+      <div><h3>Contacto</h3><ul><li><a href="tel:633247464">633 247 464</a></li><li><a href="tel:986500766">986 500 766</a></li><li><a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a></li></ul></div>
+    </div>
+    <div class="legal">© <span id="year">2026</span> D'Homes Peluquería</div>
+  </div>
+</footer>
+
+<div class="callbar">
+  <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+  <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
+</div>
+
+<script>
+(function(){
+  var b=document.getElementById('burger'),n=document.getElementById('menu'),pages=document.querySelectorAll('.page'),links=document.querySelectorAll('#menu a[href^="#/"], .nav a');
+
+  function menu(o){n.classList.toggle('open',o);b.setAttribute('aria-expanded',o);b.setAttribute('aria-label',o?'Cerrar menú':'Abrir menú');document.body.style.overflow=o?'hidden':''}
+  b.addEventListener('click',function(){menu(!n.classList.contains('open'))});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')menu(false)});
+  window.addEventListener('resize',function(){if(window.innerWidth>=960)menu(false)});
+
+  function route(){
+    var k=(location.hash||'#/').replace(/^#\/?/,''),found=false;
+    pages.forEach(function(p){var on=p.dataset.page===k;p.classList.toggle('on',on);if(on){found=true;document.title=(k?p.dataset.title+' · ':'')+"D'Homes Peluquería · Vilagarcía de Arousa"}});
+    if(!found){pages[0].classList.add('on');k=''}
+    links.forEach(function(a){var h=a.getAttribute('href').replace(/^#\/?/,'');if(h===k)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+    menu(false);window.scrollTo(0,0);
+  }
+  window.addEventListener('hashchange',route);route();
+
+  document.getElementById('year').textContent=new Date().getFullYear();
+
+  // Horario: estado abierto/cerrado con hora de Madrid
+  function madrid(date){
+    var P={};new Intl.DateTimeFormat('en-US',{timeZone:'Europe/Madrid',weekday:'short',month:'numeric',hour:'numeric',minute:'numeric',hourCycle:'h23'}).formatToParts(date).forEach(function(p){P[p.type]=p.value});
+    return {d:['Mon','Tue','Wed','Thu','Fri','Sat','Sun'].indexOf(P.weekday),m:+P.hour*60+ +P.minute,mo:+P.month};
+  }
+  function slots(d,mo){
+    var sum=mo>=6&&mo<=8;
+    if(d===6)return[];
+    if(d===5)return[[600,840]];
+    if(sum)return d<=3?[[600,1080]]:[[600,810],[990,1200]];
+    return[[600,810],[990,1230]];
+  }
+  var f=function(x){var h=Math.floor(x/60),mi=x%60;return h+':'+(mi<10?'0':'')+mi};
+  var DAYS=['el lunes','el martes','el miércoles','el jueves','el viernes','el sábado','el domingo'];
+  try{
+    var now=madrid(new Date()),s=slots(now.d,now.mo),cur=null,txt;
+    s.forEach(function(x){if(now.m>=x[0]&&now.m<x[1])cur=x});
+    if(cur){txt='Abierto · cierra a las '+f(cur[1])}
+    else{
+      var later=s.filter(function(x){return x[0]>now.m})[0];
+      if(later)txt='Cerrado · abre hoy a las '+f(later[0]);
+      else{
+        for(var i=1;i<=7;i++){
+          var t=madrid(new Date(Date.now()+i*864e5)),ns=slots(t.d,t.mo);
+          if(ns.length){txt='Cerrado · abre '+(i===1?'mañana':DAYS[t.d])+' a las '+f(ns[0][0]);break}
+        }
+      }
+    }
+    document.querySelectorAll('.st').forEach(function(e){e.dataset.open=cur?1:0;e.textContent=txt});
+    var el=document.getElementById('todayhrs');
+    if(el)el.innerHTML=s.length?s.map(function(x){return f(x[0])+' a '+f(x[1])}).join('<br>'):'Hoy cerramos';
+    var season=(now.mo>=6&&now.mo<=8)?'s':'w';
+    document.querySelectorAll('.season').forEach(function(sec){
+      var c=sec.dataset.season===season;sec.classList.toggle('current',c);
+      if(c)sec.querySelectorAll('tr[data-days]').forEach(function(tr){if(tr.dataset.days.split(',').indexOf(String(now.d))>-1)tr.classList.add('is-today')});
+    });
+  }catch(e){document.querySelectorAll('.st').forEach(function(x){x.style.display='none'})}
+
+  document.querySelectorAll('.stars[data-n]').forEach(function(e){var n=+e.dataset.n,h='';for(var i=0;i<5;i++)h+='<svg class="'+(i<n?'':'off')+'" aria-hidden="true"><use href="#i-st"/></svg>';e.innerHTML=h});
+
+  // Opiniones: botones de desplazamiento
+  var tr=document.getElementById('rvtrack');
+  if(tr){
+    var pv=document.querySelector('.rv-btns .prev'),nx=document.querySelector('.rv-btns .next');
+    var stepW=function(){var c=tr.querySelector('.rv');return c?c.getBoundingClientRect().width+16:300};
+    var sync=function(){pv.disabled=tr.scrollLeft<8;nx.disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-8};
+    pv.addEventListener('click',function(){tr.scrollBy({left:-stepW(),behavior:'smooth'})});
+    nx.addEventListener('click',function(){tr.scrollBy({left:stepW(),behavior:'smooth'})});
+    tr.addEventListener('scroll',sync,{passive:true});window.addEventListener('resize',sync);sync();
+  }
+})();
+</script>
+</body>
+</html>
