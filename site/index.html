@@ -388,7 +388,12 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .rv-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.2rem 2rem;margin-bottom:2.2rem}
 .rv-head h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
 .rv-head .btn svg{width:18px;height:18px}
-.rv-actions{display:flex;flex-wrap:wrap;align-items:center;gap:.8rem 1.4rem}
+.rv-cta{display:flex;justify-content:center;margin-top:2rem}
+.btn-review{display:inline-flex;align-items:center;gap:.75rem;padding:.75rem 1.4rem;border-radius:14px;border:1px solid var(--line-2);background:rgba(216,189,134,.06);color:var(--ink);font-weight:500;text-decoration:none;transition:border-color .25s ease,background-color .25s ease,transform .16s var(--ease-out)}
+.rv-stars{display:inline-flex;gap:2px;color:var(--gold)}
+.rv-stars svg{width:14px;height:14px;transition:transform .35s var(--ease-out)}
+@media(hover:hover){.btn-review:hover{border-color:var(--gold);background:rgba(216,189,134,.12)}.btn-review:hover .rv-stars svg{transform:translateY(-2px)}.btn-review:hover .rv-stars svg:nth-child(2){transition-delay:.04s}.btn-review:hover .rv-stars svg:nth-child(3){transition-delay:.08s}.btn-review:hover .rv-stars svg:nth-child(4){transition-delay:.12s}.btn-review:hover .rv-stars svg:nth-child(5){transition-delay:.16s}}
+.btn-review:active{transform:scale(.97)}
 .gr-stars{display:inline-flex;gap:3px;color:var(--gold)}
 .gr-stars svg{width:18px;height:18px}
 .gr-stars svg.off{color:rgba(216,189,134,.25)}
@@ -397,7 +402,6 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .q-stage[data-slot="1"]{display:none}
 @media(min-width:900px){.q-stage[data-slot="1"]{display:grid}}
 .q-stage{position:relative;display:grid;overflow:hidden;border-radius:var(--r);border:1px solid var(--line-2);background:radial-gradient(90% 120% at 0% 0%,rgba(122,46,38,.55),transparent 60%),radial-gradient(70% 90% at 100% 100%,rgba(216,189,134,.08),transparent 60%),var(--surface);padding:clamp(2rem,4vw,3rem) clamp(1.4rem,3.5vw,2.6rem) clamp(2.2rem,4vw,2.8rem);min-height:clamp(300px,28vw,340px)}
-.q-stage::before{content:"“";position:absolute;right:clamp(1rem,3vw,2rem);top:clamp(1rem,2.4vw,1.6rem);font-family:var(--display);font-size:clamp(8rem,13vw,11rem);line-height:.7;height:.45em;overflow:hidden;color:var(--gold);opacity:.12;pointer-events:none}
 .q-slide{grid-area:1/1;margin:0;display:flex;flex-direction:column;justify-content:center;gap:1.4rem;position:relative}
 .q-slide[hidden]{display:none}
 .q-slide blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.25;color:var(--ink);max-width:30ch;text-wrap:balance}
@@ -864,7 +868,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <div class="wrap">
       <div class="rv-head" data-reveal>
         <h2>Opiniones de clientes</h2>
-        <div class="rv-actions"><a class="btn btn-line" href="https://g.page/r/CTKGDCTnu0CtEBM" target="_blank" rel="noopener"><svg class="i"><use href="#i-g4"/></svg>Ver todas en Google</a><a class="link" href="https://g.page/r/CTKGDCTnu0CtEBM/review" target="_blank" rel="noopener">Déjanos tu opinión<svg class="i"><use href="#i-arrow"/></svg></a></div>
+        <a class="btn btn-line" href="https://g.page/r/CTKGDCTnu0CtEBM" target="_blank" rel="noopener"><svg class="i"><use href="#i-g4"/></svg>Ver todas en Google</a>
       </div>
       <div class="quotes" data-reveal style="--i:1" aria-roledescription="carrusel" aria-label="Opiniones de clientes">
         <div class="q-pool" hidden>
@@ -929,6 +933,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
           <div class="q-dots"><button type="button" class="q-dot on" aria-label="Opinión de Fernando Pérez Díaz" aria-pressed="true">FD</button><button type="button" class="q-dot" aria-label="Opinión de Javier Dafonte Fresco" aria-pressed="false">JF</button><button type="button" class="q-dot" aria-label="Opinión de Victor Colomino" aria-pressed="false">VC</button><button type="button" class="q-dot" aria-label="Opinión de Manuel Recouso" aria-pressed="false">MR</button><button type="button" class="q-dot" aria-label="Opinión de Ignacio Abalo" aria-pressed="false">IA</button><button type="button" class="q-dot" aria-label="Opinión de Jose Sotoabal" aria-pressed="false">JS</button><button type="button" class="q-dot" aria-label="Opinión de César Córdoba Ferreira" aria-pressed="false">CF</button><button type="button" class="q-dot" aria-label="Opinión de Manuel De Maila" aria-pressed="false">MM</button><button type="button" class="q-dot" aria-label="Opinión de Julián Iglesias Mouta" aria-pressed="false">JM</button><button type="button" class="q-dot" aria-label="Opinión de Maribel Castellano Bouzon" aria-pressed="false">MB</button></div>
           <button class="q-arrow next" type="button" aria-label="Opinión siguiente"><svg><use href="#i-arrow"/></svg></button>
         </div>
+        <div class="rv-cta"><a class="btn-review" href="https://g.page/r/CTKGDCTnu0CtEBM/review" target="_blank" rel="noopener"><span class="rv-stars" aria-hidden="true"><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg><svg><use href="#i-st"/></svg></span>Déjanos tu opinión</a></div>
       </div>
     </div>
   </section>
