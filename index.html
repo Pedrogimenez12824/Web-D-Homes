@@ -260,7 +260,8 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 
 /* Localización */
 .loc{display:grid;gap:1.8rem}
-@media(min-width:800px){.loc{grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}}
+.loc .map{order:2}
+@media(min-width:800px){.loc{grid-template-columns:1.1fr .9fr;gap:3.5rem;align-items:center}.loc .map{order:0}}
 .loc h2{font-size:clamp(2rem,4.5vw,2.8rem);margin-bottom:.9rem}
 .loc-addr{font-family:var(--display);font-size:1.4rem;line-height:1.3;color:var(--ink);margin-bottom:1.1rem}
 .loc-list{list-style:none;margin:0;padding:0;display:grid;gap:.6rem}
@@ -353,7 +354,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .legal a:hover{color:var(--gold)}
 
 /* Barra de llamada (móvil) */
-.callbar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:grid;grid-template-columns:1.25fr 1fr;gap:.6rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(30,12,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
+.callbar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(30,12,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .callbar .btn{min-height:48px;width:100%;padding:.6rem .8rem}
 @media(min-width:900px){.callbar{display:none}}
 
