@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static HTML/CSS/JS: one `index.html` with inline styles and scripts, hash-based routing between pages, self-hosted fonts in `fonts/`. No build step. Google Maps only loads after the visitor clicks "Ver mapa" (consent stored in localStorage `dhomes-mapas`).
+Static HTML/CSS/JS in `site/` (published folder): one `site/index.html` with inline styles and scripts, hash-based routing between pages, self-hosted fonts in `site/fonts/`, media in `site/media/`. While in preview, `site/robots.txt`, `site/_headers` and a robots meta block indexing (remove at launch). No build step. Google Maps only loads after the visitor clicks "Ver mapa" (consent stored in localStorage `dhomes-mapas`).
 
 ## Users
 
