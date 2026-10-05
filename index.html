@@ -329,20 +329,40 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .ptitle .st{margin-top:1.2rem}
 
 /* Página de servicios */
-.cat{display:grid;gap:1.4rem;padding:clamp(2.2rem,4vw,3rem) 0;border-top:1px solid var(--line)}
-.cat:first-child{border-top:0;padding-top:0}
-@media(min-width:860px){.cat{grid-template-columns:.75fr 1.25fr;gap:4rem;align-items:start}}
-.cat-h{display:flex;align-items:center;gap:1rem}
-.cat-h .ico{width:56px;height:56px;border-radius:50%;background:var(--surface);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold);flex:none}
-.cat-h h2{font-size:clamp(2rem,4vw,2.7rem)}
-.items{display:grid;gap:0}
-.item{padding:1.1rem 0;border-bottom:1px solid var(--line)}
-.item:first-child{padding-top:0}
-.item:last-child{border-bottom:0}
-.item h3{font-size:1.5rem;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;margin-bottom:.3rem}
-.item p{margin:0;color:var(--muted)}
+.svc-jump{display:flex;gap:.5rem;overflow-x:auto;padding:.2rem .1rem 1rem;margin-bottom:1.2rem;scrollbar-width:none}
+.svc-jump::-webkit-scrollbar{display:none}
+.svc-jump button{flex:none;display:inline-flex;align-items:center;gap:.5rem;min-height:44px;padding:.55rem 1.1rem;border-radius:999px;border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);font:500 .95rem/1 var(--sans);cursor:pointer;transition:border-color .2s ease,color .2s ease,background-color .2s ease,transform .16s var(--ease-out)}
+.svc-jump button svg{width:17px;height:17px;color:var(--gold)}
+.svc-jump button:hover{border-color:var(--gold);color:var(--ink)}
+.svc-jump button:active{transform:scale(.97)}
+.panels{display:grid;gap:clamp(1rem,2vw,1.5rem)}
+@media(min-width:900px){.panels{grid-template-columns:1fr 1fr}}
+.panel{position:relative;overflow:hidden;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:0 clamp(1.2rem,3vw,2rem) clamp(1.2rem,3vw,1.8rem);scroll-margin-top:calc(var(--head) + 1.5rem)}
+.panel-h{position:relative;display:flex;align-items:center;gap:1rem;padding:clamp(1.3rem,3vw,1.8rem) 0 1.2rem;margin-bottom:.4rem;border-bottom:1px solid var(--line-2)}
+.panel-h .ico{width:50px;height:50px;border-radius:50%;background:var(--wine);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold);flex:none}
+.panel-h h2{font-size:clamp(1.9rem,3.6vw,2.4rem)}
+.panel-h .mark{position:absolute;right:-1.2rem;top:-1.4rem;width:150px;height:150px;color:var(--gold);opacity:.06;transform:rotate(-12deg);pointer-events:none}
+.svc-items{list-style:none;margin:0;padding:0}
+.svc-items>li{padding:1.05rem 0;border-bottom:1px solid var(--line)}
+.svc-items>li:last-child{border-bottom:0;padding-bottom:0}
+.svc-items h3{font-size:1.4rem;display:flex;flex-wrap:wrap;align-items:center;gap:.4rem .8rem;margin-bottom:.25rem}
+.svc-items p{margin:0;color:var(--muted);font-size:.98rem}
+.svc-items>li.premium{margin-top:.6rem;padding:1.2rem 1.25rem;border:1px solid var(--gold-lo);border-radius:var(--r);background:linear-gradient(135deg,rgba(216,189,134,.12),rgba(216,189,134,.02) 60%)}
+.svc-items>li.premium h3{color:var(--gold)}
+.steps{list-style:none;counter-reset:st;margin:.9rem 0 0;padding:0;display:flex;flex-wrap:wrap;gap:.45rem}
+.steps li{counter-increment:st;display:inline-flex;align-items:center;gap:.45rem;font-size:.85rem;color:var(--ink-2);background:rgba(0,0,0,.22);border:1px solid var(--line);border-radius:999px;padding:.32rem .75rem .32rem .35rem}
+.steps li::before{content:counter(st);width:20px;height:20px;border-radius:50%;background:var(--gold);color:#241010;font-size:.72rem;font-weight:600;display:grid;place-content:center}
+.panel-p{color:var(--muted);margin:1rem 0 1.1rem}
+.zones{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.6rem}
+.zones li{font-family:var(--display);font-size:1.3rem;color:var(--ink);padding:.55rem 1.1rem;border:1px solid var(--line-2);border-radius:var(--r);background:rgba(0,0,0,.15)}
 .tag{font-family:var(--sans);font-size:.75rem;font-weight:600;letter-spacing:.05em;text-transform:uppercase;color:var(--gold);border:1px solid var(--line-2);padding:.22rem .5rem;border-radius:3px}
-.note{margin-top:3rem;padding:1.6rem 1.8rem;border:1px solid var(--line-2);border-radius:var(--r);background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
+.tag-gold{background:var(--gold);color:#241010;border-color:var(--gold)}
+.home-band{display:flex;align-items:center;gap:1.2rem;margin-top:clamp(1rem,2vw,1.5rem);padding:1.4rem clamp(1.2rem,3vw,2rem);border-radius:var(--r);background:var(--wine);border:1px solid var(--line-2)}
+.home-band .ico{width:54px;height:54px;flex:none;border-radius:50%;background:rgba(0,0,0,.2);display:grid;place-content:center;color:var(--gold)}
+.home-band .ico svg{width:24px;height:24px}
+.home-band strong{display:block;font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--ink);margin-bottom:.2rem}
+.home-band p{margin:0;color:var(--ink-2)}
+.note{margin-top:clamp(1rem,2vw,1.5rem);padding:1.6rem 1.8rem;border:1px solid var(--line-2);border-radius:var(--r);background:var(--surface);display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:1rem 2rem}
 .note p{margin:0;color:var(--ink-2)}
 .note strong{font-family:var(--display);font-weight:400;font-size:1.4rem;color:var(--ink);display:block;margin-bottom:.2rem}
 
@@ -431,6 +451,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <symbol id="i-ml" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></g></symbol>
     <symbol id="i-cl" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="5" width="16" height="15" rx="2"/><path d="M4 10h16M9 3v4M15 3v4"/></g></symbol>
     <symbol id="i-ok" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m8 12.5 3 3 5-6"/></g></symbol>
+    <symbol id="i-tw" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3l2.2 12.5L12 20l.8-4.5L15 3"/><path d="M10 9.5h4"/></g></symbol>
     <symbol id="i-st" viewBox="0 0 24 24"><g fill="currentColor" stroke="currentColor" stroke-width="1" stroke-linejoin="round"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.3-4.1 5.9-.9L12 3.5Z"/></g></symbol>
     <symbol id="i-g4" viewBox="0 0 48 48"><path fill="#4285F4" d="M45.1 24.5c0-1.6-.1-3.1-.4-4.6H24v9h11.8c-.5 2.7-2.1 5-4.4 6.6v5.5h7.1c4.2-3.8 6.6-9.5 6.6-16.5z"/><path fill="#34A853" d="M24 46c5.9 0 10.9-2 14.5-5.3l-7.1-5.5c-2 1.3-4.5 2.1-7.4 2.1-5.700 0-10.5-3.8-12.2-9H4.5v5.7C8.1 41.1 15.4 46 24 46z"/><path fill="#FBBC05" d="M11.8 28.3c-.4-1.3-.7-2.7-.7-4.3s.2-3 .7-4.3v-5.7H4.5C3 16.9 2 20.3 2 24s1 7.1 2.5 10l7.3-5.700z"/><path fill="#EA4335" d="M24 10.7c3.2 0 6.1 1.1 8.4 3.3l6.3-6.3C34.9 4.2 29.9 2 24 2 15.4 2 8.1 6.9 4.5 14l7.3 5.7c1.7-5.2 6.5-9 12.2-9z"/></symbol>
     <symbol id="i-arrow" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></g></symbol>
@@ -510,10 +531,10 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <a class="link" href="#/servicios">Ver todos los servicios<svg class="i"><use href="#i-arrow"/></svg></a>
       </div>
       <ul class="svc-list" data-stagger>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><div><h3>Cabello</h3><p>Corte, marcado y contornos, adaptados a tu cara y a tu día a día.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><div><h3>Barba</h3><p>Arreglo de barba y afeitado tradicional con toalla caliente.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><div><h3>Cabello</h3><p>Corte con lavado, corte de niño, afeitado de cabeza y arreglo de contornos.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><div><h3>Barba</h3><p>Arreglo de barba, afeitado clásico y afeitado Premium con toallas calientes.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
         <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><div><h3>Color</h3><p>Tintes y mechas con acabado natural, para cubrir canas o cambiar de look.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-hm"/></svg></span><div><h3>A domicilio</h3><p>Si no puedes venir a la peluquería, vamos nosotros.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
+        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-tw"/></svg></span><div><h3>Depilación</h3><p>Cejas, entrecejo, orejas, nariz y piernas.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
       </ul>
     </div>
   </section>
@@ -638,33 +659,47 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <div class="pole" aria-hidden="true"></div>
   <section>
     <div class="wrap">
-      <div class="cat">
-        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><h2>Cabello</h2></div>
-        <div class="items">
-          <div class="item"><h3>Corte de pelo<span class="tag">Más pedido</span></h3><p>Clásico, degradado, a tijera o a máquina. Lo adaptamos a tu cara y a tu día a día.</p></div>
-          <div class="item"><h3>Marcado</h3><p>Peinado y acabado con producto para que te dure todo el día.</p></div>
-          <div class="item"><h3>Arreglo de contornos</h3><p>Líneas limpias en patillas, nuca y cuello entre corte y corte.</p></div>
-        </div>
+      <nav class="svc-jump" aria-label="Categorías de servicios">
+        <button type="button" data-to="sv-cabello"><svg class="i"><use href="#i-sc"/></svg>Cabello</button>
+        <button type="button" data-to="sv-barba"><svg class="i"><use href="#i-rz"/></svg>Barba</button>
+        <button type="button" data-to="sv-color"><svg class="i"><use href="#i-dr"/></svg>Color</button>
+        <button type="button" data-to="sv-depi"><svg class="i"><use href="#i-tw"/></svg>Depilación</button>
+      </nav>
+      <div class="panels">
+        <article class="panel" id="sv-cabello" data-reveal>
+          <div class="panel-h"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><h2>Cabello</h2><svg class="mark" aria-hidden="true"><use href="#i-sc"/></svg></div>
+          <ul class="svc-items">
+            <li class="feat"><div><h3>Corte de pelo<span class="tag">Más pedido</span></h3><p>Incluye lavado. Clásico, degradado, a tijera o a máquina, adaptado a tu cara y a tu estilo.</p></div></li>
+            <li><div><h3>Corte de niño</h3><p>Para los más pequeños, con paciencia y buen trato.</p></div></li>
+            <li><div><h3>Afeitado de cabeza</h3><p>Rapado apurado a navaja para un acabado limpio.</p></div></li>
+            <li><div><h3>Arreglo de contornos</h3><p>Líneas limpias en patillas, nuca y cuello.</p></div></li>
+          </ul>
+        </article>
+        <article class="panel" id="sv-barba" data-reveal style="--i:1">
+          <div class="panel-h"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><h2>Barba</h2><svg class="mark" aria-hidden="true"><use href="#i-rz"/></svg></div>
+          <ul class="svc-items">
+            <li><div><h3>Arreglo de barba</h3><p>Perfilado y recorte con la forma que mejor te queda.</p></div></li>
+            <li><div><h3>Afeitado</h3><p>Afeitado clásico a navaja, apurado y sin irritación.</p></div></li>
+            <li class="premium"><div><h3>Afeitado Premium<span class="tag tag-gold">Premium</span></h3><p>El ritual completo de barbería, sin prisas.</p>
+              <ol class="steps"><li>Toallas calientes</li><li>Preparación de la piel</li><li>Afeitado a navaja</li><li>Bálsamo hidratante</li></ol></div></li>
+          </ul>
+        </article>
+        <article class="panel" id="sv-color" data-reveal>
+          <div class="panel-h"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><h2>Color</h2><svg class="mark" aria-hidden="true"><use href="#i-dr"/></svg></div>
+          <ul class="svc-items">
+            <li><div><h3>Tintes</h3><p>Cubrimos canas con un acabado natural o cambiamos de look.</p></div></li>
+            <li><div><h3>Mechas</h3><p>Reflejos suaves o marcados para dar luz y textura.</p></div></li>
+          </ul>
+        </article>
+        <article class="panel" id="sv-depi" data-reveal style="--i:1">
+          <div class="panel-h"><span class="ico"><svg class="i"><use href="#i-tw"/></svg></span><h2>Depilación</h2><svg class="mark" aria-hidden="true"><use href="#i-tw"/></svg></div>
+          <p class="panel-p">Depilación rápida y cuidadosa de las zonas que más se notan.</p>
+          <ul class="zones"><li>Cejas</li><li>Entrecejo</li><li>Orejas</li><li>Nariz</li><li>Piernas</li></ul>
+        </article>
       </div>
-      <div class="cat">
-        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><h2>Barba</h2></div>
-        <div class="items">
-          <div class="item"><h3>Arreglo de barba</h3><p>Perfilado y recorte con la forma que mejor te queda.</p></div>
-          <div class="item"><h3>Afeitado a navaja<span class="tag">Tradicional</span></h3><p>Afeitado con toalla caliente, para una piel suave y sin irritación.</p></div>
-        </div>
-      </div>
-      <div class="cat">
-        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><h2>Color</h2></div>
-        <div class="items">
-          <div class="item"><h3>Tintes</h3><p>Cubrimos canas con un acabado natural o cambiamos de look.</p></div>
-          <div class="item"><h3>Mechas</h3><p>Reflejos suaves o marcados para dar luz y textura.</p></div>
-        </div>
-      </div>
-      <div class="cat">
-        <div class="cat-h"><span class="ico"><svg class="i"><use href="#i-hm"/></svg></span><h2>A domicilio</h2></div>
-        <div class="items">
-          <div class="item"><h3>Servicio a domicilio</h3><p>Si no puedes venir, vamos nosotros. Consulta disponibilidad y zona.</p></div>
-        </div>
+      <div class="home-band" data-reveal>
+        <span class="ico"><svg class="i"><use href="#i-hm"/></svg></span>
+        <div><strong>¿No puedes venir? Vamos a domicilio.</strong><p>Si tienes movilidad reducida o no puedes desplazarte, te atendemos en casa. Consulta disponibilidad y zona.</p></div>
       </div>
       <div class="note">
         <div><strong>Precios por teléfono</strong><p>Te los confirmamos al pedir tu cita.</p></div>
@@ -965,6 +1000,8 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     });
     if(btn)btn.addEventListener('click',function(){paused=!paused;btn.setAttribute('aria-pressed',paused);btn.setAttribute('aria-label',paused?'Reanudar la galería':'Pausar la galería')});
   });
+
+  document.querySelectorAll('.svc-jump button').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.to);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 
