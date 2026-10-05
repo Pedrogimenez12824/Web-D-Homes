@@ -154,20 +154,52 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 @keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
 
 /* Servicios en portada */
-.svc-split{display:grid;gap:2.5rem}
-@media(min-width:900px){.svc-split{grid-template-columns:.8fr 1.2fr;gap:5rem;align-items:start}.svc-split .sec-head{position:sticky;top:calc(var(--head) + 2.5rem)}}
-.svc-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
-.svc-list a{display:grid;grid-template-columns:auto 1fr auto;gap:1.1rem 1.4rem;align-items:center;padding:1.6rem .25rem;border-bottom:1px solid var(--line);text-decoration:none;transition:background-color .25s ease,padding .35s var(--ease-out)}
-.svc-list .ico{width:52px;height:52px;border-radius:50%;border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold);transition:background-color .25s ease,border-color .25s ease}
-.svc-list .ico svg{width:22px;height:22px}
-.svc-list h3{font-size:clamp(1.6rem,3vw,2.1rem)}
-.svc-list p{margin:.35rem 0 0;color:var(--muted);font-size:.98rem;max-width:46ch}
-.svc-list .arr{width:22px;height:22px;color:var(--gold-lo);transition:transform .3s var(--ease-out),color .2s ease}
-@media(hover:hover){
-  .svc-list a:hover{background:linear-gradient(90deg,rgba(216,189,134,.06),transparent);padding-left:.9rem}
-  .svc-list a:hover .ico{background:rgba(216,189,134,.1);border-color:var(--gold)}
-  .svc-list a:hover .arr{transform:translateX(4px);color:var(--gold)}
+.svc-top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:clamp(2rem,4vw,3rem)}
+.svc-top h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
+.svc-top p{color:var(--muted);margin:.8rem 0 0}
+.svc-show{display:grid;gap:clamp(1.2rem,3vw,2.5rem)}
+@media(min-width:960px){.svc-show{grid-template-columns:.85fr 1.15fr;align-items:stretch}}
+.svc-tabs{display:flex;gap:.5rem;overflow-x:auto;scrollbar-width:none;margin:0 calc(clamp(1.1rem,4vw,2.5rem) * -1);padding:0 clamp(1.1rem,4vw,2.5rem)}
+.svc-tabs::-webkit-scrollbar{display:none}
+.svc-tabs button{flex:none;position:relative;display:flex;align-items:center;gap:.8rem;border:1px solid var(--line-2);background:var(--bg);color:var(--ink-2);border-radius:999px;padding:.7rem 1.2rem;cursor:pointer;font:inherit;text-align:left;transition:color .25s ease,background-color .25s ease,border-color .25s ease,transform .16s var(--ease-out)}
+.svc-tabs button:active{transform:scale(.98)}
+.t-name{font-family:var(--display);font-size:1.15rem;line-height:1}
+.t-count,.t-arr{display:none}
+.svc-tabs button[aria-selected="true"]{background:var(--gold);border-color:var(--gold);color:#241010}
+@media(min-width:960px){
+  .svc-tabs{flex-direction:column;gap:0;margin:0;padding:0;overflow:visible;border-top:1px solid var(--line)}
+  .svc-tabs button{border:0;border-bottom:1px solid var(--line);border-radius:0;background:none;padding:1.5rem .2rem 1.5rem 1.4rem;color:var(--muted)}
+  .svc-tabs button::before{content:"";position:absolute;left:0;top:1.3rem;bottom:1.3rem;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .45s var(--ease-out)}
+  .t-name{font-size:clamp(2.2rem,3.6vw,3rem);flex:1;transition:transform .45s var(--ease-out)}
+  .t-count{display:block;font-size:.85rem;color:var(--muted)}
+  .t-arr{display:block;width:22px;height:22px;color:var(--gold);opacity:0;transform:translateX(-8px);transition:opacity .3s ease,transform .4s var(--ease-out)}
+  .svc-tabs button:hover{color:var(--ink-2)}
+  .svc-tabs button[aria-selected="true"]{background:none;color:var(--gold)}
+  .svc-tabs button[aria-selected="true"]::before{transform:scaleY(1)}
+  .svc-tabs button[aria-selected="true"] .t-name{transform:translateX(.4rem)}
+  .svc-tabs button[aria-selected="true"] .t-arr{opacity:1;transform:none}
 }
+.svc-stage{position:relative;display:grid}
+.svc-pane{grid-area:1/1;display:grid;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);overflow:hidden}
+@media(min-width:640px){.svc-pane{grid-template-columns:1fr 1fr}}
+.svc-pane[hidden]{display:none!important}
+.pane-ph{border:0;border-radius:0;aspect-ratio:4/3}
+@media(min-width:640px){.pane-ph{aspect-ratio:auto;min-height:340px}}
+.pane-ph::before{display:none}
+.pane-ico{position:absolute;left:1rem;top:1rem;width:46px;height:46px;border-radius:50%;background:rgba(30,12,11,.85);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold)}
+.pane-ico svg{width:20px;height:20px}
+.pane-body{padding:clamp(1.4rem,3vw,2rem);display:flex;flex-direction:column;justify-content:center}
+.pane-body h3{font-size:clamp(1.9rem,3.2vw,2.4rem);color:var(--ink);margin-bottom:.7rem}
+.pane-body p{color:var(--ink-2);margin-bottom:1.3rem}
+.pane-items{list-style:none;margin:0 0 1.6rem;padding:0;display:grid;gap:.15rem}
+.pane-items li{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--ink)}
+.pane-items li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
+.pane-body .link{align-self:flex-start}
+.svc-pane.on .pane-ph{animation:panePh .7s var(--ease-out)}
+.svc-pane.on .pane-body>*{animation:paneIn .55s var(--ease-out) both}
+.svc-pane.on .pane-body>*:nth-child(2){animation-delay:.05s}.svc-pane.on .pane-body>*:nth-child(3){animation-delay:.1s}.svc-pane.on .pane-body>*:nth-child(4){animation-delay:.15s}
+@keyframes paneIn{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+@keyframes panePh{from{clip-path:inset(0 0 0 100%)}to{clip-path:inset(0)}}
 
 /* Galería de trabajos (portada) */
 .works-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.2rem 2rem;margin-bottom:clamp(2rem,4vw,3rem)}
@@ -525,18 +557,52 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <div class="pole" aria-hidden="true"></div>
 
   <section>
-    <div class="wrap svc-split">
-      <div class="sec-head">
-        <h2>Nuestros servicios</h2>
-        <p>Lo esencial de una buena barbería, hecho con calma y con oficio.</p>
+    <div class="wrap">
+      <div class="svc-top">
+        <div><h2>Nuestros servicios</h2><p>Lo esencial de una buena barbería, hecho con calma y con oficio.</p></div>
         <a class="link" href="#/servicios">Ver todos los servicios<svg class="i"><use href="#i-arrow"/></svg></a>
       </div>
-      <ul class="svc-list" data-stagger>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-sc"/></svg></span><div><h3>Cabello</h3><p>Corte con lavado, corte de niño, afeitado de cabeza y arreglo de contornos.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-rz"/></svg></span><div><h3>Barba</h3><p>Arreglo de barba, afeitado clásico y afeitado Premium con toallas calientes.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-dr"/></svg></span><div><h3>Color</h3><p>Tintes y mechas con acabado natural, para cubrir canas o cambiar de look.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-        <li><a href="#/servicios"><span class="ico"><svg class="i"><use href="#i-tw"/></svg></span><div><h3>Depilación</h3><p>Cejas, entrecejo, orejas, nariz y piernas.</p></div><svg class="arr"><use href="#i-arrow"/></svg></a></li>
-      </ul>
+      <div class="svc-show" data-reveal>
+        <div class="svc-tabs" role="tablist" aria-label="Servicios"><button type="button" role="tab" id="st-cabello" aria-controls="sp-cabello" aria-selected="true" tabindex="0"><span class="t-name">Cabello</span><span class="t-count">4 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-barba" aria-controls="sp-barba" aria-selected="false" tabindex="-1"><span class="t-name">Barba</span><span class="t-count">3 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-color" aria-controls="sp-color" aria-selected="false" tabindex="-1"><span class="t-name">Color</span><span class="t-count">2 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-depi" aria-controls="sp-depi" aria-selected="false" tabindex="-1"><span class="t-name">Depilación</span><span class="t-count">5 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
+        <div class="svc-stage">
+          <div class="svc-pane on" role="tabpanel" id="sp-cabello" aria-labelledby="st-cabello">
+            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de cabello pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-sc"/></svg></span></div>
+            <div class="pane-body">
+              <h3>Cabello</h3>
+              <p>Cortes clásicos y actuales, a tijera o a máquina. El corte incluye lavado.</p>
+              <ul class="pane-items"><li>Corte de pelo</li><li>Corte de niño</li><li>Afeitado de cabeza</li><li>Arreglo de contornos</li></ul>
+              <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="svc-pane" role="tabpanel" id="sp-barba" aria-labelledby="st-barba" hidden>
+            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de barba pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-rz"/></svg></span></div>
+            <div class="pane-body">
+              <h3>Barba</h3>
+              <p>Desde un arreglo rápido hasta el afeitado Premium con toallas calientes.</p>
+              <ul class="pane-items"><li>Arreglo de barba</li><li>Afeitado</li><li>Afeitado Premium</li></ul>
+              <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="svc-pane" role="tabpanel" id="sp-color" aria-labelledby="st-color" hidden>
+            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de color pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-dr"/></svg></span></div>
+            <div class="pane-body">
+              <h3>Color</h3>
+              <p>Tintes y mechas con acabado natural, para cubrir canas o cambiar de look.</p>
+              <ul class="pane-items"><li>Tintes</li><li>Mechas</li></ul>
+              <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+          <div class="svc-pane" role="tabpanel" id="sp-depi" aria-labelledby="st-depi" hidden>
+            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de depilación pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-tw"/></svg></span></div>
+            <div class="pane-body">
+              <h3>Depilación</h3>
+              <p>Rápida y cuidadosa, en las zonas que más se notan.</p>
+              <ul class="pane-items"><li>Cejas</li><li>Entrecejo</li><li>Orejas</li><li>Nariz</li><li>Piernas</li></ul>
+              <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -1000,6 +1066,21 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
       if(e.key==='ArrowLeft'){v=step;e.preventDefault()}
     });
     if(btn)btn.addEventListener('click',function(){paused=!paused;btn.setAttribute('aria-pressed',paused);btn.setAttribute('aria-label',paused?'Reanudar la galería':'Pausar la galería')});
+  });
+
+  // Servicios en portada: pestañas
+  document.querySelectorAll('.svc-show').forEach(function(box){
+    var tabs=[].slice.call(box.querySelectorAll('[role="tab"]'));
+    function pick(t,focus){
+      tabs.forEach(function(x){var on=x===t,pane=document.getElementById(x.getAttribute('aria-controls'));x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;pane.hidden=!on;pane.classList.toggle('on',on)});
+      if(focus)t.focus();
+      if(window.innerWidth<960)t.scrollIntoView({block:'nearest',inline:'center',behavior:'smooth'});
+    }
+    tabs.forEach(function(t,i){
+      t.addEventListener('click',function(){pick(t)});
+      if(window.matchMedia&&matchMedia('(hover:hover)').matches)t.addEventListener('mouseenter',function(){if(t.getAttribute('aria-selected')!=='true')pick(t)});
+      t.addEventListener('keydown',function(e){var d=(e.key==='ArrowDown'||e.key==='ArrowRight')?1:(e.key==='ArrowUp'||e.key==='ArrowLeft')?-1:0;if(d){e.preventDefault();pick(tabs[(i+d+tabs.length)%tabs.length],true)}});
+    });
   });
 
   document.querySelectorAll('.svc-jump button').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.to);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
