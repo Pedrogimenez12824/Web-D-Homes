@@ -135,6 +135,21 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .crew li{display:grid;gap:.15rem;padding-left:1rem;border-left:1px solid var(--gold-lo)}
 .crew b{font-family:var(--display);font-weight:400;font-size:1.35rem;color:var(--ink)}
 .crew li{color:var(--muted);font-size:.92rem}
+.duo-ph{aspect-ratio:4/5}
+.team{margin-top:clamp(4.5rem,9vw,6.5rem)}
+.team h2{font-size:clamp(2.1rem,4.5vw,3rem);margin-bottom:clamp(1.5rem,3vw,2.2rem)}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.8rem,2.5vw,2rem);max-width:820px}
+.member{margin:0}
+.member .ph{aspect-ratio:4/5}
+.member .ph img{transition:transform .9s var(--ease-out)}
+@media(hover:hover){.member:hover .ph img{transform:scale(1.04)}}
+.member figcaption{padding-top:1rem;display:grid;gap:.2rem}
+.member b{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--ink)}
+.member span{color:var(--gold);font-size:.92rem}
+/* Fondo de la portada: la fachada, casi transparente */
+.hero-bg{position:absolute;inset:0;background:url(media/fachada.webp) center 35%/cover no-repeat;opacity:.13;filter:saturate(.6) blur(1.5px);transform:scale(1.03);pointer-events:none}
+.hero::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(30,12,11,.35),var(--bg) 96%);pointer-events:none}
+.hero .wrap{z-index:1}
 .r916{aspect-ratio:9/16}
 .shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
 .shot .ph:has(video){aspect-ratio:9/16}
@@ -630,6 +645,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 <!-- INICIO -->
 <div class="page" data-page="" data-title="Inicio">
   <div class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
     <div class="wrap hero-grid">
       <div>
         <h1 class="rise">Corte y barba con oficio, <em>desde&nbsp;1994.</em></h1>
@@ -932,7 +948,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <div class="wrap">
       <div class="about">
         <div class="about-media">
-          <figure class="ph r11 nelly-ph"><img src="media/equipo-nelly.webp" alt="Nelly Mosteiro cortando a tijera en D'Homes Peluquería" width="1100" height="1111" loading="lazy" decoding="async"></figure>
+          <figure class="ph duo-ph"><img src="media/equipo-dos.webp" alt="Marcos Paz y Nelly Mosteiro con sus tijeras en D'Homes Peluquería" width="1000" height="1250" loading="lazy" decoding="async"></figure>
           <div class="seal"><small>Desde</small><b>1994</b></div>
         </div>
         <div class="about-txt">
@@ -942,15 +958,19 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
           <p class="sign">Nelly Mosteiro</p>
         </div>
       </div>
-      <figure class="team-band" data-reveal>
-        <div class="ph"><img src="media/equipo-barbero.webp" alt="Marcos Paz, peluquero de D'Homes, junto a un cliente" width="1100" height="952" loading="lazy" decoding="async"></div>
-        <figcaption><strong>Nuestro equipo</strong><span>Oficio de siempre y cortes de ahora, en la misma silla.</span><ul class="crew"><li><b>Nelly Mosteiro</b>Fundadora</li><li><b>Marcos Paz</b>Peluquero</li></ul></figcaption>
-      </figure>
-      <ul class="vals">
-        <li><svg class="i"><use href="#i-sc"/></svg><div><h2>Oficio</h2><p>Barbería clásica con técnicas actuales.</p></div></li>
-        <li><svg class="i"><use href="#i-cl"/></svg><div><h2>Sin esperas</h2><p>Trabajamos con cita previa.</p></div></li>
-        <li><svg class="i"><use href="#i-hm"/></svg><div><h2>A tu puerta</h2><p>También atendemos a domicilio.</p></div></li>
-      </ul>
+      <div class="team">
+        <h2>Nuestro equipo</h2>
+        <div class="team-grid">
+          <figure class="member" data-reveal>
+            <div class="ph"><img src="media/retrato-nelly.webp" alt="Nelly Mosteiro, fundadora de D'Homes Peluquería" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption><b>Nelly Mosteiro</b><span>Fundadora</span></figcaption>
+          </figure>
+          <figure class="member" data-reveal style="--i:1">
+            <div class="ph"><img src="media/retrato-marcos.webp" alt="Marcos Paz, peluquero de D'Homes Peluquería" width="800" height="1000" loading="lazy" decoding="async"></div>
+            <figcaption><b>Marcos Paz</b><span>Peluquero</span></figcaption>
+          </figure>
+        </div>
+      </div>
     </div>
   </section>
 </div>
