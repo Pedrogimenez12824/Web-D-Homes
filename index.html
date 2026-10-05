@@ -370,6 +370,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .legal-links button{border:0;background:none;padding:0;font:inherit;color:var(--muted);cursor:pointer}
 .legal-links button:hover{color:var(--gold)}
 
+/* Aviso de cookies */
+.ck-banner{position:fixed;z-index:45;left:.75rem;right:.75rem;bottom:calc(76px + env(safe-area-inset-bottom,0px));background:rgba(38,16,14,.97);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid var(--line-2);border-radius:var(--r);box-shadow:var(--shadow);padding:1rem 1.1rem;display:grid;gap:.85rem;animation:ckin .45s var(--ease-out)}
+.ck-banner[hidden]{display:none}
+.ck-banner p{margin:0;font-size:.9rem;color:var(--ink-2);max-width:none}
+.ck-banner a{color:var(--gold)}
+.ck-btns{display:grid;grid-template-columns:1fr 1fr;gap:.6rem}
+.ck-btns .btn{min-height:44px;padding:.5rem .8rem;font-size:.92rem}
+@media(min-width:900px){.ck-banner{left:1.5rem;right:auto;bottom:1.5rem;width:380px}}
+@keyframes ckin{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+
 /* Barra de llamada (móvil) */
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(30,12,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
 .callbar .btn{min-height:48px;width:100%;padding:.6rem .8rem}
@@ -1019,16 +1029,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
       <div class="table-wrap"><table class="ck">
         <thead><tr><th>Nombre</th><th>Tipo</th><th>Para qué sirve</th><th>Duración</th></tr></thead>
         <tbody>
-          <tr><td>dhomes-mapas</td><td>Técnica (almacenamiento local)</td><td>Recordar si has aceptado ver los mapas de Google. No se envía a nadie.</td><td>Hasta que la borres o pulses «Configurar cookies»</td></tr>
-          <tr><td>Cookies de Google Maps</td><td>De terceros</td><td>Solo se instalan si pulsas «Ver mapa». Google las usa para mostrar el mapa, recordar preferencias y con otros fines descritos en su política.</td><td>Según Google</td></tr>
+          <tr><td>dhomes-mapas</td><td>Técnica (almacenamiento local)</td><td>Recordar si has aceptado o rechazado las cookies de Google Maps. No se envía a nadie.</td><td>Hasta que la borres o pulses «Configurar cookies»</td></tr>
+          <tr><td>Cookies de Google Maps</td><td>De terceros</td><td>Solo se instalan si aceptas en el aviso de cookies o pulsas «Ver mapa». Google las usa para mostrar el mapa, recordar preferencias y con otros fines descritos en su política.</td><td>Según Google</td></tr>
         </tbody>
       </table></div>
       <h2>Mapas de Google</h2>
-      <p>Los mapas no se cargan hasta que pulsas «Ver mapa». Al hacerlo aceptas que Google Maps se cargue y pueda usar sus cookies. Puedes consultar cómo las usa en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
+      <p>Al entrar en la web te mostramos un aviso para que aceptes o rechaces las cookies de Google Maps. Si las rechazas, los mapas no se cargan; puedes verlos más tarde pulsando «Ver mapa». Al aceptarlas, Google Maps se carga y puede usar sus cookies. Puedes consultar cómo las usa en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
       <p>Las opiniones de clientes y los botones «Cómo llegar» y «Más opiniones en Google» son enlaces a Google: no instalan cookies mientras no los abres.</p>
       <h2>Cómo cambiar tu elección</h2>
-      <p>Puedes retirar tu permiso cuando quieras con este botón o con el enlace «Configurar cookies» del pie de página. Los mapas volverán a quedar bloqueados.</p>
-      <p><button class="btn btn-line" type="button" data-cookie-reset>Retirar permiso de los mapas</button></p>
+      <p>Puedes cambiar tu elección cuando quieras con este botón o con el enlace «Configurar cookies» del pie de página: los mapas volverán a quedar bloqueados y verás de nuevo el aviso.</p>
+      <p><button class="btn btn-line" type="button" data-cookie-reset>Cambiar mi elección</button></p>
       <p>También puedes borrar o bloquear las cookies desde la configuración de tu navegador (Chrome, Safari, Firefox o Edge).</p>
       <p>Para cualquier duda, escríbenos a <a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a>.</p>
     </div>
@@ -1065,6 +1075,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <div class="legal"><span>© <span id="year">2026</span> D'Homes Peluquería</span><nav class="legal-links" aria-label="Información legal"><a href="#/aviso-legal">Aviso legal</a><a href="#/privacidad">Privacidad</a><a href="#/cookies">Cookies</a><button type="button" id="cookie-reset">Configurar cookies</button></nav><a href="#main" id="totop">Volver arriba</a></div>
   </div>
 </footer>
+
+<div class="ck-banner" id="ckbanner" role="region" aria-label="Aviso de cookies" hidden>
+  <p>Usamos cookies de Google Maps solo para mostrarte el mapa. Puedes aceptarlas o rechazarlas. <a href="#/cookies">Más información</a></p>
+  <div class="ck-btns"><button class="btn btn-line" type="button" data-ck="no">Rechazar</button><button class="btn btn-gold" type="button" data-ck="si">Aceptar</button></div>
+</div>
 
 <div class="callbar">
   <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
@@ -1239,9 +1254,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     document.querySelectorAll('.map iframe').forEach(function(f){f.remove()});
     document.querySelectorAll('.map-consent').forEach(function(c){c.hidden=false});
   }
-  document.querySelectorAll('[data-load-map]').forEach(function(b){b.addEventListener('click',function(){try{localStorage.setItem(KEY,'si')}catch(_){}loadMaps()})});
-  document.querySelectorAll('#cookie-reset,[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(){resetMaps();b.blur();var t=b.textContent;if(b.hasAttribute('data-cookie-reset')){b.textContent='Permiso retirado';setTimeout(function(){b.textContent=t},2500)}})});
-  if(okMaps())loadMaps();
+  var bn=document.getElementById('ckbanner');
+  function choice(){try{return localStorage.getItem(KEY)}catch(_){return null}}
+  function decide(v){try{localStorage.setItem(KEY,v)}catch(_){}bn.hidden=true;if(v==='si')loadMaps()}
+  bn.querySelectorAll('[data-ck]').forEach(function(b){b.addEventListener('click',function(){decide(b.dataset.ck)})});
+  document.querySelectorAll('[data-load-map]').forEach(function(b){b.addEventListener('click',function(){decide('si')})});
+  document.querySelectorAll('#cookie-reset,[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(){
+    resetMaps();bn.hidden=false;b.blur();
+    if(b.hasAttribute('data-cookie-reset')){var t=b.textContent;b.textContent='Elige de nuevo en el aviso';setTimeout(function(){b.textContent=t},2500)}
+  })});
+  if(okMaps())loadMaps();else if(!choice())bn.hidden=false;
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 
