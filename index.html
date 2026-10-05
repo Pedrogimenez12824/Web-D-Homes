@@ -313,26 +313,26 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .way h3{font-style:italic;font-size:clamp(1.9rem,3.4vw,2.5rem);color:var(--gold);margin-bottom:.8rem}
 .way p{color:var(--ink-2);margin:0}
 
-/* Opiniones */
-.reviews{display:grid;gap:3rem}
-@media(min-width:960px){.reviews{grid-template-columns:.95fr 1.05fr;gap:4.5rem;align-items:center}}
-.featured{margin:0}
-.featured blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.75rem,3.4vw,2.55rem);line-height:1.22;color:var(--ink);text-wrap:balance}
-.featured blockquote::before{content:"“";display:block;font-size:4.5rem;line-height:.6;color:var(--gold);margin-bottom:.9rem;font-style:normal}
-.featured figcaption{margin-top:1.5rem;display:flex;align-items:center;gap:.9rem;color:var(--ink-2)}
-.stars{display:flex;gap:3px;color:var(--gold)}
-.stars svg{width:15px;height:15px}
-.stars svg.off{color:rgba(216,189,134,.28)}
-.src{display:inline-flex;align-items:center;gap:.35rem;font-size:.8rem;color:var(--muted)}
-.src svg{width:14px;height:14px}
+/* Opiniones (estilo de reseña de Google) */
+.rv-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1.2rem 2rem;margin-bottom:2rem}
+.rv-head h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
+.g-badge{display:inline-flex;align-items:center;gap:.6rem;margin-top:1rem;padding:.5rem .9rem;border-radius:999px;background:#fff;color:#3c4043;font:500 .9rem/1 Roboto,Arial,system-ui,sans-serif}
+.g-badge svg{width:18px;height:18px}
+.rv-head .btn svg{width:18px;height:18px}
+.gr-stars{display:inline-flex;gap:1px;color:#fbbc04}
+.gr-stars svg{width:15px;height:15px}
+.gr-stars svg.off{color:#dadce0}
 .rv-area{min-width:0}
-.rv-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(82%,320px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.25rem .25rem 1.25rem;margin:0 -.25rem;scrollbar-width:thin;overscroll-behavior-x:contain}
-.rv{scroll-snap-align:start;background:var(--surface);border:1px solid var(--line);border-radius:var(--r);padding:1.4rem 1.35rem;display:flex;flex-direction:column;gap:.75rem}
-.rv p{margin:0;color:var(--ink);font-size:1rem;line-height:1.55;flex:1}
-.rv-who{display:flex;align-items:center;gap:.75rem;padding-top:.85rem;border-top:1px solid var(--line)}
-.av{width:36px;height:36px;flex:none;border-radius:8px;background:var(--wine);border:1px solid var(--line-2);color:var(--gold);display:grid;place-content:center;font-size:.8rem;font-weight:600;letter-spacing:.04em}
-.rv-who b{display:block;font-weight:500;font-size:.92rem;line-height:1.3}
+.rv-track{display:grid;grid-auto-flow:column;grid-auto-columns:min(84%,330px);gap:1rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:.25rem .25rem 1.25rem;margin:0 -.25rem;scrollbar-width:thin;overscroll-behavior-x:contain}
+.gr{scroll-snap-align:start;background:#fff;color:#202124;border-radius:12px;padding:1.1rem 1.2rem 1.25rem;display:flex;flex-direction:column;gap:.75rem;box-shadow:0 1px 2px rgba(0,0,0,.25),0 8px 20px -10px rgba(0,0,0,.6);font-family:Roboto,Arial,system-ui,sans-serif}
+.gr-h{display:flex;align-items:center;gap:.75rem}
+.gr-av{width:40px;height:40px;flex:none;border-radius:50%;color:#fff;display:grid;place-content:center;font-size:1.05rem;font-weight:500}
+.gr-who{flex:1;min-width:0;display:grid;gap:.25rem}
+.gr-who b{font-weight:500;font-size:.95rem;line-height:1.25;color:#202124;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.gr-g{width:20px;height:20px;flex:none;align-self:flex-start}
+.gr p{margin:0;color:#3c4043;font-size:.95rem;line-height:1.5;max-width:none}
 .rv-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:.4rem}
+.rv-note{font-size:.85rem;color:var(--muted)}
 .rv-btns{display:flex;gap:.5rem}
 .rv-btns button{width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:none;color:var(--gold);cursor:pointer;display:grid;place-content:center;transition:border-color .2s ease,background-color .2s ease,transform .16s var(--ease-out)}
 .rv-btns button:hover{border-color:var(--gold);background:rgba(216,189,134,.08)}
@@ -751,28 +751,29 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   </section>
 
   <section>
-    <div class="wrap reviews">
-      <div>
-        <h2 class="h2 sr">Opiniones de clientes</h2>
-        <figure class="featured" data-reveal>
-          <blockquote>Mi peluquería favorita, llevo yendo 20 años desde que era un niño y siempre salgo contento.</blockquote>
-          <figcaption><span class="av" aria-hidden="true">FP</span><span><b style="font-weight:500;color:var(--ink)">Fernando Pérez Díaz</b><br><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></span></figcaption>
-        </figure>
+    <div class="wrap">
+      <div class="rv-head" data-reveal>
+        <div>
+          <h2>Opiniones de clientes</h2>
+          <div class="g-badge"><svg aria-hidden="true"><use href="#i-g4"/></svg><span>Reseñas de Google</span></div>
+        </div>
+        <a class="btn btn-line" href="https://www.google.com/search?q=D+Homes+peluqueria+Vilagarcia+de+Arousa#lrd=0xd2f6d274534f31d:0x0,1" target="_blank" rel="noopener"><svg class="i"><use href="#i-g4"/></svg>Ver todas en Google</a>
       </div>
       <div class="rv-area" data-reveal style="--i:1">
         <div class="rv-track" id="rvtrack" tabindex="0" aria-label="Opiniones de clientes en Google">
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La primera vez y genial. Atención estupenda, mucha profesionalidad y saber hacer.”</p><div class="rv-who"><span class="av" aria-hidden="true">JD</span><div><b>Javier Dafonte Fresco</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Es la peluquería a la que voy habitualmente desde hace años, trato muy cordial y siempre quedo satisfecho.”</p><div class="rv-who"><span class="av" aria-hidden="true">VC</span><div><b>Victor Colomino</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La mejor peluquería de caballeros de Villagarcía, trato genial y super profesional!”</p><div class="rv-who"><span class="av" aria-hidden="true">MR</span><div><b>Manuel Recouso</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Un servicio excelente, ambiente relajado y unos profesionales.”</p><div class="rv-who"><span class="av" aria-hidden="true">IA</span><div><b>Ignacio Abalo</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="4" role="img" aria-label="4 de 5 estrellas"></div><p>“Trato excelente y precio más que razonable.”</p><div class="rv-who"><span class="av" aria-hidden="true">JS</span><div><b>Jose Sotoabal</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Experiencia 100 x 100 y trato de excelencia.”</p><div class="rv-who"><span class="av" aria-hidden="true">CC</span><div><b>César Córdoba Ferreira</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“La mejor peluquería de caballeros de Vilagarcía.”</p><div class="rv-who"><span class="av" aria-hidden="true">MM</span><div><b>Manuel De Maila</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Atención excelente.”</p><div class="rv-who"><span class="av" aria-hidden="true">JI</span><div><b>Julián Iglesias Mouta</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
-          <article class="rv"><div class="stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></div><p>“Buena profesional.”</p><div class="rv-who"><span class="av" aria-hidden="true">MC</span><div><b>Maribel Castellano Bouzon</b><span class="src"><svg class="i"><use href="#i-g4"/></svg>Reseña de Google</span></div></div></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#b5654a" aria-hidden="true">F</span><div class="gr-who"><b>Fernando Pérez Díaz</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Mi peluquería favorita, llevo yendo 20 años desde que era un niño y siempre salgo contento.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#8b5e46" aria-hidden="true">J</span><div class="gr-who"><b>Javier Dafonte Fresco</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>La primera vez y genial. Atención estupenda, mucha profesionalidad y saber hacer.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#4a7c6b" aria-hidden="true">V</span><div class="gr-who"><b>Victor Colomino</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Es la peluquería a la que voy habitualmente desde hace años, trato muy cordial y siempre quedo satisfecho.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#6b5b95" aria-hidden="true">M</span><div class="gr-who"><b>Manuel Recouso</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>La mejor peluquería de caballeros de Villagarcía, trato genial y super profesional!</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#3f6b8a" aria-hidden="true">I</span><div class="gr-who"><b>Ignacio Abalo</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Un servicio excelente, ambiente relajado y unos profesionales.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#5b4a95" aria-hidden="true">J</span><div class="gr-who"><b>Jose Sotoabal</b><span class="gr-stars" data-n="4" role="img" aria-label="4 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Trato excelente y precio más que razonable.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#2f8f8a" aria-hidden="true">C</span><div class="gr-who"><b>César Córdoba Ferreira</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Experiencia 100 x 100 y trato de excelencia.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#7a5a3a" aria-hidden="true">M</span><div class="gr-who"><b>Manuel De Maila</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>La mejor peluquería de caballeros de Vilagarcía.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#2f7a6a" aria-hidden="true">J</span><div class="gr-who"><b>Julián Iglesias Mouta</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Atención excelente.</p></article>
+          <article class="gr"><div class="gr-h"><span class="gr-av" style="background:#4a9a5a" aria-hidden="true">M</span><div class="gr-who"><b>Maribel Castellano Bouzon</b><span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span></div><svg class="gr-g" aria-label="Google"><use href="#i-g4"/></svg></div><p>Buena profesional.</p></article>
         </div>
         <div class="rv-nav">
-          <a class="link" href="https://www.google.com/search?q=D+Homes+peluqueria+Vilagarcia+de+Arousa#lrd=0xd2f6d274534f31d:0x0,1" target="_blank" rel="noopener">Más opiniones en Google<svg class="i"><use href="#i-arrow"/></svg></a>
+          <span class="rv-note">Reseñas reales de clientes publicadas en Google.</span>
           <div class="rv-btns"><button class="prev" type="button" aria-label="Opiniones anteriores"><svg><use href="#i-arrow"/></svg></button><button class="next" type="button" aria-label="Más opiniones"><svg><use href="#i-arrow"/></svg></button></div>
         </div>
       </div>
@@ -1168,13 +1169,13 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     });
   }catch(e){document.querySelectorAll('.st').forEach(function(x){x.style.display='none'})}
 
-  document.querySelectorAll('.stars[data-n]').forEach(function(e){var n=+e.dataset.n,h='';for(var i=0;i<5;i++)h+='<svg class="'+(i<n?'':'off')+'" aria-hidden="true"><use href="#i-st"/></svg>';e.innerHTML=h});
+  document.querySelectorAll('.gr-stars[data-n]').forEach(function(e){var n=+e.dataset.n,h='';for(var i=0;i<5;i++)h+='<svg class="'+(i<n?'':'off')+'" aria-hidden="true"><use href="#i-st"/></svg>';e.innerHTML=h});
 
   // Opiniones: botones de desplazamiento
   var tr=document.getElementById('rvtrack');
   if(tr){
     var pv=document.querySelector('.rv-btns .prev'),nx=document.querySelector('.rv-btns .next');
-    var stepW=function(){var c=tr.querySelector('.rv');return c?c.getBoundingClientRect().width+16:300};
+    var stepW=function(){var c=tr.querySelector('.gr');return c?c.getBoundingClientRect().width+16:300};
     var sync=function(){pv.disabled=tr.scrollLeft<8;nx.disabled=tr.scrollLeft+tr.clientWidth>=tr.scrollWidth-8};
     pv.addEventListener('click',function(){tr.scrollBy({left:-stepW(),behavior:'smooth'})});
     nx.addEventListener('click',function(){tr.scrollBy({left:stepW(),behavior:'smooth'})});
