@@ -35,6 +35,11 @@ Peluquería de caballeros abierta desde 1994 (más de 32 años) en Vilagarcía, 
 - Acceso para movilidad reducida. Pago con tarjeta y efectivo.
 - Los datos actuales se mantienen; el propietario de la web enviará correcciones puntuales.
 
+## SEO
+
+- URL provisional en canonical, og:url, og:image y JSON-LD: `https://dhomes-peluqueria.pages.dev`. Al conectar el dominio: sustituirla en `site/index.html` y quitar noindex (meta robots, `site/robots.txt`, `site/_headers`).
+- Imagen para compartir: `site/media/compartir.jpg` (1200x630). Iconos: `site/apple-touch-icon.png`, `site/icon-512.png`, `site/site.webmanifest`.
+
 ## Legal
 
 - Titular: D' Homes Peluquería. NIF pendiente (XXXXXX en la web). Domicilio: Calle Arzobispo Gelmírez, 7, 36600 Vilagarcía de Arousa (Pontevedra).
