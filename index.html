@@ -169,6 +169,31 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
   .svc-list a:hover .arr{transform:translateX(4px);color:var(--gold)}
 }
 
+/* Trabajos (portada) */
+.works-head{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:1rem 2rem;margin-bottom:clamp(1.8rem,4vw,2.6rem)}
+.works-head h2{font-size:clamp(2.3rem,5.4vw,3.6rem)}
+.works-head p{color:var(--muted);margin:.8rem 0 0}
+.works{display:grid;grid-template-columns:1fr 1fr;gap:clamp(.7rem,1.6vw,1.1rem)}
+.work{margin:0;min-width:0}
+.work .ph{aspect-ratio:4/5;max-width:100%}
+.work.w-big{grid-column:1/-1}
+.work.w-big .ph{aspect-ratio:4/3}
+@media(min-width:860px){
+  .works{grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto}
+  .work.w-big{grid-column:1;grid-row:1/3;display:flex;flex-direction:column}
+  .work.w-big .ph{aspect-ratio:auto;flex:1;min-height:420px}
+}
+.work figcaption{display:flex;align-items:center;gap:.6rem;padding:.7rem .1rem 0;font-family:var(--display);font-size:1.15rem;color:var(--ink-2)}
+.work figcaption::before{content:"";width:18px;height:1px;background:var(--gold-lo);transition:width .4s var(--ease-out),background-color .3s ease}
+.work .ph img{transition:transform .9s var(--ease-out)}
+@media(hover:hover){
+  .work:hover .ph img{transform:scale(1.045)}
+  .work:hover figcaption{color:var(--gold)}
+  .work:hover figcaption::before{width:30px;background:var(--gold)}
+}
+.motion .work[data-reveal]{transform:none;clip-path:inset(10% 6% 10% 6% round var(--r));transition:opacity .7s var(--ease-out),clip-path 1.1s var(--ease-out);transition-delay:calc(var(--i,0) * 110ms)}
+.motion .work[data-reveal].in{clip-path:inset(0 0 0 0 round 0)}
+
 /* Horario */
 .hours-sec{display:grid;gap:2rem}
 @media(min-width:900px){.hours-sec{grid-template-columns:.8fr 1.2fr;gap:4rem;align-items:center}}
@@ -492,6 +517,37 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 
   <section class="tint">
     <div class="wrap">
+      <div class="works-head">
+        <div><h2>Nuestros trabajos</h2><p>Degradados, cortes clásicos y barbas hechos en D'Homes.</p></div>
+        <a class="link" href="#/galeria">Ver la galería<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+      <div class="works" data-stagger>
+        <figure class="work w-big"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Degradado</span><small>Foto pendiente</small></div></div><figcaption>Degradado</figcaption></figure>
+        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Corte clásico</span><small>Foto pendiente</small></div></div><figcaption>Corte clásico</figcaption></figure>
+        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Barba perfilada</span><small>Foto pendiente</small></div></div><figcaption>Barba perfilada</figcaption></figure>
+        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Afeitado a navaja</span><small>Foto pendiente</small></div></div><figcaption>Afeitado a navaja</figcaption></figure>
+        <figure class="work"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Color</span><small>Foto pendiente</small></div></div><figcaption>Color</figcaption></figure>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap about">
+      <div class="about-media" data-reveal>
+        <figure class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Foto del equipo</span><small>Pendiente de foto real</small></div></figure>
+        <div class="seal"><small>Desde</small><b>1994</b></div>
+      </div>
+      <div class="about-txt">
+        <h2 class="h2">Conócenos</h2>
+        <p>D'Homes abrió en 1994 con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre. Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de siempre con lo que se lleva hoy.</p>
+        <p class="sign">Nelly Mosteiro</p>
+        <a class="link" href="#/conocenos">Nuestra historia<svg class="i"><use href="#i-arrow"/></svg></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="tint">
+    <div class="wrap">
       <div class="hours-sec">
         <div data-reveal>
           <h2>Horario</h2>
@@ -525,27 +581,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   </section>
 
   <section class="tint">
-    <div class="wrap about">
-      <div class="about-media" data-reveal>
-        <figure class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><span>Foto del equipo</span><small>Pendiente de foto real</small></div></figure>
-        <div class="seal"><small>Desde</small><b>1994</b></div>
-      </div>
-      <div class="about-txt">
-        <h2 class="h2">Conócenos</h2>
-        <p>D'Homes abrió en 1994 con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre. Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de siempre con lo que se lleva hoy.</p>
-        <p class="sign">Nelly Mosteiro</p>
-        <a class="link" href="#/conocenos">Nuestra historia<svg class="i"><use href="#i-arrow"/></svg></a>
-      </div>
-    </div>
-  </section>
-
-  <section>
     <div class="wrap">
       <div class="sec-head"><h2>Cómo trabajamos</h2></div>
       <div class="ways">
         <div class="way" data-reveal style="--i:0"><h3>Pides tu cita.</h3><p>Llámanos y te buscamos el hueco que mejor te venga.</p></div>
-        <div class="way" data-reveal style="--i:1"><h3>Te escuchamos.</h3><p>Nos cuentas qué quieres y te aconsejamos con sinceridad.</p></div>
-        <div class="way" data-reveal style="--i:2"><h3>Sales como querías.</h3><p>Un corte bien hecho, fácil de mantener en casa.</p></div>
+        <div class="way" data-reveal style="--i:1"><h3>Te escuchamos.</h3><p>Nos cuentas qué buscas y te aconsejamos lo que mejor te queda.</p></div>
+        <div class="way" data-reveal style="--i:2"><h3>Sales como querías.</h3><p>Un corte bien hecho y fácil de mantener.</p></div>
       </div>
     </div>
   </section>
@@ -636,7 +677,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <div class="about-txt">
           <p>D'Homes abrió en 1994 en Vilagarcía de Arousa con una idea sencilla: una peluquería de hombres donde se trabaja bien y se trata a cada cliente por su nombre.</p>
           <p>Al frente está Nelly Mosteiro, que junto a su equipo combina el oficio de la barbería de siempre con las técnicas y tendencias de ahora. Más de treinta años nos han enseñado que cada cabeza es distinta, y que un buen corte empieza por escuchar.</p>
-          <p>Aquí no hay prisas. Te preguntamos qué quieres, te aconsejamos con sinceridad y te vas con un corte que sabrás mantener en casa.</p>
+          <p>Aquí no hay prisas. Te preguntamos qué buscas, te aconsejamos y te vas con un corte fácil de mantener.</p>
           <p class="sign">Nelly Mosteiro</p>
         </div>
       </div>
@@ -722,9 +763,9 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <h2>Preguntas frecuentes</h2>
         <dl>
           <div><dt>¿Hace falta pedir cita?</dt><dd>Sí, trabajamos con cita previa para no hacerte esperar. Llama al 633 247 464 y te buscamos hueco.</dd></div>
-          <div><dt>¿Hay aparcamiento cerca?</dt><dd>Sí, hay aparcamiento en la calle junto al local y alrededores en el centro de Vilagarcía.</dd></div>
+          <div><dt>¿Hay aparcamiento cerca?</dt><dd>Sí, hay aparcamiento en la calle, junto al local y en los alrededores.</dd></div>
           <div><dt>¿Se puede pagar con tarjeta?</dt><dd>Sí, aceptamos pago con tarjeta además de en efectivo.</dd></div>
-          <div><dt>¿Atendéis a domicilio?</dt><dd>Sí, si no puedes venir al local, consúltanos disponibilidad y zona.</dd></div>
+          <div><dt>¿Atendéis a domicilio?</dt><dd>Sí. Si no puedes venir al local, llámanos y te confirmamos disponibilidad y zona.</dd></div>
         </dl>
       </div>
     </div>
@@ -737,7 +778,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 <div class="close">
   <div class="wrap">
     <h2>¿Te buscamos hueco?</h2>
-    <p>Llámanos y te damos cita.</p>
+    <p>Llámanos y te damos cita en el horario que mejor te venga.</p>
     <div class="cta-row">
       <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
       <span class="tel-txt">Teléfono <a href="tel:633247464">633 247 464</a></span>
