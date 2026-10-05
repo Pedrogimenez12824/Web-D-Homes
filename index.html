@@ -70,6 +70,34 @@ svg.i{width:22px;height:22px;flex:none}
 .link:hover{border-color:var(--gold);gap:.7rem}
 .link svg{width:17px;height:17px}
 
+/* Botón Pedir cita */
+.btn-cta{position:relative;isolation:isolate;overflow:hidden;gap:.85rem;min-height:60px;padding:.45rem 1.4rem .45rem .45rem;border-radius:999px;color:#241010;
+  background:linear-gradient(180deg,#f0dcae 0%,var(--gold) 45%,#c9a96a 100%);
+  box-shadow:inset 0 1px 0 rgba(255,255,255,.55),inset 0 -2px 0 rgba(90,60,20,.25),0 10px 24px -10px rgba(8,2,2,.9),0 0 0 1px rgba(216,189,134,.35);
+  transition:transform .16s var(--ease-out),box-shadow .3s ease,filter .3s ease}
+.btn-cta::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);transition:transform .9s var(--ease-out)}
+.cta-ico{width:48px;height:48px;flex:none;border-radius:50%;display:grid;place-content:center;background:#2a1210;color:var(--gold-hi);box-shadow:inset 0 0 0 1px rgba(216,189,134,.35)}
+.cta-ico svg{width:20px;height:20px}
+.cta-txt{display:grid;gap:.18rem;text-align:left;line-height:1}
+.cta-txt b{font-weight:600;font-size:1.05rem;letter-spacing:.01em}
+.cta-txt small{font-weight:500;font-size:.8rem;letter-spacing:.06em;color:#5a3a2a;font-variant-numeric:tabular-nums}
+@media(hover:hover){
+  .btn-cta:hover{filter:brightness(1.04);box-shadow:inset 0 1px 0 rgba(255,255,255,.6),inset 0 -2px 0 rgba(90,60,20,.25),0 14px 30px -10px rgba(8,2,2,.95),0 0 0 1px rgba(216,189,134,.6)}
+  .btn-cta:hover::after{transform:translateX(120%)}
+  .btn-cta:hover .cta-ico svg{animation:ring .7s var(--ease-out)}
+}
+.btn-cta:active{transform:scale(.97)}
+@keyframes ring{0%,100%{transform:rotate(0)}20%{transform:rotate(-14deg)}40%{transform:rotate(12deg)}60%{transform:rotate(-8deg)}80%{transform:rotate(4deg)}}
+.btn-cta-sm{min-height:46px;padding:.3rem 1.05rem .3rem .3rem;gap:.6rem}
+.btn-cta-sm .cta-ico{width:36px;height:36px}
+.btn-cta-sm .cta-ico svg{width:16px;height:16px}
+.btn-cta-sm .cta-txt b{font-size:.95rem}
+.bar .btn-cta{display:none}
+@media(min-width:960px){.bar .btn-cta{display:inline-flex}}
+.callbar .btn-cta{width:100%;justify-content:center;min-height:48px}
+.callbar{align-items:center}
+.callbar .btn-line{border-radius:999px}
+
 /* Cabecera */
 header{position:sticky;top:0;z-index:40;background:rgba(30,12,11,.88);backdrop-filter:saturate(1.3) blur(12px);-webkit-backdrop-filter:saturate(1.3) blur(12px);border-bottom:1px solid var(--line);padding-top:env(safe-area-inset-top,0px)}
 .bar{height:var(--head);display:flex;align-items:center;gap:1.5rem}
@@ -236,6 +264,13 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .pane-items li{display:flex;align-items:center;gap:.7rem;padding:.55rem 0;border-bottom:1px solid var(--line);color:var(--ink)}
 .pane-items li::before{content:"";width:6px;height:6px;border-radius:50%;background:var(--gold);flex:none}
 .pane-body .link{align-self:flex-start}
+.svc-pane.pane-text{grid-template-columns:1fr;position:relative;overflow:hidden}
+.svc-pane.pane-text::before{content:"";position:absolute;right:-60px;bottom:-60px;width:320px;height:320px;border-radius:50%;background:radial-gradient(circle,rgba(216,189,134,.10),transparent 65%);pointer-events:none}
+.pane-text .pane-body{padding:clamp(1.6rem,4vw,2.8rem);justify-content:flex-start}
+.pane-big-ico{width:58px;height:58px;border-radius:50%;display:grid;place-content:center;background:var(--wine);color:var(--gold);box-shadow:inset 0 0 0 1px var(--line-2);margin-bottom:1.2rem}
+.pane-big-ico svg{width:24px;height:24px}
+.pane-zones{list-style:none;margin:0 0 1.8rem;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:.6rem}
+.pane-zones li{font-family:var(--display);font-size:1.3rem;color:var(--ink);padding:.85rem 1rem;border:1px solid var(--line-2);border-radius:var(--r);background:rgba(0,0,0,.15)}
 .svc-pane.on .pane-ph{animation:panePh .7s var(--ease-out)}
 .svc-pane.on .pane-body>*{animation:paneIn .55s var(--ease-out) both}
 .svc-pane.on .pane-body>*:nth-child(2){animation-delay:.05s}.svc-pane.on .pane-body>*:nth-child(3){animation-delay:.1s}.svc-pane.on .pane-body>*:nth-child(4){animation-delay:.15s}
@@ -616,7 +651,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
       <a href="#/ubicacion">Ubicación y horario</a>
       <a href="#/contacto">Contacto</a>
     </nav>
-    <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+    <a class="btn btn-cta btn-cta-sm" href="tel:633247464"><span class="cta-ico"><svg class="i"><use href="#i-ph"/></svg></span><span class="cta-txt"><b>Pedir cita</b></span></a>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu"><span></span><span></span></button>
   </div>
 </header>
@@ -646,7 +681,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <h1 class="rise">Corte y barba con oficio, <em>desde&nbsp;1994.</em></h1>
         <p class="lead rise d1">Peluquería de caballeros en el centro de Vilagarcía de Arousa. Llámanos para pedir cita o para cualquier consulta.</p>
         <div class="cta-row rise d2">
-          <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+          <a class="btn btn-cta" href="tel:633247464"><span class="cta-ico"><svg class="i"><use href="#i-ph"/></svg></span><span class="cta-txt"><b>Pedir cita</b><small>633 247 464</small></span></a>
           <a class="link" href="#/servicios">Ver servicios<svg class="i"><use href="#i-arrow"/></svg></a>
         </div>
       </div>
@@ -707,12 +742,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
               <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
-          <div class="svc-pane" role="tabpanel" id="sp-depi" aria-labelledby="st-depi" hidden>
-            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de depilación pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-tw"/></svg></span></div>
+          <div class="svc-pane pane-text" role="tabpanel" id="sp-depi" aria-labelledby="st-depi" hidden>
             <div class="pane-body">
+              <span class="pane-big-ico" aria-hidden="true"><svg class="i"><use href="#i-tw"/></svg></span>
               <h3>Depilación</h3>
               <p>Rápida y cuidadosa, en las zonas que más se notan.</p>
-              <ul class="pane-items"><li>Cejas</li><li>Entrecejo</li><li>Orejas</li><li>Nariz</li><li>Piernas</li></ul>
+              <ul class="pane-zones"><li>Cejas</li><li>Entrecejo</li><li>Orejas</li><li>Nariz</li><li>Piernas</li></ul>
               <a class="link" href="#/servicios">Ver detalles<svg class="i"><use href="#i-arrow"/></svg></a>
             </div>
           </div>
@@ -929,7 +964,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
       </div>
       <div class="note">
         <div><strong>Precios por teléfono</strong><p>Te los confirmamos al pedir tu cita.</p></div>
-        <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+        <a class="btn btn-cta" href="tel:633247464"><span class="cta-ico"><svg class="i"><use href="#i-ph"/></svg></span><span class="cta-txt"><b>Pedir cita</b><small>633 247 464</small></span></a>
       </div>
     </div>
   </section>
@@ -1161,7 +1196,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     <h2>¿Te buscamos hueco?</h2>
     <p>Llámanos y te damos cita en el horario que mejor te venga.</p>
     <div class="cta-row">
-      <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+      <a class="btn btn-cta" href="tel:633247464"><span class="cta-ico"><svg class="i"><use href="#i-ph"/></svg></span><span class="cta-txt"><b>Pedir cita</b><small>633 247 464</small></span></a>
     </div>
   </div>
 </div>
@@ -1191,7 +1226,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 </div>
 
 <div class="callbar">
-  <a class="btn btn-gold" href="tel:633247464"><svg class="i"><use href="#i-ph"/></svg>Pedir cita</a>
+  <a class="btn btn-cta btn-cta-sm" href="tel:633247464"><span class="cta-ico"><svg class="i"><use href="#i-ph"/></svg></span><span class="cta-txt"><b>Pedir cita</b></span></a>
   <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
 </div>
 
