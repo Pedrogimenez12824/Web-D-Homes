@@ -120,6 +120,12 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .ph-in small{font-size:.8rem;letter-spacing:.02em;color:var(--muted)}
 .hero-media .ph-in{place-content:start center;padding-top:28%}
 .ph img{width:100%;height:100%;object-fit:cover}
+.ph:has(img,video){background:#140808}
+.ph:has(img,video)::before{display:none}
+.ph video{display:block;width:100%;height:100%;object-fit:cover}
+.r916{aspect-ratio:9/16}
+.shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
+.pane-ph img{position:absolute;inset:0}
 .r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}.r34{aspect-ratio:3/4}.r43{aspect-ratio:4/3}
 
 /* Portada */
@@ -650,7 +656,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <div class="svc-tabs" role="tablist" aria-label="Servicios"><button type="button" role="tab" id="st-cabello" aria-controls="sp-cabello" aria-selected="true" tabindex="0"><span class="t-name">Cabello</span><span class="t-count">4 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-barba" aria-controls="sp-barba" aria-selected="false" tabindex="-1"><span class="t-name">Barba</span><span class="t-count">3 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-color" aria-controls="sp-color" aria-selected="false" tabindex="-1"><span class="t-name">Color</span><span class="t-count">2 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button><button type="button" role="tab" id="st-depi" aria-controls="sp-depi" aria-selected="false" tabindex="-1"><span class="t-name">Depilación</span><span class="t-count">5 servicios</span><svg class="t-arr" aria-hidden="true"><use href="#i-arrow"/></svg></button></div>
         <div class="svc-stage">
           <div class="svc-pane on" role="tabpanel" id="sp-cabello" aria-labelledby="st-cabello">
-            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de cabello pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-sc"/></svg></span></div>
+            <div class="ph pane-ph"><img src="media/corte-degradado-1.webp" alt="Corte degradado realizado en D'Homes" width="900" height="1200" loading="lazy" decoding="async" draggable="false"><span class="pane-ico"><svg class="i"><use href="#i-sc"/></svg></span></div>
             <div class="pane-body">
               <h3>Cabello</h3>
               <p>Cortes clásicos y actuales, a tijera o a máquina. El corte incluye lavado.</p>
@@ -659,7 +665,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
             </div>
           </div>
           <div class="svc-pane" role="tabpanel" id="sp-barba" aria-labelledby="st-barba" hidden>
-            <div class="ph pane-ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto de barba pendiente</small></div><span class="pane-ico"><svg class="i"><use href="#i-rz"/></svg></span></div>
+            <div class="ph pane-ph"><img src="media/corte-barba-1.webp" alt="Barba perfilada con degradado realizada en D'Homes" width="900" height="1200" loading="lazy" decoding="async" draggable="false"><span class="pane-ico"><svg class="i"><use href="#i-rz"/></svg></span></div>
             <div class="pane-body">
               <h3>Barba</h3>
               <p>Desde un arreglo rápido hasta el afeitado Premium con toallas calientes.</p>
@@ -702,14 +708,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
     <div class="reel" data-reveal tabindex="0" aria-label="Fotos de cortes realizados en D'Homes. Arrastra o usa las flechas para moverte.">
       <div class="reel-track">
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure class="shot"><div class="ph"><video poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.webm" type="video/webm"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
+        <figure class="shot"><div class="ph"><video poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.webm" type="video/webm"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
+        <figure class="shot"><div class="ph"><video poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.webm" type="video/webm"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
   </section>
@@ -940,12 +944,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section>
     <div class="wrap">
       <div class="gal">
-        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure><div class="ph r45"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure><div class="ph r43"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure><div class="ph r34"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
-        <figure><div class="ph r11"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
+        <figure><div class="ph r916"><video poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.webm" type="video/webm"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r34"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
+        <figure><div class="ph r916"><video poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.webm" type="video/webm"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r34"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
+        <figure><div class="ph r916"><video poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.webm" type="video/webm"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r34"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
   </section>
@@ -1296,6 +1300,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   document.querySelectorAll('.reel').forEach(function(r){
     var t=r.querySelector('.reel-track'),btn=r.parentNode.querySelector('.reel-btn');
     Array.prototype.slice.call(t.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)});
+    if(window.__watchVideos)window.__watchVideos();
     var calmR=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     var x=0,v=0,half=1,speed=calmR?0:28,paused=calmR,hover=false,drag=false,lastX=0,lastT=0,moved=0,visible=true,prev=0;
     if(calmR&&btn)btn.style.display='none';
@@ -1377,6 +1382,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     if(b.hasAttribute('data-cookie-reset')){var t=b.textContent;b.textContent='Elige de nuevo en el aviso';setTimeout(function(){b.textContent=t},2500)}
   })});
   if(okMaps())loadMaps();else if(!choice())bn.hidden=false;
+
+  // Vídeos: se reproducen solo cuando están a la vista (sin sonido)
+  (function(){
+    var vids=[].slice.call(document.querySelectorAll('video'));
+    var calmV=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if(!vids.length||calmV||!('IntersectionObserver' in window))return;
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.preload='auto';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()})},{threshold:.15});
+    window.__watchVideos=function(){document.querySelectorAll('video').forEach(function(v){io.observe(v)})};
+    window.__watchVideos();
+  })();
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 

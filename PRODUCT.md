@@ -49,6 +49,8 @@ Peluquería de caballeros abierta desde 1994 (más de 32 años) en Vilagarcía, 
 
 ## Evidence on Hand
 
+- Fotos y vídeos reales de cortes en `media/` (WebP 900px; vídeos MP4 H.264 + WebM, 540x960, sin sonido). Se usan en la cinta de la portada, la página Galería y los paneles de Cabello y Barba. Pendiente: foto del local (portada) y del equipo (Conócenos).
+
 - Reseñas reales de Google (10) ya en la web.
 - Fotos reales del local, del equipo cortando, del equipo y de trabajos: **existen pero aún no están en el repositorio**; la web usa marcadores hasta recibirlas.
 - No hay precios, ni logo oficial. No inventar reseñas, cifras ni premios.
