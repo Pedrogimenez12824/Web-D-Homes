@@ -180,19 +180,16 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .reel-btn svg{width:18px;height:18px}
 .reel-btn .i-play,.reel-btn[aria-pressed="true"] .i-pause{display:none}
 .reel-btn[aria-pressed="true"] .i-play{display:block}
-.reel{overflow:hidden;padding-bottom:2.5rem;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
-.reel-track{display:flex;align-items:flex-start;gap:clamp(.8rem,1.5vw,1.2rem);padding-right:clamp(.8rem,1.5vw,1.2rem);width:max-content;animation:reel 60s linear infinite}
-.reel:hover .reel-track,.reel.paused .reel-track{animation-play-state:paused}
-@keyframes reel{to{transform:translateX(-50%)}}
+.reel{overflow:hidden;padding-bottom:2.5rem;cursor:grab;touch-action:pan-y;user-select:none;-webkit-user-select:none;-webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent)}
+.reel:focus-visible{outline-offset:-4px}
+.reel.grabbing{cursor:grabbing}
+.reel-track{display:flex;align-items:flex-start;gap:clamp(.8rem,1.5vw,1.2rem);padding-right:clamp(.8rem,1.5vw,1.2rem);width:max-content;will-change:transform}
 .shot{flex:none;margin:0;width:clamp(210px,21vw,300px)}
 .shot:nth-child(even){margin-top:2.5rem}
 .shot .ph{aspect-ratio:4/5;box-shadow:var(--shadow);transition:transform .5s var(--ease-out)}
+.shot img{pointer-events:none;-webkit-user-drag:none}
 .shot .ph img{transition:transform .9s var(--ease-out)}
-@media(hover:hover){.shot:hover .ph{transform:translateY(-6px)}.shot:hover .ph img{transform:scale(1.05)}}
-@media(prefers-reduced-motion:reduce){
-  .reel{overflow-x:auto;scroll-snap-type:x mandatory;-webkit-mask-image:none;mask-image:none;padding-inline:clamp(1.1rem,4vw,2.5rem)}
-  .reel-track{animation:none}.reel-track [aria-hidden="true"]{display:none}.shot{scroll-snap-align:start}.reel-btn{display:none}
-}
+@media(hover:hover){.reel:not(.grabbing) .shot:hover .ph{transform:translateY(-6px)}.reel:not(.grabbing) .shot:hover .ph img{transform:scale(1.05)}}
 
 /* Horario */
 .hours-sec{display:grid;gap:2rem}
@@ -531,7 +528,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         </div>
       </div>
     </div>
-    <div class="reel" data-reveal aria-label="Fotos de cortes realizados en D'Homes">
+    <div class="reel" data-reveal tabindex="0" aria-label="Fotos de cortes realizados en D'Homes. Arrastra o usa las flechas para moverte.">
       <div class="reel-track">
         <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
         <figure class="shot"><div class="ph"><div class="ph-in"><svg><use href="#i-ca"/></svg><small>Foto pendiente</small></div></div></figure>
@@ -924,13 +921,49 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     tr.addEventListener('scroll',sync,{passive:true});window.addEventListener('resize',sync);sync();
   }
 
-  // Galería de trabajos: cinta continua (se duplica para que no tenga fin)
+  // Galería de trabajos: cinta continua que avanza sola y se puede arrastrar con el ratón o el dedo
   document.querySelectorAll('.reel').forEach(function(r){
     var t=r.querySelector('.reel-track'),btn=r.parentNode.querySelector('.reel-btn');
     Array.prototype.slice.call(t.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)});
-    if(btn)btn.addEventListener('click',function(){var on=btn.getAttribute('aria-pressed')!=='true';btn.setAttribute('aria-pressed',on);btn.setAttribute('aria-label',on?'Reanudar la galería':'Pausar la galería');r.classList.toggle('paused',on)});
-    r.addEventListener('touchstart',function(){r.classList.add('paused')},{passive:true});
-    r.addEventListener('touchend',function(){if(!btn||btn.getAttribute('aria-pressed')!=='true')r.classList.remove('paused')});
+    var calmR=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var x=0,v=0,half=1,speed=calmR?0:28,paused=calmR,hover=false,drag=false,lastX=0,lastT=0,moved=0,visible=true,prev=0;
+    if(calmR&&btn)btn.style.display='none';
+    function measure(){half=t.scrollWidth/2||1}
+    measure();window.addEventListener('resize',measure);
+    t.querySelectorAll('img').forEach(function(i){i.addEventListener('load',measure)});
+    if('IntersectionObserver' in window)new IntersectionObserver(function(es){visible=es[0].isIntersecting}).observe(r);
+    function frame(ts){
+      var dt=prev?Math.min((ts-prev)/1000,.05):0;prev=ts;
+      if(visible&&!drag){
+        if(Math.abs(v)>8){x+=v*dt;v*=Math.pow(.04,dt)}      // inercia tras soltar
+        else{v=0;if(!paused&&!hover)x-=speed*dt}
+      }
+      if(x<=-half)x+=half;else if(x>0)x-=half;
+      t.style.transform='translate3d('+x.toFixed(2)+'px,0,0)';
+      requestAnimationFrame(frame);
+    }
+    requestAnimationFrame(frame);
+    r.addEventListener('pointerenter',function(e){if(e.pointerType==='mouse')hover=true});
+    r.addEventListener('pointerleave',function(e){if(e.pointerType==='mouse')hover=false});
+    r.addEventListener('pointerdown',function(e){
+      if(e.button&&e.button!==0)return;
+      drag=true;moved=0;v=0;lastX=e.clientX;lastT=performance.now();
+      r.classList.add('grabbing');try{r.setPointerCapture(e.pointerId)}catch(_){}
+    });
+    r.addEventListener('pointermove',function(e){
+      if(!drag)return;
+      var now=performance.now(),dx=e.clientX-lastX,dt=Math.max(now-lastT,1)/1000;
+      x+=dx;moved+=Math.abs(dx);v=v*.6+(dx/dt)*.4;lastX=e.clientX;lastT=now;
+    });
+    function end(){if(!drag)return;drag=false;r.classList.remove('grabbing');if(performance.now()-lastT>90)v=0;v=Math.max(-2500,Math.min(2500,v))}
+    r.addEventListener('pointerup',end);r.addEventListener('pointercancel',end);
+    r.addEventListener('click',function(e){if(moved>6){e.preventDefault();e.stopPropagation()}},true);
+    r.addEventListener('keydown',function(e){
+      var step=(t.firstElementChild?t.firstElementChild.getBoundingClientRect().width:260)*3.2;
+      if(e.key==='ArrowRight'){v=-step;e.preventDefault()}
+      if(e.key==='ArrowLeft'){v=step;e.preventDefault()}
+    });
+    if(btn)btn.addEventListener('click',function(){paused=!paused;btn.setAttribute('aria-pressed',paused);btn.setAttribute('aria-label',paused?'Reanudar la galería':'Pausar la galería')});
   });
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
