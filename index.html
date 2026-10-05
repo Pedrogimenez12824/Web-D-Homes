@@ -11,9 +11,15 @@
 <meta property="og:title" content="D'Homes Peluquería · Vilagarcía de Arousa">
 <meta property="og:description" content="Peluquería de caballeros desde 1994. Corte, barba y color con cita previa. Tel. 633 247 464.">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='12' fill='%232a1210'/%3E%3Ctext x='32' y='45' text-anchor='middle' font-family='Georgia,serif' font-size='38' font-weight='700' fill='%23d8bd86'%3ED%3C/text%3E%3C/svg%3E">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400..600;1,6..96,400..500&family=Cinzel+Decorative:wght@700&family=Jost:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="preload" href="fonts/bodoni-moda.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="fonts/jost.woff2" as="font" type="font/woff2" crossorigin>
+<style>
+/* Fuentes alojadas en la propia web (no se cargan de Google) */
+@font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/bodoni-moda.woff2) format('woff2')}
+@font-face{font-family:'Bodoni Moda';font-style:italic;font-weight:400 500;font-display:swap;src:url(fonts/bodoni-moda-italic.woff2) format('woff2')}
+@font-face{font-family:'Cinzel Decorative';font-style:normal;font-weight:700;font-display:swap;src:url(fonts/cinzel-decorative-700.woff2) format('woff2')}
+@font-face{font-family:'Jost';font-style:normal;font-weight:400 600;font-display:swap;src:url(fonts/jost.woff2) format('woff2')}
+</style>
 <style>
 :root{
   color-scheme:dark;
@@ -58,7 +64,7 @@ svg.i{width:22px;height:22px;flex:none}
 .btn svg{width:19px;height:19px}
 .btn-gold{background:var(--gold);color:#241010;box-shadow:0 6px 14px -6px rgba(8,2,2,.8)}
 .btn-gold:hover{background:var(--gold-hi)}
-.btn-line{border-color:var(--line-2);color:var(--ink)}
+.btn-line{border-color:var(--line-2);color:var(--ink);background:transparent}
 .btn-line:hover{border-color:var(--gold);color:var(--gold)}
 .link{display:inline-flex;align-items:center;gap:.45rem;color:var(--gold);font-weight:500;text-decoration:none;padding:.35rem 0;border-bottom:1px solid var(--line-2);transition:border-color .2s ease,gap .25s var(--ease-out)}
 .link:hover{border-color:var(--gold);gap:.7rem}
@@ -270,6 +276,11 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .loc-list svg{color:var(--gold);width:19px;height:19px;margin-top:.2rem}
 .map{position:relative;height:clamp(230px,30vw,320px);border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);box-shadow:var(--shadow);background:var(--surface)}
 .map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.8) contrast(1.02)}
+.map-consent{position:absolute;inset:0;display:grid;place-content:center;justify-items:center;gap:.9rem;text-align:center;padding:1.5rem 1.5rem 4.5rem;background:repeating-linear-gradient(0deg,transparent 0 46px,rgba(216,189,134,.06) 46px 47px),repeating-linear-gradient(90deg,transparent 0 46px,rgba(216,189,134,.06) 46px 47px),radial-gradient(60% 60% at 50% 45%,#3a1b18,var(--surface))}
+.map-consent svg{width:34px;height:34px;color:var(--gold)}
+.map-consent p{margin:0;max-width:34ch;font-size:.9rem;color:var(--ink-2)}
+.map-consent a{color:var(--gold)}
+.map-consent .btn{min-height:44px;padding:.55rem 1.2rem}
 .map-go{position:absolute;right:.8rem;bottom:.8rem;z-index:1;box-shadow:0 8px 18px -6px rgba(8,2,2,.75)}
 
 /* Aparición al bajar */
@@ -348,11 +359,16 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .foot-contact .tel{font-family:var(--display);font-size:1.45rem;color:var(--ink)}
 .foot-contact span{display:inline-flex;align-items:center;gap:.55rem}
 .foot-map{position:relative;display:block;height:130px;border-radius:var(--r);overflow:hidden;border:1px solid var(--line-2);background:var(--surface)}
-.foot-map iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:saturate(.75);pointer-events:none}
+.foot-map{background:repeating-linear-gradient(0deg,transparent 0 30px,rgba(216,189,134,.07) 30px 31px),repeating-linear-gradient(90deg,transparent 0 30px,rgba(216,189,134,.07) 30px 31px),radial-gradient(70% 80% at 30% 40%,#3a1b18,var(--surface))!important}
+.foot-pin{position:absolute;left:1.1rem;top:1rem;color:var(--gold)}
+.foot-pin svg{width:28px;height:28px}
 .foot-map .btn{position:absolute;right:.5rem;bottom:.5rem;min-height:38px;padding:.45rem .8rem;font-size:.85rem}
 .legal{margin-top:1.8rem;padding-top:1.1rem;border-top:1px solid var(--line);font-size:.82rem;display:flex;flex-wrap:wrap;justify-content:space-between;gap:.6rem 2rem}
 .legal a{color:var(--muted);text-decoration:none}
 .legal a:hover{color:var(--gold)}
+.legal-links{display:flex;flex-wrap:wrap;gap:.4rem 1.2rem}
+.legal-links button{border:0;background:none;padding:0;font:inherit;color:var(--muted);cursor:pointer}
+.legal-links button:hover{color:var(--gold)}
 
 /* Barra de llamada (móvil) */
 .callbar{position:fixed;left:0;right:0;bottom:0;z-index:35;display:grid;grid-template-columns:1fr 1fr;gap:.6rem;padding:.6rem .75rem calc(.6rem + env(safe-area-inset-bottom,0px));background:rgba(30,12,11,.94);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-top:1px solid var(--line)}
@@ -429,6 +445,21 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 .gal figure{break-inside:avoid;margin:0 0 1rem}
 .gal figcaption{font-size:.9rem;color:var(--muted);padding:.55rem .15rem 0}
 .gal-note{margin-top:1.5rem;color:var(--muted);font-size:.95rem}
+
+/* Páginas legales */
+.prose{max-width:780px}
+.prose h2{font-size:clamp(1.5rem,3vw,1.9rem);margin:2.4rem 0 .8rem}
+.prose h2:first-child{margin-top:0}
+.prose p,.prose li{color:var(--ink-2)}
+.prose a{color:var(--gold)}
+.prose .data{list-style:none;margin:0 0 1rem;padding:1.1rem 1.3rem;border:1px solid var(--line);border-radius:var(--r);background:var(--surface);display:grid;gap:.35rem}
+.prose .data b{color:var(--ink);font-weight:500}
+.table-wrap{overflow-x:auto;margin:1rem 0 1.5rem;border:1px solid var(--line);border-radius:var(--r)}
+.ck{width:100%;min-width:560px;border-collapse:collapse;font-size:.92rem}
+.ck th,.ck td{text-align:left;vertical-align:top;padding:.8rem 1rem;border-bottom:1px solid var(--line)}
+.ck th{color:var(--ink);font-weight:500;background:var(--surface)}
+.ck td{color:var(--ink-2)}
+.ck tr:last-child td{border-bottom:0}
 
 /* Contacto */
 .contact{display:grid;gap:3rem}
@@ -680,7 +711,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section>
     <div class="wrap loc">
       <div class="map" data-reveal>
-        <iframe src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed" title="Mapa de D'Homes Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed">
+          <svg class="i" aria-hidden="true"><use href="#i-pn"/></svg>
+          <p>El mapa lo ofrece Google Maps. Al cargarlo, Google puede usar cookies. <a href="#/cookies">Más información</a></p>
+          <button class="btn btn-line" type="button" data-load-map>Ver mapa</button>
+        </div>
         <a class="btn btn-gold map-go" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
       </div>
       <div class="loc-info" data-reveal style="--i:1">
@@ -857,7 +892,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section class="tint">
     <div class="wrap loc">
       <div class="map" data-reveal>
-        <iframe src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed" title="Mapa de D'Homes Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        <div class="map-consent" data-map-src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed">
+          <svg class="i" aria-hidden="true"><use href="#i-pn"/></svg>
+          <p>El mapa lo ofrece Google Maps. Al cargarlo, Google puede usar cookies. <a href="#/cookies">Más información</a></p>
+          <button class="btn btn-line" type="button" data-load-map>Ver mapa</button>
+        </div>
         <a class="btn btn-gold map-go" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
       </div>
       <div class="loc-info" data-reveal style="--i:1">
@@ -904,6 +943,98 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   </section>
 </div>
 
+<!-- AVISO LEGAL -->
+<div class="page" data-page="aviso-legal" data-title="Aviso legal">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Aviso legal</div><h1>Aviso legal</h1><p>Última actualización: octubre de 2026</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap prose">
+      <h2>1. Datos identificativos</h2>
+      <p>En cumplimiento del artículo 10 de la Ley 34/2002, de 11 de julio, de Servicios de la Sociedad de la Información y de Comercio Electrónico (LSSI-CE), se informa de los datos del titular de este sitio web:</p>
+      <ul class="data">
+        <li><b>Titular:</b> D'Homes Peluquería</li>
+        <li><b>NIF:</b> XXXXXX</li>
+        <li><b>Domicilio:</b> Calle Arzobispo Gelmírez, 7, 36600 Vilagarcía de Arousa (Pontevedra)</li>
+        <li><b>Teléfono:</b> 633 247 464</li>
+        <li><b>Correo electrónico:</b> <a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a></li>
+      </ul>
+      <h2>2. Objeto</h2>
+      <p>Este sitio web ofrece información sobre D'Homes Peluquería, sus servicios, horario y forma de contacto. El acceso y uso del sitio atribuye la condición de usuario e implica la aceptación de este aviso legal.</p>
+      <h2>3. Condiciones de uso</h2>
+      <p>El usuario se compromete a hacer un uso adecuado de los contenidos de este sitio web y a no emplearlos para actividades ilícitas o contrarias a la buena fe. La información sobre servicios y horarios es orientativa y puede cambiar; para cualquier confirmación, consulta por teléfono.</p>
+      <h2>4. Propiedad intelectual e industrial</h2>
+      <p>Los textos, fotografías, logotipo y diseño de este sitio web pertenecen a D'Homes Peluquería o se usan con autorización de sus titulares. Queda prohibida su reproducción, distribución o modificación sin permiso expreso. Las opiniones de clientes mostradas proceden de reseñas públicas de Google y pertenecen a sus autores.</p>
+      <h2>5. Enlaces a otros sitios</h2>
+      <p>Este sitio contiene enlaces a servicios de terceros, como Google Maps o las reseñas de Google. D'Homes Peluquería no se responsabiliza del contenido ni de las políticas de esos sitios.</p>
+      <h2>6. Responsabilidad</h2>
+      <p>D'Homes Peluquería no se hace responsable de los daños derivados de interrupciones del servicio, errores técnicos o un uso indebido del sitio web, y se reserva el derecho a modificar sus contenidos en cualquier momento.</p>
+      <h2>7. Legislación aplicable</h2>
+      <p>Este aviso legal se rige por la legislación española. Para cualquier controversia, las partes se someterán a los juzgados y tribunales que correspondan conforme a la normativa vigente.</p>
+    </div>
+  </section>
+</div>
+
+<!-- POLÍTICA DE PRIVACIDAD -->
+<div class="page" data-page="privacidad" data-title="Política de privacidad">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Política de privacidad</div><h1>Política de privacidad</h1><p>Última actualización: octubre de 2026</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap prose">
+      <h2>Responsable del tratamiento</h2>
+      <ul class="data">
+        <li><b>Titular:</b> D'Homes Peluquería</li>
+        <li><b>NIF:</b> XXXXXX</li>
+        <li><b>Domicilio:</b> Calle Arzobispo Gelmírez, 7, 36600 Vilagarcía de Arousa (Pontevedra)</li>
+        <li><b>Teléfono:</b> 633 247 464</li>
+        <li><b>Correo electrónico:</b> <a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a></li>
+      </ul>
+      <h2>Qué datos tratamos</h2>
+      <p>Esta web no tiene formularios ni recoge datos personales por sí misma. Solo tratamos los datos que nos facilitas cuando nos llamas o nos escribes por correo: normalmente tu nombre, tu teléfono o correo y los datos de tu cita.</p>
+      <h2>Para qué los usamos</h2>
+      <p>Para gestionar tus citas, prestarte el servicio, incluido el servicio a domicilio, y responder a tus consultas. No los usamos para enviarte publicidad.</p>
+      <h2>Base legal</h2>
+      <p>El tratamiento se basa en tu consentimiento al contactarnos y en la necesidad de gestionar el servicio que nos pides, conforme al artículo 6.1 a) y b) del Reglamento General de Protección de Datos (RGPD).</p>
+      <h2>Cuánto tiempo los conservamos</h2>
+      <p>Durante el tiempo necesario para atender tu cita o consulta y, después, durante los plazos que exija la ley.</p>
+      <h2>A quién se comunican</h2>
+      <p>No cedemos tus datos a terceros, salvo obligación legal. El proveedor de alojamiento de la web puede tratar datos técnicos de conexión, como la dirección IP, solo para prestar ese servicio y con las garantías adecuadas.</p>
+      <p>Si decides cargar el mapa de Google, Google recibirá datos de tu navegación según su propia política de privacidad, y puede transferirlos fuera de la Unión Europea con las garantías previstas en la normativa, como el Marco de Privacidad de Datos UE-EE. UU. Más detalles en la <a href="#/cookies">política de cookies</a>.</p>
+      <h2>Tus derechos</h2>
+      <p>Puedes ejercer tus derechos de acceso, rectificación, supresión, oposición, limitación del tratamiento y portabilidad escribiendo a <a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a> o en nuestro local, indicando qué derecho quieres ejercer.</p>
+      <p>Si consideras que no hemos tratado bien tus datos, puedes reclamar ante la Agencia Española de Protección de Datos (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).</p>
+    </div>
+  </section>
+</div>
+
+<!-- POLÍTICA DE COOKIES -->
+<div class="page" data-page="cookies" data-title="Política de cookies">
+  <div class="ptitle"><div class="wrap"><div class="crumb"><a href="#/">Inicio</a> / Política de cookies</div><h1>Política de cookies</h1><p>Última actualización: octubre de 2026</p></div></div>
+  <div class="pole" aria-hidden="true"></div>
+  <section>
+    <div class="wrap prose">
+      <h2>Qué son las cookies</h2>
+      <p>Las cookies son pequeños archivos que algunas webs guardan en tu dispositivo para recordar información sobre tu visita.</p>
+      <h2>Cookies que usa esta web</h2>
+      <p>Esta web no usa cookies propias de publicidad ni de análisis. Las fuentes de letra están alojadas en la propia web, así que no se cargan desde servidores de terceros.</p>
+      <div class="table-wrap"><table class="ck">
+        <thead><tr><th>Nombre</th><th>Tipo</th><th>Para qué sirve</th><th>Duración</th></tr></thead>
+        <tbody>
+          <tr><td>dhomes-mapas</td><td>Técnica (almacenamiento local)</td><td>Recordar si has aceptado ver los mapas de Google. No se envía a nadie.</td><td>Hasta que la borres o pulses «Configurar cookies»</td></tr>
+          <tr><td>Cookies de Google Maps</td><td>De terceros</td><td>Solo se instalan si pulsas «Ver mapa». Google las usa para mostrar el mapa, recordar preferencias y con otros fines descritos en su política.</td><td>Según Google</td></tr>
+        </tbody>
+      </table></div>
+      <h2>Mapas de Google</h2>
+      <p>Los mapas no se cargan hasta que pulsas «Ver mapa». Al hacerlo aceptas que Google Maps se cargue y pueda usar sus cookies. Puedes consultar cómo las usa en la <a href="https://policies.google.com/technologies/cookies?hl=es" target="_blank" rel="noopener">política de cookies de Google</a>.</p>
+      <p>Las opiniones de clientes y los botones «Cómo llegar» y «Más opiniones en Google» son enlaces a Google: no instalan cookies mientras no los abres.</p>
+      <h2>Cómo cambiar tu elección</h2>
+      <p>Puedes retirar tu permiso cuando quieras con este botón o con el enlace «Configurar cookies» del pie de página. Los mapas volverán a quedar bloqueados.</p>
+      <p><button class="btn btn-line" type="button" data-cookie-reset>Retirar permiso de los mapas</button></p>
+      <p>También puedes borrar o bloquear las cookies desde la configuración de tu navegador (Chrome, Safari, Firefox o Edge).</p>
+      <p>Para cualquier duda, escríbenos a <a href="mailto:nellymosteiro69@gmail.com">nellymosteiro69@gmail.com</a>.</p>
+    </div>
+  </section>
+</div>
+
 </main>
 
 <div class="pole" aria-hidden="true"></div>
@@ -927,11 +1058,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <span><svg class="i"><use href="#i-pn"/></svg>Arzobispo Gelmírez, 7 Bajo, Vilagarcía de Arousa</span>
       </div>
       <div class="foot-map">
-        <iframe src="https://www.google.com/maps?q=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa&output=embed" title="Mapa pequeño de D'Homes Peluquería" loading="lazy" referrerpolicy="no-referrer-when-downgrade" tabindex="-1"></iframe>
+          <span class="foot-pin" aria-hidden="true"><svg class="i"><use href="#i-pn"/></svg></span>
         <a class="btn btn-gold" href="https://www.google.com/maps/search/?api=1&query=Arzobispo+Gelm%C3%ADrez+7+Vilagarc%C3%ADa+de+Arousa" target="_blank" rel="noopener"><svg class="i"><use href="#i-pn"/></svg>Cómo llegar</a>
       </div>
     </div>
-    <div class="legal"><span>© <span id="year">2026</span> D'Homes Peluquería</span><a href="#main" id="totop">Volver arriba</a></div>
+    <div class="legal"><span>© <span id="year">2026</span> D'Homes Peluquería</span><nav class="legal-links" aria-label="Información legal"><a href="#/aviso-legal">Aviso legal</a><a href="#/privacidad">Privacidad</a><a href="#/cookies">Cookies</a><button type="button" id="cookie-reset">Configurar cookies</button></nav><a href="#main" id="totop">Volver arriba</a></div>
   </div>
 </footer>
 
@@ -1093,6 +1224,24 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   });
 
   document.querySelectorAll('.svc-jump button').forEach(function(b){b.addEventListener('click',function(){var t=document.getElementById(b.dataset.to);if(t)t.scrollIntoView({behavior:'smooth',block:'start'})})});
+
+  // Mapas de Google: solo se cargan con permiso del visitante
+  var KEY='dhomes-mapas';
+  function okMaps(){try{return localStorage.getItem(KEY)==='si'}catch(_){return false}}
+  function loadMaps(){
+    document.querySelectorAll('.map-consent').forEach(function(c){
+      var f=document.createElement('iframe');f.src=c.dataset.mapSrc;f.title="Mapa de D'Homes Peluquería";f.loading='lazy';f.referrerPolicy='no-referrer-when-downgrade';f.allowFullscreen=true;
+      c.hidden=true;if(!c.parentNode.querySelector('iframe'))c.parentNode.insertBefore(f,c);
+    });
+  }
+  function resetMaps(){
+    try{localStorage.removeItem(KEY)}catch(_){}
+    document.querySelectorAll('.map iframe').forEach(function(f){f.remove()});
+    document.querySelectorAll('.map-consent').forEach(function(c){c.hidden=false});
+  }
+  document.querySelectorAll('[data-load-map]').forEach(function(b){b.addEventListener('click',function(){try{localStorage.setItem(KEY,'si')}catch(_){}loadMaps()})});
+  document.querySelectorAll('#cookie-reset,[data-cookie-reset]').forEach(function(b){b.addEventListener('click',function(){resetMaps();b.blur();var t=b.textContent;if(b.hasAttribute('data-cookie-reset')){b.textContent='Permiso retirado';setTimeout(function(){b.textContent=t},2500)}})});
+  if(okMaps())loadMaps();
 
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 

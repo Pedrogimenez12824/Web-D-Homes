@@ -8,7 +8,7 @@ web
 
 ## Stack
 
-Static single-file HTML/CSS/JS (one `.html` with inline styles and scripts, hash-based routing between pages). No build step.
+Static HTML/CSS/JS: one `index.html` with inline styles and scripts, hash-based routing between pages, self-hosted fonts in `fonts/`. No build step. Google Maps only loads after the visitor clicks "Ver mapa" (consent stored in localStorage `dhomes-mapas`).
 
 ## Users
 
@@ -34,6 +34,11 @@ Peluquería de caballeros abierta desde 1994 (más de 32 años) en Vilagarcía, 
 - **No se publican precios** (decisión de la dueña). Precios "a consultar por teléfono".
 - Acceso para movilidad reducida. Pago con tarjeta y efectivo.
 - Los datos actuales se mantienen; el propietario de la web enviará correcciones puntuales.
+
+## Legal
+
+- Titular: D' Homes Peluquería. NIF pendiente (XXXXXX en la web). Domicilio: Calle Arzobispo Gelmírez, 7, 36600 Vilagarcía de Arousa (Pontevedra).
+- Páginas: #/aviso-legal, #/privacidad, #/cookies. Sin analítica ni cookies propias; solo Google Maps tras permiso.
 
 ## Brand Commitments
 
