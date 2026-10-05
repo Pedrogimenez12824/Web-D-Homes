@@ -16,7 +16,7 @@ Vecinos de Vilagarcía de Arousa y alrededores que buscan peluquería de caballe
 
 ## Product Purpose
 
-Web de D'Homes Peluquería: que quien la visite confíe en el sitio y llame para pedir cita. Éxito = llamadas al 633 247 464 / 986 500 766 y visitas al local.
+Web de D'Homes Peluquería: que quien la visite confíe en el sitio y llame para pedir cita. Éxito = llamadas al 986 500 766 (único teléfono que se publica; el móvil 633 247 464 NO debe aparecer) y visitas al local.
 
 ## Positioning
 
