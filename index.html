@@ -320,11 +320,15 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .gr-stars{display:inline-flex;gap:3px;color:var(--gold)}
 .gr-stars svg{width:18px;height:18px}
 .gr-stars svg.off{color:rgba(216,189,134,.25)}
-.q-stage{position:relative;display:grid;overflow:hidden;border-radius:var(--r);border:1px solid var(--line-2);background:radial-gradient(90% 120% at 0% 0%,rgba(122,46,38,.55),transparent 60%),radial-gradient(70% 90% at 100% 100%,rgba(216,189,134,.08),transparent 60%),var(--surface);padding:clamp(2.2rem,5vw,4rem) clamp(1.4rem,6vw,5rem) clamp(2.4rem,5vw,3.6rem);min-height:clamp(330px,34vw,380px)}
-.q-stage::before{content:"“";position:absolute;right:clamp(1rem,4vw,3rem);top:clamp(1rem,3vw,2rem);font-family:var(--display);font-size:clamp(9rem,18vw,15rem);line-height:.7;height:.45em;overflow:hidden;color:var(--gold);opacity:.12;pointer-events:none}
+.q-grid{display:grid;gap:clamp(.8rem,1.6vw,1.2rem)}
+@media(min-width:900px){.q-grid{grid-template-columns:1fr 1fr}}
+.q-stage[data-slot="1"]{display:none}
+@media(min-width:900px){.q-stage[data-slot="1"]{display:grid}}
+.q-stage{position:relative;display:grid;overflow:hidden;border-radius:var(--r);border:1px solid var(--line-2);background:radial-gradient(90% 120% at 0% 0%,rgba(122,46,38,.55),transparent 60%),radial-gradient(70% 90% at 100% 100%,rgba(216,189,134,.08),transparent 60%),var(--surface);padding:clamp(2rem,4vw,3rem) clamp(1.4rem,3.5vw,2.6rem) clamp(2.2rem,4vw,2.8rem);min-height:clamp(300px,28vw,340px)}
+.q-stage::before{content:"“";position:absolute;right:clamp(1rem,3vw,2rem);top:clamp(1rem,2.4vw,1.6rem);font-family:var(--display);font-size:clamp(8rem,13vw,11rem);line-height:.7;height:.45em;overflow:hidden;color:var(--gold);opacity:.12;pointer-events:none}
 .q-slide{grid-area:1/1;margin:0;display:flex;flex-direction:column;justify-content:center;gap:1.4rem;position:relative}
 .q-slide[hidden]{display:none}
-.q-slide blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.6rem,3.4vw,2.6rem);line-height:1.25;color:var(--ink);max-width:28ch;text-wrap:balance}
+.q-slide blockquote{margin:0;font-family:var(--display);font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.25;color:var(--ink);max-width:30ch;text-wrap:balance}
 .q-slide figcaption{display:flex;align-items:center;gap:.9rem}
 .q-av{width:48px;height:48px;border-radius:50%;background:var(--gold);color:#241010;display:grid;place-content:center;font-weight:600;font-size:.95rem;letter-spacing:.02em;flex:none}
 .q-slide figcaption b{display:block;font-weight:500;color:var(--ink);font-size:1.02rem}
@@ -335,7 +339,9 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 @keyframes qin{from{opacity:0;transform:translateY(14px);filter:blur(4px)}to{opacity:1;transform:none;filter:none}}
 .q-bar{position:absolute;left:0;right:0;bottom:0;height:2px;background:rgba(216,189,134,.12)}
 .q-bar i{display:block;height:100%;background:var(--gold);transform-origin:left;transform:scaleX(0)}
-.quotes.running .q-bar i{animation:qbar var(--q-dur,7s) linear forwards}
+.q-stage .q-bar{opacity:0;transition:opacity .3s ease}
+.q-stage.next .q-bar{opacity:1}
+.quotes.running .q-stage.next .q-bar i{animation:qbar var(--q-dur,6s) linear forwards}
 .quotes.paused .q-bar i{animation-play-state:paused}
 @keyframes qbar{to{transform:scaleX(1)}}
 .q-nav{display:flex;align-items:center;justify-content:space-between;gap:1rem;margin-top:1.4rem}
@@ -348,7 +354,7 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .q-arrow:active{transform:scale(.94)}
 .q-arrow svg{width:18px;height:18px}
 .q-arrow.prev svg{transform:rotate(180deg)}
-@media(max-width:640px){.q-dots{display:none}.q-nav{justify-content:center;gap:1.2rem}.q-nav::before{content:attr(data-count);order:1;font-size:.9rem;color:var(--muted);font-variant-numeric:tabular-nums}.q-arrow.next{order:2}}
+@media(max-width:640px){.q-dots{display:none}.q-nav{justify-content:center;gap:1rem}}
 
 /* Llamada final */
 .close{position:relative;text-align:center;padding:clamp(4.5rem,9vw,6.5rem) 0;background:radial-gradient(60% 120% at 50% 0%,rgba(122,46,38,.45),transparent 70%),var(--bg-2);border-top:1px solid var(--line)}
@@ -766,62 +772,65 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
         <a class="btn btn-line" href="https://www.google.com/search?q=D+Homes+peluqueria+Vilagarcia+de+Arousa#lrd=0xd2f6d274534f31d:0x0,1" target="_blank" rel="noopener"><svg class="i"><use href="#i-g4"/></svg>Ver todas en Google</a>
       </div>
       <div class="quotes" data-reveal style="--i:1" aria-roledescription="carrusel" aria-label="Opiniones de clientes">
-        <div class="q-stage" aria-live="polite">
-          <figure class="q-slide on" id="q0">
+        <div class="q-pool" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Mi peluquería favorita, llevo yendo 20 años desde que era un niño y siempre salgo contento.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">FD</span><span><b>Fernando Pérez Díaz</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q1" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>La primera vez y genial. Atención estupenda, mucha profesionalidad y saber hacer.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">JF</span><span><b>Javier Dafonte Fresco</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q2" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Es la peluquería a la que voy habitualmente desde hace años, trato muy cordial y siempre quedo satisfecho.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">VC</span><span><b>Victor Colomino</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q3" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>La mejor peluquería de caballeros de Villagarcía, trato genial y super profesional!</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">MR</span><span><b>Manuel Recouso</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q4" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Un servicio excelente, ambiente relajado y unos profesionales.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">IA</span><span><b>Ignacio Abalo</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q5" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="4" role="img" aria-label="4 de 5 estrellas"></span>
             <blockquote>Trato excelente y precio más que razonable.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">JS</span><span><b>Jose Sotoabal</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q6" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Experiencia 100 x 100 y trato de excelencia.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">CF</span><span><b>César Córdoba Ferreira</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q7" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>La mejor peluquería de caballeros de Vilagarcía.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">MM</span><span><b>Manuel De Maila</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q8" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Atención excelente.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">JM</span><span><b>Julián Iglesias Mouta</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <figure class="q-slide" id="q9" hidden>
+          <figure class="q-slide">
             <span class="gr-stars" data-n="5" role="img" aria-label="5 de 5 estrellas"></span>
             <blockquote>Buena profesional.</blockquote>
             <figcaption><span class="q-av" aria-hidden="true">MB</span><span><b>Maribel Castellano Bouzon</b><small><svg aria-hidden="true"><use href="#i-g4"/></svg>Google</small></span></figcaption>
           </figure>
-          <div class="q-bar" aria-hidden="true"><i></i></div>
+        </div>
+        <div class="q-grid" aria-live="polite">
+          <div class="q-stage" data-slot="0"></div>
+          <div class="q-stage" data-slot="1"></div>
         </div>
         <div class="q-nav">
           <button class="q-arrow prev" type="button" aria-label="Opinión anterior"><svg><use href="#i-arrow"/></svg></button>
-          <div class="q-dots"><button type="button" class="q-dot on" aria-label="Opinión de Fernando Pérez Díaz" aria-controls="q0" aria-pressed="true">FD</button><button type="button" class="q-dot" aria-label="Opinión de Javier Dafonte Fresco" aria-controls="q1" aria-pressed="false">JF</button><button type="button" class="q-dot" aria-label="Opinión de Victor Colomino" aria-controls="q2" aria-pressed="false">VC</button><button type="button" class="q-dot" aria-label="Opinión de Manuel Recouso" aria-controls="q3" aria-pressed="false">MR</button><button type="button" class="q-dot" aria-label="Opinión de Ignacio Abalo" aria-controls="q4" aria-pressed="false">IA</button><button type="button" class="q-dot" aria-label="Opinión de Jose Sotoabal" aria-controls="q5" aria-pressed="false">JS</button><button type="button" class="q-dot" aria-label="Opinión de César Córdoba Ferreira" aria-controls="q6" aria-pressed="false">CF</button><button type="button" class="q-dot" aria-label="Opinión de Manuel De Maila" aria-controls="q7" aria-pressed="false">MM</button><button type="button" class="q-dot" aria-label="Opinión de Julián Iglesias Mouta" aria-controls="q8" aria-pressed="false">JM</button><button type="button" class="q-dot" aria-label="Opinión de Maribel Castellano Bouzon" aria-controls="q9" aria-pressed="false">MB</button></div>
+          <div class="q-dots"><button type="button" class="q-dot on" aria-label="Opinión de Fernando Pérez Díaz" aria-pressed="true">FD</button><button type="button" class="q-dot" aria-label="Opinión de Javier Dafonte Fresco" aria-pressed="false">JF</button><button type="button" class="q-dot" aria-label="Opinión de Victor Colomino" aria-pressed="false">VC</button><button type="button" class="q-dot" aria-label="Opinión de Manuel Recouso" aria-pressed="false">MR</button><button type="button" class="q-dot" aria-label="Opinión de Ignacio Abalo" aria-pressed="false">IA</button><button type="button" class="q-dot" aria-label="Opinión de Jose Sotoabal" aria-pressed="false">JS</button><button type="button" class="q-dot" aria-label="Opinión de César Córdoba Ferreira" aria-pressed="false">CF</button><button type="button" class="q-dot" aria-label="Opinión de Manuel De Maila" aria-pressed="false">MM</button><button type="button" class="q-dot" aria-label="Opinión de Julián Iglesias Mouta" aria-pressed="false">JM</button><button type="button" class="q-dot" aria-label="Opinión de Maribel Castellano Bouzon" aria-pressed="false">MB</button></div>
           <button class="q-arrow next" type="button" aria-label="Opinión siguiente"><svg><use href="#i-arrow"/></svg></button>
         </div>
       </div>
@@ -1219,33 +1228,44 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 
   document.querySelectorAll('.gr-stars[data-n]').forEach(function(e){var n=+e.dataset.n,h='';for(var i=0;i<5;i++)h+='<svg class="'+(i<n?'':'off')+'" aria-hidden="true"><use href="#i-st"/></svg>';e.innerHTML=h});
 
-  // Opiniones: una reseña destacada que va pasando sola
+  // Opiniones: dos a la vez en ordenador (una en móvil); cada vez cambia solo una
   document.querySelectorAll('.quotes').forEach(function(q){
-    var slides=[].slice.call(q.querySelectorAll('.q-slide')),dots=[].slice.call(q.querySelectorAll('.q-dot')),nav=q.querySelector('.q-nav'),bar=q.querySelector('.q-bar i');
-    var i=0,timer=null,DUR=7000,calmQ=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches,inView=false,hold=false;
-    function show(n){
-      i=(n+slides.length)%slides.length;
-      slides.forEach(function(s,k){var on=k===i;s.hidden=!on;s.classList.toggle('on',on)});
-      dots.forEach(function(d,k){d.classList.toggle('on',k===i);d.setAttribute('aria-pressed',k===i)});
-      nav.setAttribute('data-count',(i+1)+' / '+slides.length);
-      restart();
+    var pool=[].slice.call(q.querySelectorAll('.q-pool .q-slide')),N=pool.length,stages=[].slice.call(q.querySelectorAll('.q-stage'));
+    var dots=[].slice.call(q.querySelectorAll('.q-dot')),DUR=6000,timer=null,inView=false,hold=false;
+    var calmQ=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var mq=window.matchMedia?matchMedia('(min-width:900px)'):{matches:true};
+    var shown=[0,1],turn=0;
+    stages.forEach(function(st){var b=document.createElement('div');b.className='q-bar';b.setAttribute('aria-hidden','true');b.innerHTML='<i></i>';st.appendChild(b)});
+    function count(){return mq.matches?2:1}
+    function put(slot,idx){
+      var st=stages[slot],old=st.querySelector('.q-slide');if(old)old.remove();
+      var f=pool[idx].cloneNode(true);f.classList.add('on');st.insertBefore(f,st.querySelector('.q-bar'));shown[slot]=idx;
     }
+    function marks(){
+      var c=count();dots.forEach(function(d,k){var on=shown.slice(0,c).indexOf(k)>-1;d.classList.toggle('on',on);d.setAttribute('aria-pressed',on)});
+      stages.forEach(function(st,k){st.classList.toggle('next',k===turn%c)});
+    }
+    function nextFree(from){var c=count(),i=from;for(var n=0;n<N;n++){i=(i+1)%N;if(shown.slice(0,c).indexOf(i)<0)return i}return from}
+    function tick(){var c=count(),slot=turn%c;put(slot,nextFree(Math.max.apply(null,shown.slice(0,c))));turn=(slot+1)%c;marks();restart()}
     function restart(){
       clearTimeout(timer);q.classList.remove('running');
       if(calmQ||!inView||hold)return;
-      void bar.offsetWidth;q.classList.add('running');
-      timer=setTimeout(function(){show(i+1)},DUR);
+      stages.forEach(function(st){void st.offsetWidth});q.classList.add('running');
+      timer=setTimeout(tick,DUR);
     }
-    q.querySelector('.prev').addEventListener('click',function(){show(i-1)});
-    q.querySelector('.next').addEventListener('click',function(){show(i+1)});
-    dots.forEach(function(d,k){d.addEventListener('click',function(){show(k)})});
+    function step(dir){var c=count();for(var k=0;k<c;k++)put(k,((shown[0]+dir*c+k)%N+N)%N);turn=0;marks();restart()}
+    q.querySelector('.prev').addEventListener('click',function(){step(-1)});
+    q.querySelector('.next').addEventListener('click',function(){step(1)});
+    dots.forEach(function(d,k){d.addEventListener('click',function(){var c=count();if(shown.slice(0,c).indexOf(k)>-1)return;var slot=turn%c;put(slot,k);turn=(slot+1)%c;marks();restart()})});
     function pause(on){hold=on;q.classList.toggle('paused',on);if(on)clearTimeout(timer);else restart()}
     q.addEventListener('mouseenter',function(){pause(true)});q.addEventListener('mouseleave',function(){pause(false)});
     q.addEventListener('focusin',function(){pause(true)});q.addEventListener('focusout',function(){pause(false)});
-    var sx=0;q.querySelector('.q-stage').addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
-    q.querySelector('.q-stage').addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)show(dx<0?i+1:i-1)});
+    var sx=0,grid=q.querySelector('.q-grid');
+    grid.addEventListener('touchstart',function(e){sx=e.touches[0].clientX},{passive:true});
+    grid.addEventListener('touchend',function(e){var dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>45)step(dx<0?1:-1)});
+    if(mq.addEventListener)mq.addEventListener('change',function(){turn=0;marks();restart()});
     if('IntersectionObserver' in window)new IntersectionObserver(function(es){inView=es[0].isIntersecting;restart()},{threshold:.3}).observe(q);
-    show(0);
+    put(0,0);put(1,1);marks();restart();
   });
 
   // Galería de trabajos: cinta continua que avanza sola y se puede arrastrar con el ratón o el dedo
