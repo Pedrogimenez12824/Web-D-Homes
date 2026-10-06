@@ -1555,6 +1555,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     window.__watchVideos();
   })();
 
+  // Logo: en la portada sube arriba del todo; desde otra página, vuelve a la portada
+  document.querySelectorAll('a.brand').forEach(function(a){a.addEventListener('click',function(e){
+    var h=location.hash;
+    if(h===''||h==='#'||h==='#/'){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'});menu(false)}
+  })});
+
   document.getElementById('totop').addEventListener('click',function(e){e.preventDefault();window.scrollTo({top:0,behavior:'smooth'})});
 
   // Movimiento al bajar: solo si el navegador lo permite y el usuario no pide menos movimiento
