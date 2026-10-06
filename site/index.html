@@ -296,9 +296,18 @@ header.bar-away{opacity:0;pointer-events:none}
   .svc-pane .pane-body .link{grid-column:1/-1;grid-row:6;justify-self:start}
   .svc-pane .pane-items li{padding:.8rem .1rem;font-size:.98rem}
   .svc-pane .pane-items li:last-child{border-bottom:0}
-  .svc-pane.pane-text{grid-template-columns:1fr;padding:0}
+  .svc-pane.pane-text{grid-template-columns:1fr;grid-template-rows:auto;padding:0}
   .svc-pane.pane-text .pane-body{display:flex}
   .svc-pane.pane-text .pane-body>*{grid-column:auto;grid-row:auto}
+  .svc-pane.pane-text .pane-body{display:grid;grid-template-columns:auto 1fr;column-gap:.9rem;align-items:center;padding:1.3rem 1.2rem 1.4rem}
+  .svc-pane.pane-text .pane-body>*{grid-column:1/-1}
+  .svc-pane.pane-text .pane-big-ico{grid-column:1;width:46px;height:46px;margin:0}
+  .svc-pane.pane-text .pane-big-ico svg{width:20px;height:20px}
+  .svc-pane.pane-text .pane-body h3{grid-column:2;margin:0}
+  .svc-pane.pane-text .pane-body p{margin:.9rem 0 1.1rem}
+  .svc-pane.pane-text .pane-zones{display:flex;flex-wrap:wrap;gap:.5rem;margin:0 0 1.3rem}
+  .svc-pane.pane-text .pane-zones li{font-family:var(--sans);font-size:.95rem;padding:.45rem .95rem;border-radius:999px}
+  .svc-pane.pane-text .pane-body .link{justify-self:start}
 }
 .pane-ph::before{display:none}
 .pane-ico{position:absolute;left:1rem;top:1rem;width:46px;height:46px;border-radius:50%;background:rgba(30,12,11,.85);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold)}
