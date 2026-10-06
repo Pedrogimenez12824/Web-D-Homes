@@ -188,8 +188,9 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .ph video::-webkit-media-controls,.ph video::-webkit-media-controls-enclosure,.ph video::-webkit-media-controls-overlay-play-button,.ph video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
 header,.callbar,.ck-banner,#menu{transform:translateZ(0)}
 .callbar{z-index:60}.ck-banner{z-index:61}header{z-index:62}#menu{z-index:61}
-.v-box{background-size:cover;background-position:center}
-.ph video.v-off{visibility:hidden}
+.callbar,header{transition:opacity .25s ease,transform .3s var(--ease-out)}
+.callbar.bar-away{opacity:0;transform:translateY(100%);pointer-events:none}
+header.bar-away{opacity:0;pointer-events:none}
 .r916{aspect-ratio:9/16}
 .shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
 .shot .ph:has(video){aspect-ratio:9/16}
@@ -1497,21 +1498,27 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   document.querySelectorAll('video').forEach(guardVideo);
 
   // Android: algunos navegadores pintan los <video> en una capa por encima de todo.
-  // Cuando un vídeo se acerca a la cabecera o a la barra de abajo, se oculta y se ve su foto
-  // (puesta como fondo del marco); al volver a la zona libre, sigue el vídeo.
+  // Los vídeos no se tocan; mientras un vídeo pasa por la zona de la barra de abajo o de la
+  // cabecera, esa barra se aparta (se desvanece) y vuelve cuando el vídeo ha pasado.
   if(/Android/i.test(navigator.userAgent||'')){
-    var safeIO=null,mkIO=function(){
-      if(safeIO)safeIO.disconnect();
-      var hd=document.querySelector('header'),cb=document.querySelector('.callbar');
-      var top=(hd?hd.getBoundingClientRect().height:72)+6,bottom=(cb&&getComputedStyle(cb).display!=='none'?cb.getBoundingClientRect().height:0)+6;
-      var th=[];for(var t=0;t<=20;t++)th.push(t/20);
-      safeIO=new IntersectionObserver(function(es){es.forEach(function(e){e.target.classList.toggle('v-off',e.intersectionRatio<0.97)})},{rootMargin:'-'+top+'px 3000px -'+bottom+'px 3000px',threshold:th});
-      document.querySelectorAll('video').forEach(function(v){safeIO.observe(v)});
+    var cb=document.querySelector('.callbar'),hd=document.querySelector('header'),ticking=false;
+    var check=function(){
+      ticking=false;
+      var H=window.innerHeight,hb=hd?hd.getBoundingClientRect().bottom:0,ct=cb&&getComputedStyle(cb).display!=='none'?cb.getBoundingClientRect().top:H;
+      var underBar=false,underHead=false;
+      document.querySelectorAll('.page.on video, .reel video').forEach(function(v){
+        if(!v.isConnected)return;var r=v.getBoundingClientRect();if(r.width<2||r.right<0||r.left>window.innerWidth)return;
+        if(r.bottom>ct&&r.top<H)underBar=true;
+        if(r.top<hb&&r.bottom>0)underHead=true;
+      });
+      if(cb)cb.classList.toggle('bar-away',underBar);
+      var menuOpen=document.getElementById('menu').classList.contains('open');
+      if(hd)hd.classList.toggle('bar-away',underHead&&!menuOpen);
     };
-    var prepVideo=function(v){var box=v.parentNode;if(box&&!box.style.backgroundImage){box.style.backgroundImage='url('+v.getAttribute('poster')+')';box.classList.add('v-box')}v.classList.add('v-off')};
-    document.querySelectorAll('video').forEach(prepVideo);
-    window.__canvasVideos=function(){document.querySelectorAll('video').forEach(prepVideo);mkIO()};
-    if('IntersectionObserver' in window){mkIO();window.addEventListener('resize',mkIO)}
+    var req=function(){if(!ticking){ticking=true;requestAnimationFrame(check)}};
+    window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);
+    setInterval(req,250); // la cinta de la galería se mueve sola
+    req();
   }
   window.__guardVideos=function(){document.querySelectorAll('video').forEach(guardVideo)};
 
