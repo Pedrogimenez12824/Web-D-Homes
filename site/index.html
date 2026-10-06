@@ -283,9 +283,9 @@ header.bar-away{opacity:0;pointer-events:none}
 @media(min-width:640px){.pane-ph{aspect-ratio:auto;min-height:340px}}
 /* Móvil: foto apaisada y baja, y pestañas pegadas arriba mientras lees los servicios */
 @media(max-width:639px){
-  .svc-pane{grid-template-columns:108px 1fr;align-items:stretch}
-  .pane-ph{aspect-ratio:auto;max-height:none;height:100%;min-height:150px}
-  .pane-ph .pane-ico{display:none}
+  .svc-pane{grid-template-columns:1fr}
+  .pane-ph{aspect-ratio:16/10;max-height:none;height:auto;min-height:0}
+  .pane-ph img{object-position:50% 32%}
   .pane-body{padding:1.1rem 1.1rem 1.2rem}
   .pane-body h3{font-size:1.6rem;margin-bottom:.4rem}
   .pane-body p{font-size:.95rem;margin-bottom:.8rem}
