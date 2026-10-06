@@ -120,8 +120,18 @@ header{position:sticky;top:0;z-index:40;background:rgba(30,12,11,.88);backdrop-f
 .burger span{display:block;width:24px;height:1.5px;background:currentColor;border-radius:2px;transition:transform .3s var(--ease-out),opacity .2s ease}
 .burger[aria-expanded="true"] span:nth-child(1){transform:translateY(4.25px) rotate(45deg)}
 .burger[aria-expanded="true"] span:nth-child(2){transform:translateY(-4.25px) rotate(-45deg)}
-#menu{position:fixed;inset:calc(var(--head) + env(safe-area-inset-top,0px)) 0 0 0;z-index:39;background:var(--bg);padding:1rem clamp(1.1rem,4vw,2.5rem) 2rem;overflow-y:auto;visibility:hidden;opacity:0;transform:translateY(-8px);transition:opacity .22s var(--ease-out),transform .3s var(--ease-out),visibility 0s linear .3s}
-#menu.open{visibility:visible;opacity:1;transform:none;transition:opacity .22s var(--ease-out),transform .3s var(--ease-out)}
+#menu{position:fixed;inset:calc(var(--head) + env(safe-area-inset-top,0px)) 0 0 0;z-index:39;background:radial-gradient(120% 70% at 100% 0%,rgba(122,46,38,.55),transparent 60%),var(--bg);padding:1rem clamp(1.1rem,4vw,2.5rem) 2rem;overflow-y:auto;visibility:hidden;clip-path:circle(0% at calc(100% - 2.2rem) -1rem);transition:clip-path .45s var(--ease-in-out),visibility 0s linear .45s}
+#menu.open{visibility:visible;clip-path:circle(150% at calc(100% - 2.2rem) -1rem);transition:clip-path .7s cubic-bezier(.65,0,.35,1),visibility 0s}
+#menu::before{content:"";position:absolute;inset:0;background:url(media/papel.webp) 0 0/260px auto repeat;opacity:.05;mix-blend-mode:screen;pointer-events:none}
+#menu ul,#menu .menu-foot{position:relative}
+#menu li{opacity:0;transform:translateY(18px);transition:opacity .2s ease,transform .3s var(--ease-out)}
+#menu.open li{opacity:1;transform:none;transition:opacity .5s var(--ease-out),transform .6s var(--ease-out);transition-delay:calc(.18s + var(--n,0) * 60ms)}
+#menu li a{transition:color .2s ease,padding .35s var(--ease-out)}
+#menu li a:active{padding-left:.6rem;color:var(--gold)}
+#menu li a svg{transition:transform .35s var(--ease-out)}
+#menu li a:hover svg,#menu li a:active svg{transform:translateX(4px)}
+#menu .menu-foot{opacity:0;transform:translateY(12px);transition:opacity .2s ease,transform .3s var(--ease-out)}
+#menu.open .menu-foot{opacity:1;transform:none;transition:opacity .5s var(--ease-out) .55s,transform .6s var(--ease-out) .55s}
 #menu ul{list-style:none;margin:0;padding:0}
 #menu li a{display:flex;align-items:center;justify-content:space-between;padding:1.05rem 0;font-family:var(--display);font-size:1.85rem;color:var(--ink);text-decoration:none;border-bottom:1px solid var(--line)}
 #menu li a svg{width:20px;height:20px;color:var(--gold-lo)}
@@ -694,12 +704,12 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 
 <nav id="menu" aria-label="Menú">
   <ul>
-    <li><a href="#/">Inicio<svg class="i"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#/servicios">Servicios<svg class="i"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#/conocenos">Conócenos<svg class="i"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#/galeria">Galería<svg class="i"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#/ubicacion">Ubicación y horario<svg class="i"><use href="#i-arrow"/></svg></a></li>
-    <li><a href="#/contacto">Contacto<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:0"><a href="#/">Inicio<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:1"><a href="#/servicios">Servicios<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:2"><a href="#/conocenos">Conócenos<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:3"><a href="#/galeria">Galería<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:4"><a href="#/ubicacion">Ubicación y horario<svg class="i"><use href="#i-arrow"/></svg></a></li>
+    <li style="--n:5"><a href="#/contacto">Contacto<svg class="i"><use href="#i-arrow"/></svg></a></li>
   </ul>
   <div class="menu-foot">
     <span>Cita previa por teléfono</span>
