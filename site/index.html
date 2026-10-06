@@ -182,6 +182,12 @@ section{padding:clamp(4.5rem,9vw,7.5rem) 0}
 .member figcaption{padding-top:1rem;display:grid;gap:.2rem}
 .member b{font-family:var(--display);font-weight:400;font-size:clamp(1.3rem,2.6vw,1.75rem);color:var(--ink)}
 .member span{color:var(--gold);font-size:.92rem}
+/* Vídeos: que nunca se salgan de su marco ni pasen por encima de las barras fijas */
+.ph:has(video){isolation:isolate;transform:translateZ(0);-webkit-mask-image:-webkit-radial-gradient(white,black);clip-path:inset(0 round var(--r))}
+.ph video{pointer-events:none}
+.ph video::-webkit-media-controls,.ph video::-webkit-media-controls-enclosure,.ph video::-webkit-media-controls-overlay-play-button,.ph video::-webkit-media-controls-start-playback-button{display:none!important;-webkit-appearance:none}
+header,.callbar,.ck-banner,#menu{transform:translateZ(0)}
+.callbar{z-index:60}.ck-banner{z-index:61}header{z-index:62}#menu{z-index:61}
 .r916{aspect-ratio:9/16}
 .shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
 .shot .ph:has(video){aspect-ratio:9/16}
@@ -745,11 +751,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
     <div class="reel" data-reveal tabindex="0" aria-label="Fotos de cortes realizados en D'Homes. Arrastra o usa las flechas para moverte.">
       <div class="reel-track">
-        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
@@ -1034,11 +1040,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section class="deco deco-paper">
     <div class="wrap">
       <div class="gal">
-        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback controlslist="nofullscreen nodownload noremoteplayback noplaybackrate" webkit-playsinline x5-playsinline x5-video-player-type="h5" x5-video-orientation="portrait" tabindex="-1" poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
