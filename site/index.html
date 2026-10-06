@@ -1502,22 +1502,35 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   // cabecera, esa barra se aparta (se desvanece) y vuelve cuando el vídeo ha pasado.
   if(/Android/i.test(navigator.userAgent||'')){
     var cb=document.querySelector('.callbar'),hd=document.querySelector('header'),ticking=false;
+    // Zonas fijas (no dependen de si la barra está visible) y con margen extra,
+    // para que la barra no aparezca y desaparezca seguido.
+    var BAR=80,HEAD=76,EXTRA=110,HYST=60,barAway=false,headAway=false;
     var check=function(){
       ticking=false;
-      var H=window.innerHeight,hb=hd?hd.getBoundingClientRect().bottom:0,ct=cb&&getComputedStyle(cb).display!=='none'?cb.getBoundingClientRect().top:H;
-      var underBar=false,underHead=false;
+      var H=window.innerHeight,W=window.innerWidth;
+      if(cb&&getComputedStyle(cb).display==='none'){cb.classList.remove('bar-away');barAway=false}
+      var hideLine=H-BAR-EXTRA,showLine=hideLine-HYST,headHide=HEAD+40,headShow=HEAD+40+HYST;
+      var maxBottom=-1e9,minTop=1e9;
       document.querySelectorAll('.page.on video, .reel video').forEach(function(v){
-        if(!v.isConnected)return;var r=v.getBoundingClientRect();if(r.width<2||r.right<0||r.left>window.innerWidth)return;
-        if(r.bottom>ct&&r.top<H)underBar=true;
-        if(r.top<hb&&r.bottom>0)underHead=true;
+        if(!v.isConnected)return;var r=v.getBoundingClientRect();
+        if(r.width<2||r.right<0||r.left>W||r.bottom<0||r.top>H)return;
+        if(r.top<H&&r.bottom>hideLine-HYST*2)maxBottom=Math.max(maxBottom,r.bottom);
+        if(r.bottom>0&&r.top<headShow)minTop=Math.min(minTop,r.top);
       });
-      if(cb)cb.classList.toggle('bar-away',underBar);
+      // barra de abajo: se esconde cuando un vídeo entra en la zona y solo vuelve cuando ha salido del todo
+      if(!barAway&&maxBottom>hideLine)barAway=true;
+      else if(barAway&&maxBottom<showLine)barAway=false;
+      // cabecera, igual
+      var hasTop=minTop<1e9;
+      if(!headAway&&hasTop&&minTop<headHide)headAway=true;
+      else if(headAway&&(!hasTop||minTop>headShow))headAway=false;
+      if(cb)cb.classList.toggle('bar-away',barAway);
       var menuOpen=document.getElementById('menu').classList.contains('open');
-      if(hd)hd.classList.toggle('bar-away',underHead&&!menuOpen);
+      if(hd)hd.classList.toggle('bar-away',headAway&&!menuOpen);
     };
     var req=function(){if(!ticking){ticking=true;requestAnimationFrame(check)}};
     window.addEventListener('scroll',req,{passive:true});window.addEventListener('resize',req);
-    setInterval(req,250); // la cinta de la galería se mueve sola
+    setInterval(req,200); // la cinta de la galería se mueve sola
     req();
   }
   window.__guardVideos=function(){document.querySelectorAll('video').forEach(guardVideo)};
