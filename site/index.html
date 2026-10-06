@@ -1255,11 +1255,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 </div>
 
 <script>
-// En móviles y tablets los vídeos se cambian por imágenes animadas:
+// En Android los vídeos se cambian por imágenes animadas:
 // algunos navegadores Android dibujan los vídeos por encima de todo y tapan las barras fijas.
 (function(){
-  var touch=window.matchMedia&&(matchMedia('(pointer:coarse)').matches||matchMedia('(max-width:899px)').matches);
-  if(!touch)return;
+  var android=/Android/i.test(navigator.userAgent||'');
+  if(!android)return;
   document.querySelectorAll('video').forEach(function(v){
     var src=v.querySelector('source'),m=src&&src.getAttribute('src').match(/video-corte-(\d)\.mp4/);if(!m)return;
     var img=document.createElement('img');img.src='media/video-corte-'+m[1]+'-movil.webp';img.alt=v.getAttribute('aria-label')||'';img.loading='lazy';img.decoding='async';img.draggable=false;
