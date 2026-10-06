@@ -190,7 +190,7 @@ header,.callbar,.ck-banner,#menu{transform:translateZ(0)}
 .callbar{z-index:60}.ck-banner{z-index:61}header{z-index:62}#menu{z-index:61}
 .r916{aspect-ratio:9/16}
 .shot .ph video,.shot .ph img{pointer-events:none;-webkit-user-drag:none}
-.shot .ph:has(video){aspect-ratio:9/16}
+.shot .ph:has(video),.shot .ph:has(img[src*="-movil"]){aspect-ratio:9/16}
 .pane-ph img{position:absolute;inset:0;object-position:50% 30%}
 .r45{aspect-ratio:4/5}.r11{aspect-ratio:1/1}.r34{aspect-ratio:3/4}.r43{aspect-ratio:4/3}
 
@@ -1255,6 +1255,18 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
 </div>
 
 <script>
+// En móviles y tablets los vídeos se cambian por imágenes animadas:
+// algunos navegadores Android dibujan los vídeos por encima de todo y tapan las barras fijas.
+(function(){
+  var touch=window.matchMedia&&(matchMedia('(pointer:coarse)').matches||matchMedia('(max-width:899px)').matches);
+  if(!touch)return;
+  document.querySelectorAll('video').forEach(function(v){
+    var src=v.querySelector('source'),m=src&&src.getAttribute('src').match(/video-corte-(\d)\.mp4/);if(!m)return;
+    var img=document.createElement('img');img.src='media/video-corte-'+m[1]+'-movil.webp';img.alt=v.getAttribute('aria-label')||'';img.loading='lazy';img.decoding='async';img.draggable=false;
+    img.onerror=function(){img.onerror=null;img.src=v.getAttribute('poster')};
+    v.parentNode.replaceChild(img,v);
+  });
+})();
 (function(){
   var b=document.getElementById('burger'),n=document.getElementById('menu'),pages=document.querySelectorAll('.page'),links=document.querySelectorAll('#menu a[href^="#/"], .nav a');
 
