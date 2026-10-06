@@ -300,9 +300,6 @@ header.bar-away{opacity:0;pointer-events:none}
   .svc-pane.pane-text .pane-body{display:flex}
   .svc-pane.pane-text .pane-body>*{grid-column:auto;grid-row:auto}
 }
-@media(max-width:959px){
-  .svc-tabs{position:sticky;top:calc(var(--head) + env(safe-area-inset-top,0px) + 6px);z-index:5;padding:.55rem;margin:0 -.55rem;border-radius:16px;background:rgba(30,12,11,.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px)}
-}
 .pane-ph::before{display:none}
 .pane-ico{position:absolute;left:1rem;top:1rem;width:46px;height:46px;border-radius:50%;background:rgba(30,12,11,.85);border:1px solid var(--line-2);display:grid;place-content:center;color:var(--gold)}
 .pane-ico svg{width:20px;height:20px}
@@ -1475,10 +1472,6 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     function pick(t,focus){
       tabs.forEach(function(x){var on=x===t,pane=document.getElementById(x.getAttribute('aria-controls'));x.setAttribute('aria-selected',on);x.tabIndex=on?0:-1;pane.hidden=!on;pane.classList.toggle('on',on)});
       if(focus)t.focus();
-      if(window.innerWidth<960){
-        var tb=box.querySelector('.svc-tabs').getBoundingClientRect(),pane=document.getElementById(t.getAttribute('aria-controls')),pr=pane.getBoundingClientRect();
-        if(pr.top<tb.bottom)window.scrollBy({top:pr.top-tb.bottom-10,behavior:'smooth'});
-      }
     }
     tabs.forEach(function(t,i){
       t.addEventListener('click',function(){pick(t)});
