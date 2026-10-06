@@ -745,11 +745,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
     </div>
     <div class="reel" data-reveal tabindex="0" aria-label="Fotos de cortes realizados en D'Homes. Arrastra o usa las flechas para moverte.">
       <div class="reel-track">
-        <figure class="shot"><div class="ph"><video poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.webm" type="video/webm"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure class="shot"><div class="ph"><video poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.webm" type="video/webm"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure class="shot"><div class="ph"><video poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.webm" type="video/webm"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure class="shot"><div class="ph"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
         <figure class="shot"><div class="ph"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
@@ -1034,11 +1034,11 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   <section class="deco deco-paper">
     <div class="wrap">
       <div class="gal">
-        <figure><div class="ph r916"><video poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.webm" type="video/webm"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-1.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado terminado"><source src="media/video-corte-1.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-degradado-1.webp" alt="Corte degradado con la parte de arriba texturizada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure><div class="ph r916"><video poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.webm" type="video/webm"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-2.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte con degradado bajo"><source src="media/video-corte-2.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-barba-1.webp" alt="Degradado alto con barba perfilada" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
-        <figure><div class="ph r916"><video poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.webm" type="video/webm"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
+        <figure><div class="ph r916"><video disablepictureinpicture disableremoteplayback poster="media/video-corte-3.webp" muted loop playsinline preload="none" aria-label="Vídeo de un corte degradado muy corto"><source src="media/video-corte-3.mp4" type="video/mp4"></video></div></figure>
         <figure><div class="ph r34"><img src="media/corte-degradado-2.webp" alt="Degradado con textura y nuca limpia" width="900" height="1200" loading="lazy" decoding="async" draggable="false"></div></figure>
       </div>
     </div>
@@ -1386,7 +1386,7 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   document.querySelectorAll('.reel').forEach(function(r){
     var t=r.querySelector('.reel-track'),btn=r.parentNode.querySelector('.reel-btn');
     Array.prototype.slice.call(t.children).forEach(function(c){var k=c.cloneNode(true);k.setAttribute('aria-hidden','true');t.appendChild(k)});
-    if(window.__watchVideos)window.__watchVideos();
+    if(window.__guardVideos)window.__guardVideos();if(window.__watchVideos)window.__watchVideos();
     var calmR=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     var x=0,v=0,half=1,speed=calmR?0:28,paused=calmR,hover=false,drag=false,lastX=0,lastT=0,moved=0,visible=true,prev=0;
     if(calmR&&btn)btn.style.display='none';
@@ -1474,12 +1474,27 @@ footer{background:var(--bg);padding:2.5rem 0 1.5rem;border-top:1px solid var(--l
   })});
   if(okMaps())loadMaps();else if(!choice())bn.hidden=false;
 
+  // Vídeos: si el navegador no puede reproducirlos, se cambian por su foto fija
+  function toPoster(v){
+    if(!v.parentNode||v.dataset.swapped)return;v.dataset.swapped='1';
+    var img=document.createElement('img');img.src=v.getAttribute('poster');img.alt=v.getAttribute('aria-label')||'';img.loading='lazy';img.draggable=false;
+    v.parentNode.replaceChild(img,v);
+  }
+  function guardVideo(v){
+    if(v.dataset.guarded)return;v.dataset.guarded='1';
+    if(!v.canPlayType||!v.canPlayType('video/mp4')){toPoster(v);return}
+    v.addEventListener('error',function(){toPoster(v)},true);
+    v.querySelectorAll('source').forEach(function(sc){sc.addEventListener('error',function(){toPoster(v)})});
+  }
+  document.querySelectorAll('video').forEach(guardVideo);
+  window.__guardVideos=function(){document.querySelectorAll('video').forEach(guardVideo)};
+
   // Vídeos: se reproducen solo cuando están a la vista (sin sonido)
   (function(){
     var vids=[].slice.call(document.querySelectorAll('video'));
     var calmV=window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches;
     if(!vids.length||calmV||!('IntersectionObserver' in window))return;
-    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(e.isIntersecting){v.preload='auto';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()})},{threshold:.15});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){var v=e.target;if(!v.isConnected||v.dataset.swapped)return;if(e.isIntersecting){v.preload='auto';var pr=v.play();if(pr&&pr.catch)pr.catch(function(){})}else v.pause()})},{threshold:.15});
     window.__watchVideos=function(){document.querySelectorAll('video').forEach(function(v){io.observe(v)})};
     window.__watchVideos();
   })();

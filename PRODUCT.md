@@ -54,7 +54,7 @@ Peluquería de caballeros abierta desde 1994 (más de 32 años) en Vilagarcía, 
 
 ## Evidence on Hand
 
-- Fotos y vídeos reales de cortes en `media/` (WebP 900px; vídeos MP4 H.264 + WebM, 540x960, sin sonido). Se usan en la cinta de la portada, la página Galería y los paneles de Cabello y Barba. Fotos del equipo: `media/equipo-nelly.webp` (Conócenos) y `media/equipo-barbero.webp` (portada y franja de equipo). Equipo: Nelly Mosteiro (fundadora) y Marcos Paz (peluquero).
+- Fotos y vídeos reales de cortes en `media/` (WebP 900px; vídeos solo MP4 H.264 baseline (máxima compatibilidad), 540x960, sin sonido; si un vídeo falla se sustituye por su póster). Se usan en la cinta de la portada, la página Galería y los paneles de Cabello y Barba. Fotos del equipo: `media/equipo-nelly.webp` (Conócenos) y `media/equipo-barbero.webp` (portada y franja de equipo). Equipo: Nelly Mosteiro (fundadora) y Marcos Paz (peluquero).
 
 - Reseñas reales de Google (10) ya en la web.
 - Fachada: `media/fachada.webp` (fondo casi transparente de la portada) y `media/fachada-lateral.webp` (sin usar aún). Conócenos: `equipo-dos.webp` (los dos con tijeras, brillo corregido) y retratos `retrato-nelly.webp`, `retrato-marcos.webp`.
